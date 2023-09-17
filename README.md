@@ -1,6 +1,6 @@
-# UIViewDSL
+# UIViewKit
 
-UIViewDSL is a Swift tool that makes designing and setting up UIKit views as simple as using InterfaceBuilder, but with Swift's strong type checks. It offers a look similar to SwiftUI and has lots of easy methods for attributes, outlets, and constraints. Thanks to the @resultBuilder attribute, the code is quick to write, looks cleaner, and is more pleasing to the eye.
+UIViewKit is a Swift tool that makes designing and setting up UIKit views as simple as using InterfaceBuilder, but with Swift's strong type checks. It offers a look similar to SwiftUI and has lots of easy methods for attributes, outlets, and constraints. Thanks to the @resultBuilder attribute, the code is quick to write, looks cleaner, and is more pleasing to the eye.
 
 ## Key Features
 

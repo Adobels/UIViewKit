@@ -4,21 +4,21 @@
 import PackageDescription
 
 let package = Package(
-    name: "UIViewDSL",
+    name: "UIViewKit",
     platforms: [
         .iOS(.v13),
     ],
     products: [
         .library(
-            name: "UIViewDSL",
-            targets: ["UIViewDSL"]),
+            name: "UIViewKit",
+            targets: ["UIViewKit"]),
     ],
     targets: [
         .target(
-            name: "UIViewDSL"
+            name: "UIViewKit"
         ),
         .testTarget(
-            name: "UIViewDSLTests",
-            dependencies: ["UIViewDSL"]),
+            name: "UIViewKitTests",
+            dependencies: ["UIViewKit"]),
     ]
 )

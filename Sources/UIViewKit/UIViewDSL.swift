@@ -1,18 +1,18 @@
 //
 //  UIViewDSL.swift
-//  UIViewDSL
+//  UIViewKit
 //
 //  Created by Blazej SLEBODA on 10/09/2023.
 //
 
 import UIKit
 
-public protocol UIKitDSL { }; extension UIView: UIKitDSL { }
+public protocol UIViewDSL { }; extension UIView: UIViewDSL { }
 public protocol NSObjectExtensions {}; extension NSObject: NSObjectExtensions { }
 
 @MainActor
-class UIKitDSLEngine {
-    static let shared = UIKitDSLEngine()
+class UIViewDSLEngine {
+    static let shared = UIViewDSLEngine()
     
     var defineSubviewsDepthCallCounter: Int = .zero {
         willSet {
@@ -37,6 +37,7 @@ class UIKitDSLEngine {
 
 extension NSObjectExtensions {
     
+    @discardableResult
     func apply(_ block: (Self) -> Void) -> Self{
         block(self)
         return self
@@ -44,7 +45,7 @@ extension NSObjectExtensions {
 }
 
 @MainActor
-extension UIKitDSL where Self: UIView {
+extension UIViewDSL where Self: UIView {
 
     @discardableResult
     public func ibOutlet(_ outlet: inout Self?) -> Self {
@@ -91,10 +92,24 @@ extension UIKitDSL where Self: UIView {
         outlet.append(self)
         return self
     }
+    
+    @discardableResult
+    public func ibOutlet(in outlet: inout [Self], @SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+        outlet.append(self)
+        coreDefineSubviews(content)
+        return self
+    }
+    
+    @discardableResult
+    public func ibOutlet(in outlet: inout [Self], @SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+        outlet.append(self)
+        coreDefineSubviews(content)
+        return self
+    }
 }
 
 @MainActor
-extension UIKitDSL where Self: UIView {
+extension UIViewDSL where Self: UIView {
 
     @discardableResult
     public func ibSubviews(@SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
@@ -121,7 +136,7 @@ extension UIKitDSL where Self: UIView {
     }
     
     func coreDefineSubviews(@SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) {
-        UIKitDSLEngine.shared.defineSubviewsDepthCallCounter += 1
+        UIViewDSLEngine.shared.defineSubviewsDepthCallCounter += 1
         let subviews = content(self)
         if let stackView = self as? UIStackView {
             subviews.forEach { stackView.addArrangedSubview($0) }
@@ -131,11 +146,11 @@ extension UIKitDSL where Self: UIView {
                 $0.translatesAutoresizingMaskIntoConstraints = false
             }
         }
-        UIKitDSLEngine.shared.defineSubviewsDepthCallCounter -= 1
+        UIViewDSLEngine.shared.defineSubviewsDepthCallCounter -= 1
     }
     
     func coreDefineSubviews(@SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) {
-        UIKitDSLEngine.shared.defineSubviewsDepthCallCounter += 1
+        UIViewDSLEngine.shared.defineSubviewsDepthCallCounter += 1
         let subviews = content()
         if let stackView = self as? UIStackView {
             subviews.forEach { stackView.addArrangedSubview($0) }
@@ -145,17 +160,17 @@ extension UIKitDSL where Self: UIView {
                 $0.translatesAutoresizingMaskIntoConstraints = false
             }
         }
-        UIKitDSLEngine.shared.defineSubviewsDepthCallCounter -= 1
+        UIViewDSLEngine.shared.defineSubviewsDepthCallCounter -= 1
     }
 
 }
 
-extension UIKitDSL where Self: UIView {
+extension UIViewDSL where Self: UIView {
 
     @MainActor
     @discardableResult
     public func ibAttributes(@UIKitConstraintsBuilder _ block: (Self) -> [NSLayoutConstraint]) -> Self {
-        UIKitDSLEngine.shared.constraintsToApply.append((self, block(self)))
+        UIViewDSLEngine.shared.constraintsToApply.append((self, block(self)))
         return self
     }
 }

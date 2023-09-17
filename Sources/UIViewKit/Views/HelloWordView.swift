@@ -1,6 +1,6 @@
 //
 //  HelloWordView.swift
-//  UIViewDSL
+//  UIViewKit
 //
 //  Created by Blazej SLEBODA on 15/09/2023.
 //
@@ -24,9 +24,14 @@ class HelloWordView: UIView {
     }
 }
 
+#if DEBUG
+
 import SwiftUI
+
 struct HelloWordViewPreviews: PreviewProvider {
     static var previews: some View {
         PreviewView(HelloWordView())
     }
 }
+
+#endif
