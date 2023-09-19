@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HelloWordView: UIView {
+public class HelloWordView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

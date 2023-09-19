@@ -8,7 +8,6 @@
 import UIKit
 
 public protocol UIViewDSL { }; extension UIView: UIViewDSL { }
-public protocol NSObjectExtensions {}; extension NSObject: NSObjectExtensions { }
 
 @MainActor
 class UIViewDSLEngine {
@@ -32,15 +31,6 @@ class UIViewDSLEngine {
             NSLayoutConstraint.activate(constraints)
         }
         constraintsToApply.removeAll()
-    }
-}
-
-extension NSObjectExtensions {
-    
-    @discardableResult
-    func apply(_ block: (Self) -> Void) -> Self{
-        block(self)
-        return self
     }
 }
 
