@@ -1,6 +1,6 @@
 //
 //  IBOutletTests.swift
-//  UIViewKit
+//  UIViewKitTests
 //
 //  Created by Blazej SLEBODA on 17/09/2023.
 //

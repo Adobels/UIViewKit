@@ -60,28 +60,28 @@ extension UIViewDSL where Self: UIView {
     }
     
     @discardableResult
-    public func ibOutlet(_ outlet: inout Self?, @SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+    public func ibOutlet(_ outlet: inout Self?, @UIViewBuilder _ content: () -> [UIView]) -> Self {
         outlet = self
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func ibOutlet(_ outlet: inout Self?, @SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+    public func ibOutlet(_ outlet: inout Self?, @UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
         outlet = self
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func ibOutlet(_ outlet: inout Self, @SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+    public func ibOutlet(_ outlet: inout Self, @UIViewBuilder _ content: () -> [UIView]) -> Self {
         outlet = self
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func ibOutlet(_ outlet: inout Self, @SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+    public func ibOutlet(_ outlet: inout Self, @UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
         outlet = self
         coreDefineSubviews(content)
         return self
@@ -94,14 +94,14 @@ extension UIViewDSL where Self: UIView {
     }
     
     @discardableResult
-    public func ibOutlet(in outlet: inout [Self], @SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+    public func ibOutlet(in outlet: inout [Self], @UIViewBuilder _ content: () -> [UIView]) -> Self {
         outlet.append(self)
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func ibOutlet(in outlet: inout [Self], @SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+    public func ibOutlet(in outlet: inout [Self], @UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
         outlet.append(self)
         coreDefineSubviews(content)
         return self
@@ -112,30 +112,30 @@ extension UIViewDSL where Self: UIView {
 extension UIViewDSL where Self: UIView {
 
     @discardableResult
-    public func ibSubviews(@SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+    public func ibSubviews(@UIViewBuilder _ content: () -> [UIView]) -> Self {
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func ibSubviews(@SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+    public func ibSubviews(@UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func callAsFunction(@SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+    public func callAsFunction(@UIViewBuilder _ content: () -> [UIView]) -> Self {
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func callAsFunction(@SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+    public func callAsFunction(@UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
         coreDefineSubviews(content)
         return self
     }
     
-    func coreDefineSubviews(@SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) {
+    func coreDefineSubviews(@UIViewBuilder _ content: (UIView) -> [UIView]) {
         UIViewDSLEngine.shared.defineSubviewsDepthCallCounter += 1
         let subviews = content(self)
         if let stackView = self as? UIStackView {
@@ -149,7 +149,7 @@ extension UIViewDSL where Self: UIView {
         UIViewDSLEngine.shared.defineSubviewsDepthCallCounter -= 1
     }
     
-    func coreDefineSubviews(@SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) {
+    func coreDefineSubviews(@UIViewBuilder _ content: () -> [UIView]) {
         UIViewDSLEngine.shared.defineSubviewsDepthCallCounter += 1
         let subviews = content()
         if let stackView = self as? UIStackView {
@@ -169,7 +169,7 @@ extension UIViewDSL where Self: UIView {
 
     @MainActor
     @discardableResult
-    public func ibAttributes(@UIKitConstraintsBuilder _ block: (Self) -> [NSLayoutConstraint]) -> Self {
+    public func ibAttributes(@NSLayoutConstraintBuilder _ block: (Self) -> [NSLayoutConstraint]) -> Self {
         UIViewDSLEngine.shared.constraintsToApply.append((self, block(self)))
         return self
     }
@@ -177,7 +177,7 @@ extension UIViewDSL where Self: UIView {
 
 extension NSLayoutConstraint {
     
-    static public func activate(@UIKitConstraintsBuilder _ block: () -> [NSLayoutConstraint]) {
+    static public func activate(@NSLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
         NSLayoutConstraint.activate(block())
     }
     
@@ -189,7 +189,7 @@ extension NSLayoutConstraint {
 }
 
 @resultBuilder
-public enum SwiftUIKitSubviewsBuilder {
+public enum UIViewBuilder {
     
     public static func buildBlock(_ components: [UIView]...) -> [UIView] {
         components.flatMap { $0 }
@@ -221,7 +221,7 @@ public enum SwiftUIKitSubviewsBuilder {
 }
 
 @resultBuilder
-public enum UIKitConstraintsBuilder {
+public enum NSLayoutConstraintBuilder {
     
     public static func buildBlock(_ components: [NSLayoutConstraint]...) -> [NSLayoutConstraint] {
         components.flatMap { $0 }
@@ -301,6 +301,24 @@ public class VerticalStack: UIStackView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         axis = .vertical
+    }
+}
+
+public class UISpacer: UIView {
+    init(frame: CGRect = .zero, widthConstant: CGFloat = .zero, heightConstant: CGFloat = .zero) {
+        super.init(frame: frame)
+        ibAttributes {
+            if widthConstant > .zero {
+                $0.widthAnchor.constraint(equalToConstant: widthConstant)
+            }
+            if heightConstant > .zero {
+                $0.heightAnchor.constraint(equalToConstant: heightConstant)
+            }
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
     }
 }
 
@@ -415,7 +433,7 @@ public struct PreviewViewController<ViewController: UIViewController>: UIViewCon
 
 import SwiftUI
 @available(iOS 13.0, *)
-public struct PreviewView<View: UIView>: UIViewRepresentable {
+public struct ViewPreview<View: UIView>: UIViewRepresentable {
     
     public var view: UIView
 
@@ -431,8 +449,8 @@ public struct PreviewView<View: UIView>: UIViewRepresentable {
         UIView() { superview in
             view.ibAttributes {
                 $0.topAnchor.constraint(equalTo: superview.topAnchor).ibPriority(.init(1))
-                $0.leftAnchor.constraint(equalTo: superview.leftAnchor).ibPriority(.init(1))
-                $0.rightAnchor.constraint(equalTo: superview.rightAnchor).ibPriority(.init(1))
+                $0.leftAnchor.constraint(equalTo: superview.leftAnchor)
+                $0.rightAnchor.constraint(equalTo: superview.rightAnchor)
                 $0.bottomAnchor.constraint(equalTo: superview.bottomAnchor).ibPriority(.init(1))
                 $0.centerXAnchor.constraint(equalTo: superview.centerXAnchor)
                 $0.centerYAnchor.constraint(equalTo: superview.centerYAnchor)

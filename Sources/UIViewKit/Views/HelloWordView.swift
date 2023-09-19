@@ -8,10 +8,6 @@
 import UIKit
 
 class HelloWordView: UIView {
-
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +18,8 @@ class HelloWordView: UIView {
             }
         }
     }
+    
+    required init?(coder: NSCoder) { fatalError() }
 }
 
 #if DEBUG
@@ -30,7 +28,7 @@ import SwiftUI
 
 struct HelloWordViewPreviews: PreviewProvider {
     static var previews: some View {
-        PreviewView(HelloWordView())
+        ViewPreview(HelloWordView())
     }
 }
 

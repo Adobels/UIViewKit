@@ -1,6 +1,6 @@
 //
 //  HelloWorldViewTests.swift
-//  UIViewKit
+//  UIViewKitTests
 //
 //  Created by Blazej SLEBODA on 15/09/2023.
 //
