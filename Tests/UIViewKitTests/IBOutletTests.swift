@@ -1,6 +1,6 @@
 //
 //  IBOutletTests.swift
-//  UIViewKit
+//  UIViewKitTests
 //
 //  Created by Blazej SLEBODA on 17/09/2023.
 //
@@ -47,6 +47,17 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(view, newView)
     }
     
+    func testIBOutletWithTrailingClosureOfIbSubviewsAndSuperview() throws {
+        
+        var view = UIView()
+        
+        let newView = UIView().ibOutlet(&view) { _ in
+            UIView()
+        }
+    
+        XCTAssertEqual(view, newView)
+    }
+    
     func testIBOutletInWithTrailingClosureOfIbSubviews() throws {
         var views: [UIView] = []
         
@@ -58,10 +69,31 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(views[.zero], newView)
     }
     
+    func testIBOutletInWithTrailingClosureOfIbSubviewsAndSuperview() throws {
+        var views: [UIView] = []
+        
+        let newView = UIView().ibOutlet(in: &views) { _ in
+            UIView()
+        }
+        
+        XCTAssertEqual(views.count, 1)
+        XCTAssertEqual(views[.zero], newView)
+    }
+    
     func testIBOutletWithForceUnwrapWithTrailingClosureOfIbSubviews() async throws {
         var view: UIView!
         
         let newView = UIView().ibOutlet(&view) {
+            UIView()
+        }
+        
+        XCTAssertEqual(view, newView)
+    }
+    
+    func testIBOutletWithForceUnwrapWithTrailingClosureOfIbSubviewsAndSuperview() async throws {
+        var view: UIView!
+        
+        let newView = UIView().ibOutlet(&view) { _ in
             UIView()
         }
         

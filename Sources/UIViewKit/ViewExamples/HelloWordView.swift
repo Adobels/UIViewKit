@@ -7,21 +7,21 @@
 
 import UIKit
 
-class HelloWordView: UIView {
-
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
+public class HelloWordView: UIView {
+    
+    var label: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self {
-            UILabel().ibAttributes {
+            UILabel().ibOutlet(&label).ibAttributes {
                 $0.ibConstraints(to: self, guide: .view, anchors: .centerX, .centerY)
                 $0.text = "Hello, world!"
             }
         }
     }
+    
+    required init?(coder: NSCoder) { fatalError() }
 }
 
 #if DEBUG
@@ -30,7 +30,7 @@ import SwiftUI
 
 struct HelloWordViewPreviews: PreviewProvider {
     static var previews: some View {
-        PreviewView(HelloWordView())
+        ViewPreview(HelloWordView())
     }
 }
 

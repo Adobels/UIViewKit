@@ -8,7 +8,6 @@
 import UIKit
 
 public protocol UIViewDSL { }; extension UIView: UIViewDSL { }
-public protocol NSObjectExtensions {}; extension NSObject: NSObjectExtensions { }
 
 @MainActor
 class UIViewDSLEngine {
@@ -35,15 +34,6 @@ class UIViewDSLEngine {
     }
 }
 
-extension NSObjectExtensions {
-    
-    @discardableResult
-    func apply(_ block: (Self) -> Void) -> Self{
-        block(self)
-        return self
-    }
-}
-
 @MainActor
 extension UIViewDSL where Self: UIView {
 
@@ -60,28 +50,28 @@ extension UIViewDSL where Self: UIView {
     }
     
     @discardableResult
-    public func ibOutlet(_ outlet: inout Self?, @SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+    public func ibOutlet(_ outlet: inout Self?, @UIViewBuilder _ content: () -> [UIView]) -> Self {
         outlet = self
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func ibOutlet(_ outlet: inout Self?, @SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+    public func ibOutlet(_ outlet: inout Self?, @UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
         outlet = self
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func ibOutlet(_ outlet: inout Self, @SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+    public func ibOutlet(_ outlet: inout Self, @UIViewBuilder _ content: () -> [UIView]) -> Self {
         outlet = self
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func ibOutlet(_ outlet: inout Self, @SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+    public func ibOutlet(_ outlet: inout Self, @UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
         outlet = self
         coreDefineSubviews(content)
         return self
@@ -94,14 +84,14 @@ extension UIViewDSL where Self: UIView {
     }
     
     @discardableResult
-    public func ibOutlet(in outlet: inout [Self], @SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+    public func ibOutlet(in outlet: inout [Self], @UIViewBuilder _ content: () -> [UIView]) -> Self {
         outlet.append(self)
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func ibOutlet(in outlet: inout [Self], @SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+    public func ibOutlet(in outlet: inout [Self], @UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
         outlet.append(self)
         coreDefineSubviews(content)
         return self
@@ -112,30 +102,30 @@ extension UIViewDSL where Self: UIView {
 extension UIViewDSL where Self: UIView {
 
     @discardableResult
-    public func ibSubviews(@SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+    public func ibSubviews(@UIViewBuilder _ content: () -> [UIView]) -> Self {
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func ibSubviews(@SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+    public func ibSubviews(@UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func callAsFunction(@SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) -> Self {
+    public func callAsFunction(@UIViewBuilder _ content: () -> [UIView]) -> Self {
         coreDefineSubviews(content)
         return self
     }
     
     @discardableResult
-    public func callAsFunction(@SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) -> Self {
+    public func callAsFunction(@UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
         coreDefineSubviews(content)
         return self
     }
     
-    func coreDefineSubviews(@SwiftUIKitSubviewsBuilder _ content: (UIView) -> [UIView]) {
+    func coreDefineSubviews(@UIViewBuilder _ content: (UIView) -> [UIView]) {
         UIViewDSLEngine.shared.defineSubviewsDepthCallCounter += 1
         let subviews = content(self)
         if let stackView = self as? UIStackView {
@@ -149,7 +139,7 @@ extension UIViewDSL where Self: UIView {
         UIViewDSLEngine.shared.defineSubviewsDepthCallCounter -= 1
     }
     
-    func coreDefineSubviews(@SwiftUIKitSubviewsBuilder _ content: () -> [UIView]) {
+    func coreDefineSubviews(@UIViewBuilder _ content: () -> [UIView]) {
         UIViewDSLEngine.shared.defineSubviewsDepthCallCounter += 1
         let subviews = content()
         if let stackView = self as? UIStackView {
@@ -169,7 +159,7 @@ extension UIViewDSL where Self: UIView {
 
     @MainActor
     @discardableResult
-    public func ibAttributes(@UIKitConstraintsBuilder _ block: (Self) -> [NSLayoutConstraint]) -> Self {
+    public func ibAttributes(@NSLayoutConstraintBuilder _ block: (Self) -> [NSLayoutConstraint]) -> Self {
         UIViewDSLEngine.shared.constraintsToApply.append((self, block(self)))
         return self
     }
@@ -177,7 +167,7 @@ extension UIViewDSL where Self: UIView {
 
 extension NSLayoutConstraint {
     
-    static public func activate(@UIKitConstraintsBuilder _ block: () -> [NSLayoutConstraint]) {
+    static public func activate(@NSLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
         NSLayoutConstraint.activate(block())
     }
     
@@ -186,10 +176,22 @@ extension NSLayoutConstraint {
         self.priority = priority
         return self
     }
+    
+    @discardableResult
+    public func ibOutlet(_ outlet: inout NSLayoutConstraint?) -> Self {
+        outlet = self
+        return self
+    }
+    
+    @discardableResult
+    public func ibOutlet(_ outlet: inout NSLayoutConstraint) -> Self {
+        outlet = self
+        return self
+    }
 }
 
 @resultBuilder
-public enum SwiftUIKitSubviewsBuilder {
+public enum UIViewBuilder {
     
     public static func buildBlock(_ components: [UIView]...) -> [UIView] {
         components.flatMap { $0 }
@@ -221,7 +223,7 @@ public enum SwiftUIKitSubviewsBuilder {
 }
 
 @resultBuilder
-public enum UIKitConstraintsBuilder {
+public enum NSLayoutConstraintBuilder {
     
     public static func buildBlock(_ components: [NSLayoutConstraint]...) -> [NSLayoutConstraint] {
         components.flatMap { $0 }
@@ -257,8 +259,9 @@ public enum UIKitConstraintsBuilder {
 }
 
 public class HorizontalStack: UIStackView {
-    public convenience init(frame: CGRect = .zero, spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
-        self.init(frame: frame)
+
+    public convenience init(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
+        self.init()
         self.axis = .horizontal
         if let alignment {
             self.alignment = alignment
@@ -270,19 +273,13 @@ public class HorizontalStack: UIStackView {
             self.spacing = spacing
         }
     }
-    public required init(coder: NSCoder) {
-        fatalError()
-    }
-    
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        axis = .horizontal
-    }
 }
 
 public class VerticalStack: UIStackView {
-    public convenience init(frame: CGRect = .zero, spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
-        self.init(frame: frame)
+
+    public convenience init(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
+        self.init()
+        self.axis = .vertical
         if let alignment {
             self.alignment = alignment
         }
@@ -293,21 +290,12 @@ public class VerticalStack: UIStackView {
             self.spacing = spacing
         }
     }
-    
-    public required init(coder: NSCoder) {
-        fatalError()
-    }
-    
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        axis = .vertical
-    }
 }
 
 extension UIStackView {
-    
-    public convenience init(frame: CGRect = .zero, axis: NSLayoutConstraint.Axis, spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
-        self.init(frame: frame)
+
+    public convenience init(axis: NSLayoutConstraint.Axis, spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
+        self.init()
         self.axis = axis
         if let alignment {
             self.alignment = alignment
@@ -389,56 +377,4 @@ extension UIView {
         
         return constraints
     }
-}
-
-import SwiftUI
-@available(iOS 13.0, *)
-public struct PreviewViewController<ViewController: UIViewController>: UIViewControllerRepresentable {
-
-    public var viewController: ViewController
-    
-    public init(_ viewController: @escaping @autoclosure () -> ViewController) {
-        self.viewController = viewController()
-    }
-    
-    public init(_ viewController: @escaping () -> ViewController) {
-        self.viewController = viewController()
-    }
-    
-    public func makeUIViewController(context: Context) -> UIViewController {
-        viewController
-    }
-    
-    public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
-    
-}
-
-import SwiftUI
-@available(iOS 13.0, *)
-public struct PreviewView<View: UIView>: UIViewRepresentable {
-    
-    public var view: UIView
-
-    public init(_ view: @escaping @autoclosure () -> UIView) {
-        self.view = view()
-    }
-    
-    public init(_ view: @escaping () -> UIView) {
-        self.view = view()
-    }
-    
-    public func makeUIView(context: Context) -> UIView {
-        UIView() { superview in
-            view.ibAttributes {
-                $0.topAnchor.constraint(equalTo: superview.topAnchor).ibPriority(.init(1))
-                $0.leftAnchor.constraint(equalTo: superview.leftAnchor).ibPriority(.init(1))
-                $0.rightAnchor.constraint(equalTo: superview.rightAnchor).ibPriority(.init(1))
-                $0.bottomAnchor.constraint(equalTo: superview.bottomAnchor).ibPriority(.init(1))
-                $0.centerXAnchor.constraint(equalTo: superview.centerXAnchor)
-                $0.centerYAnchor.constraint(equalTo: superview.centerYAnchor)
-            }
-        }
-    }
-    
-    public func updateUIView(_ uiView: UIView, context: Context) { }
 }
