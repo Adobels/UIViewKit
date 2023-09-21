@@ -259,8 +259,18 @@ public enum NSLayoutConstraintBuilder {
 }
 
 public class HorizontalStack: UIStackView {
+    
+    public required override init(frame: CGRect) {
+        super.init(frame: frame)
+        axis = .horizontal
+    }
+    
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-    public convenience init(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
+    public init(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
         self.init()
         self.axis = .horizontal
         if let alignment {
@@ -276,8 +286,18 @@ public class HorizontalStack: UIStackView {
 }
 
 public class VerticalStack: UIStackView {
+    
+    public required override init(frame: CGRect) {
+        super.init(frame: frame)
+        axis = .vertical
+    }
+    
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-    public convenience init(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
+    public init(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
         self.init()
         self.axis = .vertical
         if let alignment {
@@ -297,14 +317,14 @@ extension UIStackView {
     public convenience init(axis: NSLayoutConstraint.Axis, spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
         self.init()
         self.axis = axis
+        if let spacing {
+            self.spacing = spacing
+        }
         if let alignment {
             self.alignment = alignment
         }
         if let distribution {
             self.distribution = distribution
-        }
-        if let spacing {
-            self.spacing = spacing
         }
     }
 }

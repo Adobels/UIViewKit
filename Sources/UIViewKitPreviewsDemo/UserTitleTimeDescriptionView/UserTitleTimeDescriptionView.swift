@@ -1,13 +1,14 @@
 //
-//  UserTitleTimeDescriptionViewWithIBSubviews.swift
+//  UserTitleTimeDescriptionView.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 18/09/2023.
 //
 
 import UIKit
+import UIViewKit
 
-class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
+public class UserTitleTimeDescriptionView: UIView {
     
     var imageViewUser: UIImageView!
     var labelTime: UILabel!
@@ -17,19 +18,19 @@ class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.ibSubviews {
-            HorizontalStack(spacing: 12, alignment: .top).ibSubviews {
+        self {
+            HorizontalStack(spacing: 12, alignment: .top) {
                 UIImageView().ibOutlet(&imageViewUser).ibAttributes {
                     $0.widthAnchor.constraint(equalToConstant: 60)
                     $0.heightAnchor.constraint(equalToConstant: 60)
                     $0.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
                 }
-                VerticalStack().ibSubviews {
-                    HorizontalStack(spacing: 8, alignment: .center).ibSubviews {
+                VerticalStack() {
+                    HorizontalStack(spacing: 8, alignment: .center) {
                         UILabel().ibOutlet(&labelTitle).ibAttributes {
                             $0.font = .systemFont(ofSize: 20, weight: .semibold)
                         }
-                        HorizontalStack(spacing: 8).ibSubviews {
+                        HorizontalStack(spacing: 8) {
                             UILabel().ibOutlet(&labelTime).ibAttributes {
                                 $0.textColor = .systemGray
                                 $0.font = .systemFont(ofSize: 15, weight: .semibold)
@@ -52,7 +53,7 @@ class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
                         $0.textColor = .systemGray
                     }
                     UIView().ibAttributes {
-                        $0.heightAnchor.constraint(equalToConstant: 20)
+                        $0.heightAnchor.constraint(equalToConstant: 10)
                     }
                     UIView().ibAttributes {
                         $0.heightAnchor.constraint(equalToConstant: 1)
@@ -72,15 +73,16 @@ class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
 
 import SwiftUI
 
-struct UserTitleTimeDescriptionViewWithIBSubviewsPreviews: PreviewProvider {
+struct UserTitleTimeDescriptionViewPreviews: PreviewProvider {
     static var previews: some View {
         ViewPreview(
-            UserTitleTimeDescriptionViewWithIBSubviews().apply {
+            UserTitleTimeDescriptionView().apply {
                 $0.imageViewUser.image = .init(systemName: "person.circle")
                 $0.labelTitle.text = "Amanda Clarke"
                 $0.labelTime.text = "1:08 PM"
                 $0.labelDescription.text = "Hey, how are you doing today? I have got a question about our trip to Mexi..."
                 UIViewDebug.showFrames(of: $0, includeGivenView: true, includeUIKitPrivateViews: false)
+                print(UIViewDebug.prettyPrintAllSubviews(of: $0, includeUIKitPrivateViews: false))
             }
         )
     }

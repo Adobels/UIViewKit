@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import UIViewKit
 
-class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView {
+public class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView {
     
     var imageViewUser: UIImageView!
     var labelTime: UILabel!

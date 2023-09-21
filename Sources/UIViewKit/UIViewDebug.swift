@@ -33,4 +33,27 @@ public struct UIViewDebug {
         getSubviews(view: view)
         return all
     }
+    
+    public static func prettyPrintAllSubviews(of view: UIView, includeUIKitPrivateViews: Bool) -> String {
+        let allSubviews = self.allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews)
+        var output = ""
+        
+        func getIndentation(for view: UIView) -> String {
+            var depth = 0
+            var current: UIView? = view.superview
+            while let safeCurrent = current {
+                depth += 1
+                current = safeCurrent.superview
+            }
+            return String(repeating: "    ", count: depth)
+        }
+        
+        
+        for subview in allSubviews {
+            let indentation = getIndentation(for: subview)
+            output += "\(indentation)- \(type(of: subview))\n"
+        }
+        
+        return output
+    }
 }

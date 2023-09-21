@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import UIViewKit
+@testable import UIViewKitPreviewsDemo
 
 class UserTitleTimeDescriptionViewTests: XCTestCase {
     

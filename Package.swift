@@ -11,14 +11,20 @@ let package = Package(
     products: [
         .library(
             name: "UIViewKit",
-            targets: ["UIViewKit"]),
+            targets: ["UIViewKit"]
+        ),
+        .library(name: "UIViewKitPreviewsDemo", targets: ["UIViewKitPreviewsDemo"])
     ],
     targets: [
         .target(
             name: "UIViewKit"
         ),
+        .target(
+            name: "UIViewKitPreviewsDemo",
+            dependencies: ["UIViewKit"]
+        ),
         .testTarget(
             name: "UIViewKitTests",
-            dependencies: ["UIViewKit"]),
+            dependencies: ["UIViewKit", "UIViewKitPreviewsDemo"]),
     ]
 )

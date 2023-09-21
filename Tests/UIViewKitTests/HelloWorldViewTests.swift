@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import UIViewKit
+@testable import UIViewKitPreviewsDemo
 
 class HelloWorldViewTests: XCTestCase {
     typealias SUT = HelloWordView
