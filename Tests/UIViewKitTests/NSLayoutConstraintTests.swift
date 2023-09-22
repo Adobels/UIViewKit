@@ -2,7 +2,7 @@
 //  NSLayoutConstraintTests.swift
 //  UIViewKitTests
 //
-//  Created by MaxAir on 20/09/2023.
+//  Created by Blazej SLEBODA on 20/09/2023.
 //
 
 import XCTest
