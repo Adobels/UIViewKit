@@ -375,21 +375,21 @@ extension UIView {
         for anchor in anchors {
             switch anchor {
             case .left(let value):
-                constraints.append(leftAnchor.constraint(equalTo: (target as? UILayoutGuide)?.leftAnchor ?? (target as? UIView)?.leftAnchor ?? leftAnchor, constant: value))
+                constraints.append(leftAnchor.constraint(equalTo: (target as? UILayoutGuide)?.leftAnchor ?? (target as! UIView).leftAnchor, constant: value))
             case .right(let value):
-                constraints.append(rightAnchor.constraint(equalTo: (target as? UILayoutGuide)?.rightAnchor ?? (target as? UIView)?.rightAnchor ?? rightAnchor, constant: value))
+                constraints.append(rightAnchor.constraint(equalTo: (target as? UILayoutGuide)?.rightAnchor ?? (target as! UIView).rightAnchor, constant: value))
             case .top(let value):
-                constraints.append(topAnchor.constraint(equalTo: (target as? UILayoutGuide)?.topAnchor ?? (target as? UIView)?.topAnchor ?? topAnchor, constant: value))
+                constraints.append(topAnchor.constraint(equalTo: (target as? UILayoutGuide)?.topAnchor ?? (target as! UIView).topAnchor, constant: value))
             case .bottom(let value):
-                constraints.append(bottomAnchor.constraint(equalTo: (target as? UILayoutGuide)?.bottomAnchor ?? (target as? UIView)?.bottomAnchor ?? bottomAnchor, constant: value))
+                constraints.append(bottomAnchor.constraint(equalTo: (target as? UILayoutGuide)?.bottomAnchor ?? (target as! UIView).bottomAnchor, constant: value))
             case .centerX(let value):
-                constraints.append(centerXAnchor.constraint(equalTo: (target as? UILayoutGuide)?.centerXAnchor ?? (target as? UIView)?.centerXAnchor ?? centerXAnchor, constant: value))
+                constraints.append(centerXAnchor.constraint(equalTo: (target as? UILayoutGuide)?.centerXAnchor ?? (target as! UIView).centerXAnchor, constant: value))
             case .centerY(let value):
-                constraints.append(centerYAnchor.constraint(equalTo: (target as? UILayoutGuide)?.centerYAnchor ?? (target as? UIView)?.centerYAnchor ?? centerYAnchor, constant: value))
+                constraints.append(centerYAnchor.constraint(equalTo: (target as? UILayoutGuide)?.centerYAnchor ?? (target as! UIView).centerYAnchor, constant: value))
             case .leading(let value):
-                constraints.append(leadingAnchor.constraint(equalTo: (target as? UILayoutGuide)?.leadingAnchor ?? (target as? UIView)?.leadingAnchor ?? leadingAnchor, constant: value))
+                constraints.append(leadingAnchor.constraint(equalTo: (target as? UILayoutGuide)?.leadingAnchor ?? (target as! UIView).leadingAnchor, constant: value))
             case .trailing(let value):
-                constraints.append(trailingAnchor.constraint(equalTo: (target as? UILayoutGuide)?.trailingAnchor ?? (target as? UIView)?.trailingAnchor ?? trailingAnchor, constant: value))
+                constraints.append(trailingAnchor.constraint(equalTo: (target as? UILayoutGuide)?.trailingAnchor ?? (target as! UIView).trailingAnchor, constant: value))
             case .all:
                 constraints.append(contentsOf: applyConstraints(to: target, anchors: [.top, .bottom, .left, .right]))
             }
