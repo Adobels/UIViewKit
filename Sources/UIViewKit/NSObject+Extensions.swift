@@ -1,6 +1,6 @@
 //
 //  NSObject+Extensions.swift
-//
+//  UIViewKit
 //
 //  Created by Blazej SLEBODA on 20/09/2023.
 //
