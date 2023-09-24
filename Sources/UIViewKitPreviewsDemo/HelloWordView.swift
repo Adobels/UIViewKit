@@ -14,10 +14,17 @@ public class HelloWordView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        UIViewDSLEngine.layoutMode = .manual
+        // Automatic Reference Counting = ARC
+        // Manual Reference Counting = MRC
+        // Manual TAMIC
+        // Disable TAMIC from InferredConstraints
+        // Disable TAMIC from InferredAttributesOwner
         self {
             UILabel().ibOutlet(&label).ibAttributes {
                 $0.ibConstraints(to: self, guide: .view, anchors: .centerX, .centerY)
                 $0.text = "Hello, world!"
+                $0.translatesAutoresizingMaskIntoConstraints = false
             }
         }
     }

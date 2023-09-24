@@ -82,7 +82,6 @@ struct UserTitleTimeDescriptionViewPreviews: PreviewProvider {
                 $0.labelTime.text = "1:08 PM"
                 $0.labelDescription.text = "Hey, how are you doing today? I have got a question about our trip to Mexi..."
                 UIViewDebug.showFrames(of: $0, includeGivenView: true, includeUIKitPrivateViews: false)
-                print(UIViewDebug.prettyPrintAllSubviews(of: $0, includeUIKitPrivateViews: false))
             }
         )
     }

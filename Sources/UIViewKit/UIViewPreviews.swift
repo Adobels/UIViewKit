@@ -7,7 +7,7 @@
 
 import SwiftUI
 @available(iOS 13.0, *)
-public struct PreviewViewController<ViewController: UIViewController>: UIViewControllerRepresentable {
+public struct ViewControllerPreview<ViewController: UIViewController>: UIViewControllerRepresentable {
 
     public var viewController: ViewController
     
@@ -42,16 +42,19 @@ public struct ViewPreview<View: UIView>: UIViewRepresentable {
     }
     
     public func makeUIView(context: Context) -> UIView {
-        UIView() { superview in
+        let rootView = UIView(); rootView {
             view.ibAttributes {
-                $0.topAnchor.constraint(equalTo: superview.topAnchor).ibPriority(.init(1))
-                $0.leftAnchor.constraint(equalTo: superview.leftAnchor)
-                $0.rightAnchor.constraint(equalTo: superview.rightAnchor)
-                $0.bottomAnchor.constraint(equalTo: superview.bottomAnchor).ibPriority(.init(1))
-                $0.centerXAnchor.constraint(equalTo: superview.centerXAnchor)
-                $0.centerYAnchor.constraint(equalTo: superview.centerYAnchor)
+                $0.topAnchor.constraint(equalTo: rootView.topAnchor).ibPriority(.init(1))
+                $0.leftAnchor.constraint(equalTo: rootView.leftAnchor)
+                $0.rightAnchor.constraint(equalTo: rootView.rightAnchor)
+                $0.bottomAnchor.constraint(equalTo: rootView.bottomAnchor).ibPriority(.init(1))
+                $0.centerXAnchor.constraint(equalTo: rootView.centerXAnchor)
+                $0.centerYAnchor.constraint(equalTo: rootView.centerYAnchor)
             }
         }
+        rootView.translatesAutoresizingMaskIntoConstraints = true
+        rootView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        return rootView
     }
     
     public func updateUIView(_ uiView: UIView, context: Context) { }
