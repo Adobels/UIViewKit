@@ -21,13 +21,54 @@ public class UIViewDSLEngine {
         }
     }
     
-    public enum LayoutMode {
+    func beginSubviewsDefinition() {
+        if defineSubviewsDepthCallCounter == 0 && !constraintsToApply.isEmpty {
+            //fatalError()
+        }
+        defineSubviewsDepthCallCounter += 1
+    }
+    
+    func addSubviews(_ subviews: [UIView], to target: UIView) {
+        let adderFunction: (UIView) -> Void
+        
+        if let stackView = target as? UIStackView {
+            adderFunction = stackView.addArrangedSubview(_:)
+        } else {
+            adderFunction = target.addSubview(_:)
+        }
+        
+        subviews.forEach(adderFunction)
+    }
+    
+    func endSubviewsDefinition() {
+        defineSubviewsDepthCallCounter -= 1
+    }
+    
+    func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint]) {
+        for constraint in constraints {
+            guard involvesOwnerView(owner, in: constraint) else {
+                fatalError()
+            }
+        }
+        
+        self.constraintsToApply.append((owner, constraints))
+        
+        if defineSubviewsDepthCallCounter == 0 {
+            activateAutoLayout()
+        }
+    }
+
+    private func involvesOwnerView(_ owner: UIView, in constraint: NSLayoutConstraint) -> Bool {
+        return (constraint.firstItem as? UIView) == owner || (constraint.secondItem as? UIView) == owner
+    }
+    
+    public enum AutoresizingMaskIntoConstraintsStrategy {
         case manual // manual
         case inferredConstraints // interfaceBuilder inferredConstraints
         case inferredAttributesOwner
     }
     
-    public static var layoutMode: LayoutMode = .inferredAttributesOwner
+    public static var translatesAutoresizingMaskIntoConstraintsStrategy = AutoresizingMaskIntoConstraintsStrategy.inferredAttributesOwner
 
     var constraintsToApply: [(UIView, [NSLayoutConstraint])] = []
     
@@ -38,7 +79,7 @@ public class UIViewDSLEngine {
             guard !constraints.isEmpty else {
                 return
             }
-            switch Self.layoutMode {
+            switch Self.translatesAutoresizingMaskIntoConstraintsStrategy {
             case .inferredConstraints:
                 for constraint in constraints {
                     if
@@ -153,42 +194,17 @@ extension UIViewDSL where Self: UIView {
         return self
     }
     
-    func coreDefineSubviews(@UIViewBuilder _ content: (UIView) -> [UIView]) {
-        UIViewDSLEngine.shared.defineSubviewsDepthCallCounter += 1
-        let subviews = content(self)
-        if let stackView = self as? UIStackView {
-            subviews.forEach {
-                stackView.addArrangedSubview($0)
-            }
-        } else {
-            subviews.forEach {
-                addSubview($0)
-            }
-        }
-        UIViewDSLEngine.shared.defineSubviewsDepthCallCounter -= 1
+    func coreDefineSubviews(_ content: (UIView) -> [UIView]) {
+        UIViewDSLEngine.shared.beginSubviewsDefinition()
+        UIViewDSLEngine.shared.addSubviews(content(self), to: self)
+        UIViewDSLEngine.shared.endSubviewsDefinition()
     }
     
-    func coreDefineSubviews(@UIViewBuilder _ content: () -> [UIView]) {
-        if
-            UIViewDSLEngine.shared.defineSubviewsDepthCallCounter == 0,
-            !UIViewDSLEngine.shared.constraintsToApply.isEmpty
-        {
-            fatalError()
-        }
-        UIViewDSLEngine.shared.defineSubviewsDepthCallCounter += 1
-        let subviews = content()
-        if let stackView = self as? UIStackView {
-            subviews.forEach {
-                stackView.addArrangedSubview($0)
-            }
-        } else {
-            subviews.forEach {
-                addSubview($0)
-            }
-        }
-        UIViewDSLEngine.shared.defineSubviewsDepthCallCounter -= 1
+    func coreDefineSubviews(_ content: () -> [UIView]) {
+        UIViewDSLEngine.shared.beginSubviewsDefinition()
+        UIViewDSLEngine.shared.addSubviews(content(), to: self)
+        UIViewDSLEngine.shared.endSubviewsDefinition()
     }
-
 }
 
 extension UIViewDSL where Self: UIView {
@@ -196,10 +212,8 @@ extension UIViewDSL where Self: UIView {
     @MainActor
     @discardableResult
     public func ibAttributes(@NSLayoutConstraintBuilder _ block: (Self) -> [NSLayoutConstraint]) -> Self {
-        UIViewDSLEngine.shared.constraintsToApply.append((self, block(self)))
-        if UIViewDSLEngine.shared.defineSubviewsDepthCallCounter == 0 {
-            UIViewDSLEngine.shared.activateAutoLayout()
-        }
+        let constraintsGenerated = block(self)
+        UIViewDSLEngine.shared.addConstraints(for: self, constraints: constraintsGenerated)
         return self
     }
 }
