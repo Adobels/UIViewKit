@@ -34,8 +34,13 @@ public struct UIViewDebug {
         return all
     }
     
-    public static func prettyPrintAllSubviews(of view: UIView, includeUIKitPrivateViews: Bool) -> String {
-        let allSubviews = self.allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews)
+    public static func prettyPrintAllSubviews(of view: UIView, includeItself: Bool, includeUIKitPrivateViews: Bool) -> String {
+        let allSubviews: [UIView]
+        if includeItself {
+            allSubviews = [view] + self.allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews)
+        } else {
+            allSubviews = self.allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews)
+        }
         var output = ""
         
         func getIndentation(for view: UIView) -> String {
@@ -51,7 +56,7 @@ public struct UIViewDebug {
         
         for subview in allSubviews {
             let indentation = getIndentation(for: subview)
-            output += "\(indentation)- \(type(of: subview))\n"
+            output += "\(indentation)- \(type(of: subview)) tamic \(subview.translatesAutoresizingMaskIntoConstraints) constraints: \(subview.constraints.count)\n"
         }
         
         return output
