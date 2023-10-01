@@ -23,7 +23,7 @@ public class UIViewDSLEngine {
     
     // MARK: - Singleton Instance
     
-    static let shared: UIViewDSLEngine = {
+    public static let shared: UIViewDSLEngine = {
         let instance = UIViewDSLEngine()
         instance.setupDefaultDelegate()
         return instance
