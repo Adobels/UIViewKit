@@ -42,6 +42,10 @@ public class InferredAttributesOwnerStrategy: UIViewDSLEngineConstraintsProtocol
         activateAutoLayout()
     }
     
+    // MARK: - Initializer Methods
+    
+    public init() { }
+    
     // MARK: - Private Methods
     
     private func activateAutoLayout() {
