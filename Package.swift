@@ -1,4 +1,4 @@
-// swift-tools-version: 5.4
+// swift-tools-version: 5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -11,14 +11,20 @@ let package = Package(
     products: [
         .library(
             name: "UIViewKit",
-            targets: ["UIViewKit"]),
+            targets: ["UIViewKit"]
+        ),
+        .library(name: "UIViewKitPreviewsDemo", targets: ["UIViewKitPreviewsDemo"])
     ],
     targets: [
         .target(
             name: "UIViewKit"
         ),
+        .target(
+            name: "UIViewKitPreviewsDemo",
+            dependencies: ["UIViewKit"]
+        ),
         .testTarget(
             name: "UIViewKitTests",
-            dependencies: ["UIViewKit"]),
+            dependencies: ["UIViewKit", "UIViewKitPreviewsDemo"]),
     ]
 )

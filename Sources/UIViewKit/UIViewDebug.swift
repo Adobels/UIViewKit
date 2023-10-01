@@ -1,6 +1,6 @@
 //
 //  UIViewDebug.swift
-//
+//  UIViewKit
 //
 //  Created by Blazej SLEBODA on 19/09/2023.
 //
@@ -32,5 +32,37 @@ public struct UIViewDebug {
         
         getSubviews(view: view)
         return all
+    }
+        
+    public static func prettyStringAllSubviews(of view: UIView, includeItself: Bool, includeUIKitPrivateViews: Bool) -> String {
+        let allSubviews: [UIView]
+        if includeItself {
+            allSubviews = [view] + self.allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews)
+        } else {
+            allSubviews = self.allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews)
+        }
+        var output = ""
+        
+        func getIndentation(for view: UIView) -> String {
+            var depth = 0
+            var current: UIView? = view.superview
+            while let safeCurrent = current {
+                depth += 1
+                current = safeCurrent.superview
+            }
+            return String(repeating: "    ", count: depth)
+        }
+        
+        
+        for subview in allSubviews {
+            let indentation = getIndentation(for: subview)
+            output += "\(indentation)- \(type(of: subview)) tamic \(subview.translatesAutoresizingMaskIntoConstraints) constraints: \(subview.constraints.count)\n"
+        }
+        
+        return output
+    }
+    
+    public static func prettyPrintAllSubviews(of view: UIView, includeItself: Bool, includeUIKitPrivateViews: Bool) {
+        print(prettyStringAllSubviews(of: view, includeItself: includeItself, includeUIKitPrivateViews: includeUIKitPrivateViews), separator: "\n")
     }
 }

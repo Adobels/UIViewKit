@@ -1,3 +1,6 @@
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FAdobels%2FUIViewKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/Adobels/UIViewKit)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FAdobels%2FUIViewKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/Adobels/UIViewKit)
+
 # UIViewKit
 
 UIViewKit is a Swift tool that makes designing and setting up UIKit views as simple as using InterfaceBuilder, but with Swift's strong type checks. It offers a look similar to SwiftUI and has lots of easy methods for attributes, outlets, and constraints. Thanks to the @resultBuilder attribute, the code is quick to write, looks cleaner, and is more pleasing to the eye.

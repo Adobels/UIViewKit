@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import UIViewKit
 
-class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
+public class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
     
     var imageViewUser: UIImageView!
     var labelTime: UILabel!
@@ -75,7 +76,7 @@ import SwiftUI
 struct UserTitleTimeDescriptionViewWithIBSubviewsPreviews: PreviewProvider {
     static var previews: some View {
         ViewPreview(
-            UserTitleTimeDescriptionViewWithIBSubviews().apply {
+            UserTitleTimeDescriptionViewWithIBSubviews().ibApply {
                 $0.imageViewUser.image = .init(systemName: "person.circle")
                 $0.labelTitle.text = "Amanda Clarke"
                 $0.labelTime.text = "1:08 PM"

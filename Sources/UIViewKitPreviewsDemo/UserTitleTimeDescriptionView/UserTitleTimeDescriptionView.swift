@@ -1,13 +1,14 @@
 //
-//  UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView.swift
+//  UserTitleTimeDescriptionView.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 18/09/2023.
 //
 
 import UIKit
+import UIViewKit
 
-class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView {
+public class UserTitleTimeDescriptionView: UIView {
     
     var imageViewUser: UIImageView!
     var labelTime: UILabel!
@@ -17,19 +18,19 @@ class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.ibSubviews { _ in
-            HorizontalStack(spacing: 12, alignment: .top).ibSubviews { _ in
+        self {
+            HorizontalStack(spacing: 12, alignment: .top) {
                 UIImageView().ibOutlet(&imageViewUser).ibAttributes {
                     $0.widthAnchor.constraint(equalToConstant: 60)
                     $0.heightAnchor.constraint(equalToConstant: 60)
                     $0.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
                 }
-                VerticalStack().ibSubviews { _ in
-                    HorizontalStack(spacing: 8, alignment: .center).ibSubviews { _ in
+                VerticalStack() {
+                    HorizontalStack(spacing: 8, alignment: .center) {
                         UILabel().ibOutlet(&labelTitle).ibAttributes {
                             $0.font = .systemFont(ofSize: 20, weight: .semibold)
                         }
-                        HorizontalStack(spacing: 8).ibSubviews { _ in
+                        HorizontalStack(spacing: 8) {
                             UILabel().ibOutlet(&labelTime).ibAttributes {
                                 $0.textColor = .systemGray
                                 $0.font = .systemFont(ofSize: 15, weight: .semibold)
@@ -52,7 +53,7 @@ class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView {
                         $0.textColor = .systemGray
                     }
                     UIView().ibAttributes {
-                        $0.heightAnchor.constraint(equalToConstant: 20)
+                        $0.heightAnchor.constraint(equalToConstant: 10)
                     }
                     UIView().ibAttributes {
                         $0.heightAnchor.constraint(equalToConstant: 1)
@@ -72,16 +73,15 @@ class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView {
 
 import SwiftUI
 
-struct UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewViewPreviews: PreviewProvider {
+struct UserTitleTimeDescriptionViewPreviews: PreviewProvider {
     static var previews: some View {
         ViewPreview(
-            UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView().apply {
+            UserTitleTimeDescriptionView().ibApply {
                 $0.imageViewUser.image = .init(systemName: "person.circle")
                 $0.labelTitle.text = "Amanda Clarke"
                 $0.labelTime.text = "1:08 PM"
                 $0.labelDescription.text = "Hey, how are you doing today? I have got a question about our trip to Mexi..."
                 UIViewDebug.showFrames(of: $0, includeGivenView: true, includeUIKitPrivateViews: false)
-                print(UIViewDebug.allSubviews(of: $0, includeUIKitPrivateViews: false))
             }
         )
     }

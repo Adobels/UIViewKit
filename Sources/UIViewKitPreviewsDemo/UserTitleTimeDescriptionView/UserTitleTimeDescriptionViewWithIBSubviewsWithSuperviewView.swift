@@ -1,13 +1,14 @@
 //
-//  UserTitleTimeDescriptionView.swift
+//  UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 18/09/2023.
 //
 
 import UIKit
+import UIViewKit
 
-class UserTitleTimeDescriptionView: UIView {
+public class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView {
     
     var imageViewUser: UIImageView!
     var labelTime: UILabel!
@@ -17,19 +18,19 @@ class UserTitleTimeDescriptionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self {
-            HorizontalStack(spacing: 12, alignment: .top) {
+        self.ibSubviews { _ in
+            HorizontalStack(spacing: 12, alignment: .top).ibSubviews { _ in
                 UIImageView().ibOutlet(&imageViewUser).ibAttributes {
                     $0.widthAnchor.constraint(equalToConstant: 60)
                     $0.heightAnchor.constraint(equalToConstant: 60)
                     $0.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
                 }
-                VerticalStack() {
-                    HorizontalStack(spacing: 8, alignment: .center) {
+                VerticalStack().ibSubviews { _ in
+                    HorizontalStack(spacing: 8, alignment: .center).ibSubviews { _ in
                         UILabel().ibOutlet(&labelTitle).ibAttributes {
                             $0.font = .systemFont(ofSize: 20, weight: .semibold)
                         }
-                        HorizontalStack(spacing: 8) {
+                        HorizontalStack(spacing: 8).ibSubviews { _ in
                             UILabel().ibOutlet(&labelTime).ibAttributes {
                                 $0.textColor = .systemGray
                                 $0.font = .systemFont(ofSize: 15, weight: .semibold)
@@ -72,16 +73,15 @@ class UserTitleTimeDescriptionView: UIView {
 
 import SwiftUI
 
-struct UserTitleTimeDescriptionViewPreviews: PreviewProvider {
+struct UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewViewPreviews: PreviewProvider {
     static var previews: some View {
         ViewPreview(
-            UserTitleTimeDescriptionView().apply {
+            UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView().ibApply {
                 $0.imageViewUser.image = .init(systemName: "person.circle")
                 $0.labelTitle.text = "Amanda Clarke"
                 $0.labelTime.text = "1:08 PM"
                 $0.labelDescription.text = "Hey, how are you doing today? I have got a question about our trip to Mexi..."
                 UIViewDebug.showFrames(of: $0, includeGivenView: true, includeUIKitPrivateViews: false)
-                print(UIViewDebug.allSubviews(of: $0, includeUIKitPrivateViews: false))
             }
         )
     }
