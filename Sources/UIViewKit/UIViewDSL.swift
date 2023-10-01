@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os
 
 public protocol UIViewDSL { }; extension UIView: UIViewDSL { }
 
@@ -37,18 +38,14 @@ public class UIViewDSLEngine {
     
     func addSubviews(_ subviews: (UIView) -> [UIView], to owner: UIView) {
         beginSubviewsDefinition()
-        debugPrint("didBeginDepth \(ibSubviewsDepthCallCounter) owner: \(owner)")
         UIViewDSLHelper.addSubviews(subviews(owner), to: owner)
         endSubviewsDefinition(on: owner)
-        debugPrint("didBeginEnd \(ibSubviewsDepthCallCounter) owner: \(owner)")
     }
     
     func addSubviews(_ subviews: () -> [UIView], to owner: UIView) {
         beginSubviewsDefinition()
-        debugPrint("didBeginDepth \(ibSubviewsDepthCallCounter) owner: \(owner)")
         UIViewDSLHelper.addSubviews(subviews(), to: owner)
         endSubviewsDefinition(on: owner)
-        debugPrint("didBeginEnd \(ibSubviewsDepthCallCounter) owner: \(owner)")
     }
     
     func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint]) {
@@ -74,6 +71,5 @@ public class UIViewDSLEngine {
         if ibSubviewsDepthCallCounter == 0 {
             delegate?.ibSubviewsDidExecute(on: owner)
         }
-        debugPrint("didEndDepth \(ibSubviewsDepthCallCounter)")
     }
 }
