@@ -33,8 +33,8 @@ public struct UIViewDebug {
         getSubviews(view: view)
         return all
     }
-    
-    public static func prettyPrintAllSubviews(of view: UIView, includeItself: Bool, includeUIKitPrivateViews: Bool) -> String {
+        
+    public static func prettyStringAllSubviews(of view: UIView, includeItself: Bool, includeUIKitPrivateViews: Bool) -> String {
         let allSubviews: [UIView]
         if includeItself {
             allSubviews = [view] + self.allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews)
@@ -60,5 +60,9 @@ public struct UIViewDebug {
         }
         
         return output
+    }
+    
+    public static func prettyPrintAllSubviews(of view: UIView, includeItself: Bool, includeUIKitPrivateViews: Bool) {
+        print(prettyStringAllSubviews(of: view, includeItself: includeItself, includeUIKitPrivateViews: includeUIKitPrivateViews), separator: "\n")
     }
 }

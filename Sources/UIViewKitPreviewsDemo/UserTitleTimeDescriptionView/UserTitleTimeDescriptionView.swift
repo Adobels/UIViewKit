@@ -76,7 +76,7 @@ import SwiftUI
 struct UserTitleTimeDescriptionViewPreviews: PreviewProvider {
     static var previews: some View {
         ViewPreview(
-            UserTitleTimeDescriptionView().apply {
+            UserTitleTimeDescriptionView().ibApply {
                 $0.imageViewUser.image = .init(systemName: "person.circle")
                 $0.labelTitle.text = "Amanda Clarke"
                 $0.labelTime.text = "1:08 PM"

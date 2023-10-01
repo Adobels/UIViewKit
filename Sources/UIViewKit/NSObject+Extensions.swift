@@ -12,7 +12,7 @@ public protocol NSObjectExtensions {}; extension NSObject: NSObjectExtensions { 
 extension NSObjectExtensions {
     
     @discardableResult
-    public func apply(_ block: (Self) -> Void) -> Self {
+    public func ibApply(_ block: (Self) -> Void) -> Self {
         block(self)
         return self
     }

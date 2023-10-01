@@ -39,7 +39,7 @@ public class UIViewDSLEngine {
         beginSubviewsDefinition()
         debugPrint("didBeginDepth \(ibSubviewsDepthCallCounter) owner: \(owner)")
         UIViewDSLHelper.addSubviews(subviews(owner), to: owner)
-        endSubviewsDefinition()
+        endSubviewsDefinition(on: owner)
         debugPrint("didBeginEnd \(ibSubviewsDepthCallCounter) owner: \(owner)")
     }
     
@@ -47,14 +47,14 @@ public class UIViewDSLEngine {
         beginSubviewsDefinition()
         debugPrint("didBeginDepth \(ibSubviewsDepthCallCounter) owner: \(owner)")
         UIViewDSLHelper.addSubviews(subviews(), to: owner)
-        endSubviewsDefinition()
+        endSubviewsDefinition(on: owner)
         debugPrint("didBeginEnd \(ibSubviewsDepthCallCounter) owner: \(owner)")
     }
     
     func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint]) {
         delegate?.addConstraints(for: owner, constraints: constraints)
         if ibSubviewsDepthCallCounter == 0 {
-            delegate?.addRootViewConstraints(on: owner, constraints: constraints)
+            delegate?.ibAttributesDidExecute(on: owner)
         }
     }
     
@@ -69,10 +69,10 @@ public class UIViewDSLEngine {
         ibSubviewsDepthCallCounter += 1
     }
     
-    private func endSubviewsDefinition() {
+    private func endSubviewsDefinition(on owner: UIView) {
         ibSubviewsDepthCallCounter -= 1
         if ibSubviewsDepthCallCounter == 0 {
-            delegate?.rootViewIbSubviewsDidExecute()
+            delegate?.ibSubviewsDidExecute(on: owner)
         }
         debugPrint("didEndDepth \(ibSubviewsDepthCallCounter)")
     }

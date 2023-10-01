@@ -16,16 +16,6 @@ public class InferredAttributesOwnerStrategy: UIViewDSLEngineConstraintsProtocol
     
     // MARK: - UIViewDSLEngineConstraintsProtocol Methods
     
-    public func rootViewIbSubviewsWillExecute() {
-        if !constraintsToApply.isEmpty {
-            fatalError("Attempted to begin subviews definition while constraintsToApply is not empty. This indicates that there may have been a previous incomplete or erroneous subviews definition process.")
-        }
-    }
-    
-    public func rootViewIbSubviewsDidExecute() {
-        activateAutoLayout()
-    }
-    
     public func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint]) {
         guard !constraints.isEmpty else { return }
         constraints.forEach {
@@ -36,9 +26,17 @@ public class InferredAttributesOwnerStrategy: UIViewDSLEngineConstraintsProtocol
         constraintsToApply.append((owner, constraints))
     }
     
-    public func addRootViewConstraints(on rootView: UIView, constraints: [NSLayoutConstraint]) {
-        guard !constraints.isEmpty else { return }
-        constraintsToApply.append((rootView, constraints))
+    public func ibSubviewsWillExecute(on rootView: UIView) {
+        if !constraintsToApply.isEmpty {
+            fatalError("Attempted to begin subviews definition while constraintsToApply is not empty. This indicates that there may have been a previous incomplete or erroneous subviews definition process.")
+        }
+    }
+    
+    public func ibSubviewsDidExecute(on rootView: UIView) {
+        activateAutoLayout()
+    }
+    
+    public func ibAttributesDidExecute(on rootView: UIView) {
         activateAutoLayout()
     }
     
