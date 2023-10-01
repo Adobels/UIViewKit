@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InferredConstraintsStrategy: UIViewDSLEngineConstraintsProtocol {
+public class InferredConstraintsStrategy: UIViewDSLEngineConstraintsProtocol {
     
     // MARK: - Private Properties
 
@@ -15,17 +15,17 @@ class InferredConstraintsStrategy: UIViewDSLEngineConstraintsProtocol {
     
     // MARK: - UIViewDSLEngineConstraintsProtocol Methods
     
-    func rootViewIbSubviewsWillExecute() {
+    public func rootViewIbSubviewsWillExecute() {
         if !constraintsToApply.isEmpty {
             fatalError("Attempted to begin subviews definition while constraintsToApply is not empty. This indicates that there may have been a previous incomplete or erroneous subviews definition process.")
         }
     }
     
-    func rootViewIbSubviewsDidExecute() {
+    public func rootViewIbSubviewsDidExecute() {
         activateAutoLayout()
     }
     
-    func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint]) {
+    public func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint]) {
         
         guard !constraints.isEmpty else { return }
         constraints.forEach {
@@ -36,7 +36,7 @@ class InferredConstraintsStrategy: UIViewDSLEngineConstraintsProtocol {
         constraintsToApply.append((owner, constraints))
     }
     
-    func addRootViewConstraints(on rootView: UIView, constraints: [NSLayoutConstraint]) {
+    public func addRootViewConstraints(on rootView: UIView, constraints: [NSLayoutConstraint]) {
         guard !constraints.isEmpty else { return }
         constraintsToApply.append((rootView, constraints))
         activateAutoLayout()

@@ -14,7 +14,7 @@ public class UIViewDSLEngine {
     
     // MARK: - Public Properties
     
-    weak var delegate: UIViewDSLEngineConstraintsProtocol?
+    public weak var delegate: UIViewDSLEngineConstraintsProtocol?
     
     // MARK: - Private Properties
     
