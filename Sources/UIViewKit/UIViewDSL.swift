@@ -48,8 +48,8 @@ public class UIViewDSLEngine {
         endSubviewsDefinition(on: owner)
     }
     
-    func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint]) {
-        delegate?.addConstraints(for: owner, constraints: constraints)
+    func addIbAttributes(_ ibAttributes: @escaping (AnyObject) -> [NSLayoutConstraint], for owner: UIView) {
+        delegate?.addIbAttributes(ibAttributes, for: owner)
         if ibSubviewsDepthCallCounter == 0 {
             delegate?.ibAttributesDidExecute(on: owner)
         }
