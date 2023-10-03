@@ -40,7 +40,7 @@ class IBOutletTests: XCTestCase {
         
         var view = UIView()
         
-        let newView = UIView().ibOutlet(&view) {
+        let newView = UIView().ibOutlet(&view).ibSubviews {
             UIView()
         }
     
@@ -51,7 +51,7 @@ class IBOutletTests: XCTestCase {
         
         var view = UIView()
         
-        let newView = UIView().ibOutlet(&view) { _ in
+        let newView = UIView().ibOutlet(&view).ibSubviews { _ in
             UIView()
         }
     
@@ -61,7 +61,7 @@ class IBOutletTests: XCTestCase {
     func testIBOutletInWithTrailingClosureOfIbSubviews() throws {
         var views: [UIView] = []
         
-        let newView = UIView().ibOutlet(in: &views) {
+        let newView = UIView().ibOutlet(in: &views).ibSubviews {
             UIView()
         }
         
@@ -72,7 +72,7 @@ class IBOutletTests: XCTestCase {
     func testIBOutletInWithTrailingClosureOfIbSubviewsAndSuperview() throws {
         var views: [UIView] = []
         
-        let newView = UIView().ibOutlet(in: &views) { _ in
+        let newView = UIView().ibOutlet(in: &views).ibSubviews { _ in
             UIView()
         }
         
@@ -83,7 +83,7 @@ class IBOutletTests: XCTestCase {
     func testIBOutletWithForceUnwrapWithTrailingClosureOfIbSubviews() async throws {
         var view: UIView!
         
-        let newView = UIView().ibOutlet(&view) {
+        let newView = UIView().ibOutlet(&view).ibSubviews {
             UIView()
         }
         
@@ -93,7 +93,7 @@ class IBOutletTests: XCTestCase {
     func testIBOutletWithForceUnwrapWithTrailingClosureOfIbSubviewsAndSuperview() async throws {
         var view: UIView!
         
-        let newView = UIView().ibOutlet(&view) { _ in
+        let newView = UIView().ibOutlet(&view).ibSubviews { _ in
             UIView()
         }
         
