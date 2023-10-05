@@ -23,50 +23,8 @@ extension UIViewDSL where Self: UIView {
     }
     
     @discardableResult
-    public func ibOutlet(_ outlet: inout Self?, @UIViewBuilder _ content: () -> [UIView]) -> Self {
-        outlet = self
-        UIViewDSLEngine.shared.addSubviews(content, to: self)
-        return self
-    }
-    
-    @discardableResult
-    public func ibOutlet(_ outlet: inout Self?, @UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
-        outlet = self
-        UIViewDSLEngine.shared.addSubviews(content, to: self)
-        return self
-    }
-    
-    @discardableResult
-    public func ibOutlet(_ outlet: inout Self, @UIViewBuilder _ content: () -> [UIView]) -> Self {
-        outlet = self
-        UIViewDSLEngine.shared.addSubviews(content, to: self)
-        return self
-    }
-    
-    @discardableResult
-    public func ibOutlet(_ outlet: inout Self, @UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
-        outlet = self
-        UIViewDSLEngine.shared.addSubviews(content, to: self)
-        return self
-    }
-
-    @discardableResult
     public func ibOutlet(in outlet: inout [Self]) -> Self {
         outlet.append(self)
-        return self
-    }
-    
-    @discardableResult
-    public func ibOutlet(in outlet: inout [Self], @UIViewBuilder _ content: () -> [UIView]) -> Self {
-        outlet.append(self)
-        UIViewDSLEngine.shared.addSubviews(content, to: self)
-        return self
-    }
-    
-    @discardableResult
-    public func ibOutlet(in outlet: inout [Self], @UIViewBuilder _ content: (UIView) -> [UIView]) -> Self {
-        outlet.append(self)
-        UIViewDSLEngine.shared.addSubviews(content, to: self)
         return self
     }
 }
