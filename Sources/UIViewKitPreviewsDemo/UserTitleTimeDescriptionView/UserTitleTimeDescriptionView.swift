@@ -15,10 +15,21 @@ public class UserTitleTimeDescriptionView: UIView {
     var labelTitle: UILabel!
     var labelDescription: UILabel!
     
+    var totoView: UIView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self {
+            UIView().ibOutlet(&totoView).ibSubviews {
+                UIView()
+            }
+            UIView().ibOutlet(&totoView).callAsFunction {
+                UIView()
+            }
+            UIView().ibOutlet(&totoView)() {
+                UIView()
+            }
             HorizontalStack(spacing: 12, alignment: .top) {
                 UIImageView().ibOutlet(&imageViewUser).ibAttributes {
                     $0.widthAnchor.constraint(equalToConstant: 60)
@@ -61,7 +72,7 @@ public class UserTitleTimeDescriptionView: UIView {
                     }
                 }
             }.ibAttributes {
-                $0.ibConstraints(to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
+                IBConstraints(from: $0, to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
             }
         }
     }
@@ -76,7 +87,7 @@ import SwiftUI
 struct UserTitleTimeDescriptionViewPreviews: PreviewProvider {
     static var previews: some View {
         ViewPreview(
-            UserTitleTimeDescriptionView().ibApply {
+            UserTitleTimeDescriptionView().ibAttributes {
                 $0.imageViewUser.image = .init(systemName: "person.circle")
                 $0.labelTitle.text = "Amanda Clarke"
                 $0.labelTime.text = "1:08 PM"

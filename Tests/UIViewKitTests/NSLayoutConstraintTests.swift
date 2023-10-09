@@ -24,7 +24,7 @@ class NSLayoutConstraintTests: XCTestCase {
             UIView().ibOutlet(&viewSecond)
         }
 
-        NSLayoutConstraint.activate {
+        NSLayoutConstraint.ibActivate {
             viewFirst.topAnchor.constraint(equalTo: viewSecond.topAnchor).ibOutlet(&constraintTop).ibPriority(.defaultHigh)
             viewFirst.leftAnchor.constraint(equalTo: viewSecond.leftAnchor).ibOutlet(&constraintLeft).ibPriority(.defaultLow)
             viewFirst.rightAnchor.constraint(equalTo: viewSecond.rightAnchor)
