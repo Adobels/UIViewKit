@@ -16,7 +16,7 @@ public class HelloWordView: UIView {
         super.init(frame: frame)
         self {
             UILabel().ibOutlet(&label).ibAttributes {
-                $0.ibConstraints(to: self, guide: .view, anchors: .centerX, .centerY)
+                IBConstraints(from: $0, to: self, guide: .view, anchors: .centerX, .centerY)
                 $0.text = "Hello, world!"
             }
         }

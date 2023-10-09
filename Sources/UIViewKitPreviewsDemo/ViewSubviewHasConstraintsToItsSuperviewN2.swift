@@ -19,7 +19,7 @@ class TestView: UIView {
             view2 {
                 view3.ibAttributes {
                     $0.tag = 3
-                    $0.ibConstraints(to: self, guide: .view, anchors: .all)
+                    IBConstraints(from: $0, to: self, guide: .view, anchors: .all)
                     $0.backgroundColor = .green
                     $0.alpha = 0.3
                 }

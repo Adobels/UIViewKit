@@ -24,12 +24,13 @@ class NSLayoutConstraintTests: XCTestCase {
             UIView().ibOutlet(&viewSecond)
         }
 
-        NSLayoutConstraint.activate {
+        NSLayoutConstraint.ibActivate {
             viewFirst.topAnchor.constraint(equalTo: viewSecond.topAnchor).ibOutlet(&constraintTop).ibPriority(.defaultHigh)
             viewFirst.leftAnchor.constraint(equalTo: viewSecond.leftAnchor).ibOutlet(&constraintLeft).ibPriority(.defaultLow)
             viewFirst.rightAnchor.constraint(equalTo: viewSecond.rightAnchor)
             viewFirst.bottomAnchor.constraint(equalTo: viewSecond.bottomAnchor)
         }
+        XCTAssertEqual(view.constraints.count, 4)
         
         XCTAssertEqual(constraintTop.priority, UILayoutPriority.defaultHigh)
         XCTAssertEqual(constraintLeft.priority, UILayoutPriority.defaultLow)

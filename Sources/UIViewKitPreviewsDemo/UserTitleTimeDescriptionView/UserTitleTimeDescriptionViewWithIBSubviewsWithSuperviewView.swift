@@ -61,7 +61,7 @@ public class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView
                     }
                 }
             }.ibAttributes {
-                $0.ibConstraints(to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
+                IBConstraints(from: $0, to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
             }
         }
     }
@@ -76,7 +76,7 @@ import SwiftUI
 struct UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewViewPreviews: PreviewProvider {
     static var previews: some View {
         ViewPreview(
-            UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView().ibApply {
+            UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView().ibAttributes {
                 $0.imageViewUser.image = .init(systemName: "person.circle")
                 $0.labelTitle.text = "Amanda Clarke"
                 $0.labelTime.text = "1:08 PM"
