@@ -19,17 +19,7 @@ public class UserTitleTimeDescriptionView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         self {
-            UIView().ibOutlet(&totoView).ibSubviews {
-                UIView()
-            }
-            UIView().ibOutlet(&totoView).callAsFunction {
-                UIView()
-            }
-            UIView().ibOutlet(&totoView)() {
-                UIView()
-            }
             HorizontalStack(spacing: 12, alignment: .top) {
                 UIImageView().ibOutlet(&imageViewUser).ibAttributes {
                     $0.widthAnchor.constraint(equalToConstant: 60)

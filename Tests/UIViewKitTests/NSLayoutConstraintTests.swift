@@ -30,6 +30,7 @@ class NSLayoutConstraintTests: XCTestCase {
             viewFirst.rightAnchor.constraint(equalTo: viewSecond.rightAnchor)
             viewFirst.bottomAnchor.constraint(equalTo: viewSecond.bottomAnchor)
         }
+        XCTAssertEqual(view.constraints.count, 4)
         
         XCTAssertEqual(constraintTop.priority, UILayoutPriority.defaultHigh)
         XCTAssertEqual(constraintLeft.priority, UILayoutPriority.defaultLow)

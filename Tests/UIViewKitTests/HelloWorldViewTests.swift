@@ -16,7 +16,8 @@ class HelloWorldViewTests: XCTestCase {
         let sut = SUT()
         
         let label = try XCTUnwrap(sut.subviews.first! as? UILabel)
+        XCTAssertEqual(label.superview, sut)
         XCTAssertEqual(label.text, "Hello, world!")
+        XCTAssertEqual(sut.constraints.count, 2)
     }
-
 }
