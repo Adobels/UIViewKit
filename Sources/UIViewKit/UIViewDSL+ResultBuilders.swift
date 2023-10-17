@@ -81,8 +81,8 @@ public enum NSLayoutConstraintBuilder {
     public static func buildExpression(_ expression: Any) -> [NSLayoutConstraint] {
         []
     }
-//    
-//    public static func buildExpression(_ expression: Any?) -> [NSLayoutConstraint] {
-//        []
-//    }
+    
+    public static func buildExpression(_ expression: Any?) -> [NSLayoutConstraint] {
+        []
+    }
 }
