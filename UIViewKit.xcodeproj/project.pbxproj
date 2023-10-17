@@ -20,7 +20,6 @@
 		F2FB74B82ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74AA2ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift */; };
 		F2FB74B92ADE7ECE00A07B7F /* UIViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74AB2ADE7ECE00A07B7F /* UIViewDSL.swift */; };
 		F2FB74BA2ADE7ECE00A07B7F /* UIViewDSL+IBOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74AC2ADE7ECE00A07B7F /* UIViewDSL+IBOutlet.swift */; };
-		F2FB74BE2ADE901300A07B7F /* UIViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F2FB74BD2ADE901300A07B7F /* UIViewKit.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +37,6 @@
 		F2FB74AA2ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Subviews.swift"; sourceTree = "<group>"; };
 		F2FB74AB2ADE7ECE00A07B7F /* UIViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDSL.swift; sourceTree = "<group>"; };
 		F2FB74AC2ADE7ECE00A07B7F /* UIViewDSL+IBOutlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBOutlet.swift"; sourceTree = "<group>"; };
-		F2FB74BD2ADE901300A07B7F /* UIViewKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +74,6 @@
 				F2FB74A02ADE7ECE00A07B7F /* UIViewDSL+ResultBuilders.swift */,
 				F2FB74A12ADE7ECE00A07B7F /* UIViewDSL+SwiftUIStyleStacks.swift */,
 				F2FB74A22ADE7ECE00A07B7F /* UIViewDSL+Attributes.swift */,
-				F2FB74BF2ADE901900A07B7F /* Supporting Files */,
 				F2FB74A32ADE7ECE00A07B7F /* UIViewPreviews.swift */,
 				F2FB74A42ADE7ECE00A07B7F /* UIViewDebug.swift */,
 				F2FB74A62ADE7ECE00A07B7F /* AutoresizingStrategy */,
@@ -98,14 +95,6 @@
 			path = AutoresizingStrategy;
 			sourceTree = "<group>";
 		};
-		F2FB74BF2ADE901900A07B7F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F2FB74BD2ADE901300A07B7F /* UIViewKit.h */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -113,7 +102,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2FB74BE2ADE901300A07B7F /* UIViewKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
