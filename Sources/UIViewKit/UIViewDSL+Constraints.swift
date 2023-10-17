@@ -33,7 +33,7 @@ extension NSLayoutConstraint {
 }
 
 
-public func IBConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
+public func ibConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
     switch guide {
     case .view:
         return generateConstraints(from: from, to: to, anchors: anchors)

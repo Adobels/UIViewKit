@@ -32,7 +32,7 @@ class ConstraintsBuilderTests: XCTestCase {
             }
             UIView().ibAttributes {
                 #if DEBUG
-                IBConstraints(from: $0, to: sv, guide: .view, anchors: .top)
+                ibConstraints(from: $0, to: sv, guide: .view, anchors: .top)
                 #endif
                 if let _ = Optional(true) {
                     IBConstraints(from: $0, to: sv, guide: .view, anchors: .bottom)
