@@ -24,7 +24,7 @@ extension UIStackView {
     }
 }
 
-public func HorizontalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
+public func HorizontalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) -> UIStackView {
     let stackView = UIStackView()
     stackView.axis = .horizontal
     if let alignment {
@@ -36,9 +36,10 @@ public func HorizontalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alig
     if let spacing {
         stackView.spacing = spacing
     }
+    return stackView
 }
 
-public func VerticalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
+public func VerticalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) -> UIStackView {
     let stackView = UIStackView()
     stackView.axis = .vertical
     if let alignment {
@@ -50,4 +51,5 @@ public func VerticalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignm
     if let spacing {
         stackView.spacing = spacing
     }
+    return stackView
 }
