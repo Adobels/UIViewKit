@@ -14,13 +14,13 @@
 		F2FB74B12ADE7ECE00A07B7F /* UIViewDSL+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74A22ADE7ECE00A07B7F /* UIViewDSL+Attributes.swift */; };
 		F2FB74B22ADE7ECE00A07B7F /* UIViewPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74A32ADE7ECE00A07B7F /* UIViewPreviews.swift */; };
 		F2FB74B32ADE7ECE00A07B7F /* UIViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74A42ADE7ECE00A07B7F /* UIViewDebug.swift */; };
-		F2FB74B42ADE7ECE00A07B7F /* UIViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F2FB74A52ADE7ECE00A07B7F /* UIViewKit.h */; };
 		F2FB74B52ADE7ECE00A07B7F /* InferredConstraintsStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74A72ADE7ECE00A07B7F /* InferredConstraintsStrategy.swift */; };
 		F2FB74B62ADE7ECE00A07B7F /* UIViewDSLEngineConstraintsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74A82ADE7ECE00A07B7F /* UIViewDSLEngineConstraintsProtocol.swift */; };
 		F2FB74B72ADE7ECE00A07B7F /* InferredAttributesOwnerStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74A92ADE7ECE00A07B7F /* InferredAttributesOwnerStrategy.swift */; };
 		F2FB74B82ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74AA2ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift */; };
 		F2FB74B92ADE7ECE00A07B7F /* UIViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74AB2ADE7ECE00A07B7F /* UIViewDSL.swift */; };
 		F2FB74BA2ADE7ECE00A07B7F /* UIViewDSL+IBOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74AC2ADE7ECE00A07B7F /* UIViewDSL+IBOutlet.swift */; };
+		F2FB74BE2ADE901300A07B7F /* UIViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F2FB74BD2ADE901300A07B7F /* UIViewKit.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,13 +32,13 @@
 		F2FB74A22ADE7ECE00A07B7F /* UIViewDSL+Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Attributes.swift"; sourceTree = "<group>"; };
 		F2FB74A32ADE7ECE00A07B7F /* UIViewPreviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewPreviews.swift; sourceTree = "<group>"; };
 		F2FB74A42ADE7ECE00A07B7F /* UIViewDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDebug.swift; sourceTree = "<group>"; };
-		F2FB74A52ADE7ECE00A07B7F /* UIViewKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewKit.h; sourceTree = "<group>"; };
 		F2FB74A72ADE7ECE00A07B7F /* InferredConstraintsStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InferredConstraintsStrategy.swift; sourceTree = "<group>"; };
 		F2FB74A82ADE7ECE00A07B7F /* UIViewDSLEngineConstraintsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDSLEngineConstraintsProtocol.swift; sourceTree = "<group>"; };
 		F2FB74A92ADE7ECE00A07B7F /* InferredAttributesOwnerStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InferredAttributesOwnerStrategy.swift; sourceTree = "<group>"; };
 		F2FB74AA2ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Subviews.swift"; sourceTree = "<group>"; };
 		F2FB74AB2ADE7ECE00A07B7F /* UIViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDSL.swift; sourceTree = "<group>"; };
 		F2FB74AC2ADE7ECE00A07B7F /* UIViewDSL+IBOutlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBOutlet.swift"; sourceTree = "<group>"; };
+		F2FB74BD2ADE901300A07B7F /* UIViewKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +76,9 @@
 				F2FB74A02ADE7ECE00A07B7F /* UIViewDSL+ResultBuilders.swift */,
 				F2FB74A12ADE7ECE00A07B7F /* UIViewDSL+SwiftUIStyleStacks.swift */,
 				F2FB74A22ADE7ECE00A07B7F /* UIViewDSL+Attributes.swift */,
+				F2FB74BF2ADE901900A07B7F /* Supporting Files */,
 				F2FB74A32ADE7ECE00A07B7F /* UIViewPreviews.swift */,
 				F2FB74A42ADE7ECE00A07B7F /* UIViewDebug.swift */,
-				F2FB74A52ADE7ECE00A07B7F /* UIViewKit.h */,
 				F2FB74A62ADE7ECE00A07B7F /* AutoresizingStrategy */,
 				F2FB74AA2ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift */,
 				F2FB74AB2ADE7ECE00A07B7F /* UIViewDSL.swift */,
@@ -98,6 +98,14 @@
 			path = AutoresizingStrategy;
 			sourceTree = "<group>";
 		};
+		F2FB74BF2ADE901900A07B7F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F2FB74BD2ADE901300A07B7F /* UIViewKit.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -105,7 +113,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2FB74B42ADE7ECE00A07B7F /* UIViewKit.h in Headers */,
+				F2FB74BE2ADE901300A07B7F /* UIViewKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +332,6 @@
 		F22EB0F12ADD8CFC00B70773 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -346,9 +353,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adobels.UIViewKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -360,7 +365,6 @@
 		F22EB0F22ADD8CFC00B70773 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -382,9 +386,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adobels.UIViewKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
