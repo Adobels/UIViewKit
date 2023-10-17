@@ -73,4 +73,8 @@ public enum NSLayoutConstraintBuilder {
     public static func buildExpression(_ expression: Void) -> [NSLayoutConstraint] {
         []
     }
+    
+    public static func buildExpression(_ expression: Void?) -> [NSLayoutConstraint] {
+        []
+    }
 }
