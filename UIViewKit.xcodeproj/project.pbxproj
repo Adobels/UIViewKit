@@ -7,39 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F22EB2102ADD8D3C00B70773 /* UIViewDSL+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB0F42ADD8D3C00B70773 /* UIViewDSL+Helper.swift */; };
-		F22EB2112ADD8D3C00B70773 /* UIViewDSL+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB0F52ADD8D3C00B70773 /* UIViewDSL+Constraints.swift */; };
-		F22EB2122ADD8D3C00B70773 /* UIViewDSL+ResultBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB0F62ADD8D3C00B70773 /* UIViewDSL+ResultBuilders.swift */; };
-		F22EB2132ADD8D3C00B70773 /* UIViewDSL+SwiftUIStyleStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB0FA2ADD8D3C00B70773 /* UIViewDSL+SwiftUIStyleStacks.swift */; };
-		F22EB2142ADD8D3C00B70773 /* UIViewDSL+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB0FB2ADD8D3C00B70773 /* UIViewDSL+Attributes.swift */; };
-		F22EB2152ADD8D3C00B70773 /* UIViewPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB0FC2ADD8D3C00B70773 /* UIViewPreviews.swift */; };
-		F22EB2172ADD8D3C00B70773 /* UIViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB0FE2ADD8D3C00B70773 /* UIViewDebug.swift */; };
-		F22EB2182ADD8D3C00B70773 /* UIViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F22EB0FF2ADD8D3C00B70773 /* UIViewKit.h */; };
-		F22EB2192ADD8D3C00B70773 /* InferredConstraintsStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1012ADD8D3C00B70773 /* InferredConstraintsStrategy.swift */; };
-		F22EB21A2ADD8D3C00B70773 /* UIViewDSLEngineConstraintsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1022ADD8D3C00B70773 /* UIViewDSLEngineConstraintsProtocol.swift */; };
-		F22EB21B2ADD8D3C00B70773 /* InferredAttributesOwnerStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1032ADD8D3C00B70773 /* InferredAttributesOwnerStrategy.swift */; };
-		F22EB21C2ADD8D3C00B70773 /* UIViewDSL+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1042ADD8D3C00B70773 /* UIViewDSL+Subviews.swift */; };
-		F22EB21D2ADD8D3C00B70773 /* UIViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1052ADD8D3C00B70773 /* UIViewDSL.swift */; };
-		F22EB2DB2ADD8D3C00B70773 /* UIViewDSL+IBOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB20F2ADD8D3C00B70773 /* UIViewDSL+IBOutlet.swift */; };
+		F2FB748D2ADDEEA300A07B7F /* UIViewDSL+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB747E2ADDEEA300A07B7F /* UIViewDSL+Helper.swift */; };
+		F2FB748E2ADDEEA300A07B7F /* UIViewDSL+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB747F2ADDEEA300A07B7F /* UIViewDSL+Constraints.swift */; };
+		F2FB748F2ADDEEA300A07B7F /* UIViewDSL+ResultBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74802ADDEEA300A07B7F /* UIViewDSL+ResultBuilders.swift */; };
+		F2FB74902ADDEEA300A07B7F /* UIViewDSL+SwiftUIStyleStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74812ADDEEA300A07B7F /* UIViewDSL+SwiftUIStyleStacks.swift */; };
+		F2FB74912ADDEEA300A07B7F /* UIViewDSL+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74822ADDEEA300A07B7F /* UIViewDSL+Attributes.swift */; };
+		F2FB74922ADDEEA300A07B7F /* UIViewPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74832ADDEEA300A07B7F /* UIViewPreviews.swift */; };
+		F2FB74932ADDEEA300A07B7F /* UIViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74842ADDEEA300A07B7F /* UIViewDebug.swift */; };
+		F2FB74942ADDEEA300A07B7F /* UIViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F2FB74852ADDEEA300A07B7F /* UIViewKit.h */; };
+		F2FB74952ADDEEA300A07B7F /* InferredConstraintsStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74872ADDEEA300A07B7F /* InferredConstraintsStrategy.swift */; };
+		F2FB74962ADDEEA300A07B7F /* UIViewDSLEngineConstraintsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74882ADDEEA300A07B7F /* UIViewDSLEngineConstraintsProtocol.swift */; };
+		F2FB74972ADDEEA300A07B7F /* InferredAttributesOwnerStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74892ADDEEA300A07B7F /* InferredAttributesOwnerStrategy.swift */; };
+		F2FB74982ADDEEA300A07B7F /* UIViewDSL+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB748A2ADDEEA300A07B7F /* UIViewDSL+Subviews.swift */; };
+		F2FB74992ADDEEA300A07B7F /* UIViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB748B2ADDEEA300A07B7F /* UIViewDSL.swift */; };
+		F2FB749A2ADDEEA300A07B7F /* UIViewDSL+IBOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB748C2ADDEEA300A07B7F /* UIViewDSL+IBOutlet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F22EB0E92ADD8CFC00B70773 /* UIViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F22EB0F42ADD8D3C00B70773 /* UIViewDSL+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Helper.swift"; sourceTree = "<group>"; };
-		F22EB0F52ADD8D3C00B70773 /* UIViewDSL+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Constraints.swift"; sourceTree = "<group>"; };
-		F22EB0F62ADD8D3C00B70773 /* UIViewDSL+ResultBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+ResultBuilders.swift"; sourceTree = "<group>"; };
-		F22EB0F72ADD8D3C00B70773 /* UIViewKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = UIViewKit.xcodeproj; sourceTree = "<group>"; };
-		F22EB0FA2ADD8D3C00B70773 /* UIViewDSL+SwiftUIStyleStacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+SwiftUIStyleStacks.swift"; sourceTree = "<group>"; };
-		F22EB0FB2ADD8D3C00B70773 /* UIViewDSL+Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Attributes.swift"; sourceTree = "<group>"; };
-		F22EB0FC2ADD8D3C00B70773 /* UIViewPreviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewPreviews.swift; sourceTree = "<group>"; };
-		F22EB0FE2ADD8D3C00B70773 /* UIViewDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDebug.swift; sourceTree = "<group>"; };
-		F22EB0FF2ADD8D3C00B70773 /* UIViewKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewKit.h; sourceTree = "<group>"; };
-		F22EB1012ADD8D3C00B70773 /* InferredConstraintsStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InferredConstraintsStrategy.swift; sourceTree = "<group>"; };
-		F22EB1022ADD8D3C00B70773 /* UIViewDSLEngineConstraintsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDSLEngineConstraintsProtocol.swift; sourceTree = "<group>"; };
-		F22EB1032ADD8D3C00B70773 /* InferredAttributesOwnerStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InferredAttributesOwnerStrategy.swift; sourceTree = "<group>"; };
-		F22EB1042ADD8D3C00B70773 /* UIViewDSL+Subviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Subviews.swift"; sourceTree = "<group>"; };
-		F22EB1052ADD8D3C00B70773 /* UIViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDSL.swift; sourceTree = "<group>"; };
-		F22EB20F2ADD8D3C00B70773 /* UIViewDSL+IBOutlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBOutlet.swift"; sourceTree = "<group>"; };
+		F2FB747E2ADDEEA300A07B7F /* UIViewDSL+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Helper.swift"; sourceTree = "<group>"; };
+		F2FB747F2ADDEEA300A07B7F /* UIViewDSL+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Constraints.swift"; sourceTree = "<group>"; };
+		F2FB74802ADDEEA300A07B7F /* UIViewDSL+ResultBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+ResultBuilders.swift"; sourceTree = "<group>"; };
+		F2FB74812ADDEEA300A07B7F /* UIViewDSL+SwiftUIStyleStacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+SwiftUIStyleStacks.swift"; sourceTree = "<group>"; };
+		F2FB74822ADDEEA300A07B7F /* UIViewDSL+Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Attributes.swift"; sourceTree = "<group>"; };
+		F2FB74832ADDEEA300A07B7F /* UIViewPreviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewPreviews.swift; sourceTree = "<group>"; };
+		F2FB74842ADDEEA300A07B7F /* UIViewDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDebug.swift; sourceTree = "<group>"; };
+		F2FB74852ADDEEA300A07B7F /* UIViewKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewKit.h; sourceTree = "<group>"; };
+		F2FB74872ADDEEA300A07B7F /* InferredConstraintsStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InferredConstraintsStrategy.swift; sourceTree = "<group>"; };
+		F2FB74882ADDEEA300A07B7F /* UIViewDSLEngineConstraintsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDSLEngineConstraintsProtocol.swift; sourceTree = "<group>"; };
+		F2FB74892ADDEEA300A07B7F /* InferredAttributesOwnerStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InferredAttributesOwnerStrategy.swift; sourceTree = "<group>"; };
+		F2FB748A2ADDEEA300A07B7F /* UIViewDSL+Subviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Subviews.swift"; sourceTree = "<group>"; };
+		F2FB748B2ADDEEA300A07B7F /* UIViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDSL.swift; sourceTree = "<group>"; };
+		F2FB748C2ADDEEA300A07B7F /* UIViewDSL+IBOutlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBOutlet.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +55,7 @@
 		F22EB0DF2ADD8CFC00B70773 = {
 			isa = PBXGroup;
 			children = (
-				F22EB0F32ADD8D3C00B70773 /* UIViewKit */,
+				F2FB747D2ADDEEA300A07B7F /* UIViewKit */,
 				F22EB0EA2ADD8CFC00B70773 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,37 +68,32 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F22EB0F32ADD8D3C00B70773 /* UIViewKit */ = {
+		F2FB747D2ADDEEA300A07B7F /* UIViewKit */ = {
 			isa = PBXGroup;
 			children = (
-				F22EB0F42ADD8D3C00B70773 /* UIViewDSL+Helper.swift */,
-				F22EB0F52ADD8D3C00B70773 /* UIViewDSL+Constraints.swift */,
-				F22EB0F62ADD8D3C00B70773 /* UIViewDSL+ResultBuilders.swift */,
-				F22EB0F72ADD8D3C00B70773 /* UIViewKit.xcodeproj */,
-				F22EB0FA2ADD8D3C00B70773 /* UIViewDSL+SwiftUIStyleStacks.swift */,
-				F22EB0FB2ADD8D3C00B70773 /* UIViewDSL+Attributes.swift */,
-				F22EB0FC2ADD8D3C00B70773 /* UIViewPreviews.swift */,
-				F22EB0FE2ADD8D3C00B70773 /* UIViewDebug.swift */,
-				F22EB0FF2ADD8D3C00B70773 /* UIViewKit.h */,
-				F22EB1002ADD8D3C00B70773 /* AutoresizingStrategy */,
-				F22EB1042ADD8D3C00B70773 /* UIViewDSL+Subviews.swift */,
-				F22EB1052ADD8D3C00B70773 /* UIViewDSL.swift */,
-				F22EB20F2ADD8D3C00B70773 /* UIViewDSL+IBOutlet.swift */,
+				F2FB747E2ADDEEA300A07B7F /* UIViewDSL+Helper.swift */,
+				F2FB747F2ADDEEA300A07B7F /* UIViewDSL+Constraints.swift */,
+				F2FB74802ADDEEA300A07B7F /* UIViewDSL+ResultBuilders.swift */,
+				F2FB74812ADDEEA300A07B7F /* UIViewDSL+SwiftUIStyleStacks.swift */,
+				F2FB74822ADDEEA300A07B7F /* UIViewDSL+Attributes.swift */,
+				F2FB74832ADDEEA300A07B7F /* UIViewPreviews.swift */,
+				F2FB74842ADDEEA300A07B7F /* UIViewDebug.swift */,
+				F2FB74852ADDEEA300A07B7F /* UIViewKit.h */,
+				F2FB74862ADDEEA300A07B7F /* AutoresizingStrategy */,
+				F2FB748A2ADDEEA300A07B7F /* UIViewDSL+Subviews.swift */,
+				F2FB748B2ADDEEA300A07B7F /* UIViewDSL.swift */,
+				F2FB748C2ADDEEA300A07B7F /* UIViewDSL+IBOutlet.swift */,
 			);
 			name = UIViewKit;
+			path = Sources/UIViewKit;
 			sourceTree = "<group>";
 		};
-		F22EB0F82ADD8D3C00B70773 /* Products */ = {
-			isa = PBXGroup;
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F22EB1002ADD8D3C00B70773 /* AutoresizingStrategy */ = {
+		F2FB74862ADDEEA300A07B7F /* AutoresizingStrategy */ = {
 			isa = PBXGroup;
 			children = (
-				F22EB1012ADD8D3C00B70773 /* InferredConstraintsStrategy.swift */,
-				F22EB1022ADD8D3C00B70773 /* UIViewDSLEngineConstraintsProtocol.swift */,
-				F22EB1032ADD8D3C00B70773 /* InferredAttributesOwnerStrategy.swift */,
+				F2FB74872ADDEEA300A07B7F /* InferredConstraintsStrategy.swift */,
+				F2FB74882ADDEEA300A07B7F /* UIViewDSLEngineConstraintsProtocol.swift */,
+				F2FB74892ADDEEA300A07B7F /* InferredAttributesOwnerStrategy.swift */,
 			);
 			path = AutoresizingStrategy;
 			sourceTree = "<group>";
@@ -111,7 +105,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F22EB2182ADD8D3C00B70773 /* UIViewKit.h in Headers */,
+				F2FB74942ADDEEA300A07B7F /* UIViewKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,12 +155,6 @@
 			mainGroup = F22EB0DF2ADD8CFC00B70773;
 			productRefGroup = F22EB0EA2ADD8CFC00B70773 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = F22EB0F82ADD8D3C00B70773 /* Products */;
-					ProjectRef = F22EB0F72ADD8D3C00B70773 /* UIViewKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				F22EB0E82ADD8CFC00B70773 /* UIViewKit */,
@@ -189,19 +177,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F22EB2102ADD8D3C00B70773 /* UIViewDSL+Helper.swift in Sources */,
-				F22EB2152ADD8D3C00B70773 /* UIViewPreviews.swift in Sources */,
-				F22EB21C2ADD8D3C00B70773 /* UIViewDSL+Subviews.swift in Sources */,
-				F22EB21B2ADD8D3C00B70773 /* InferredAttributesOwnerStrategy.swift in Sources */,
-				F22EB2142ADD8D3C00B70773 /* UIViewDSL+Attributes.swift in Sources */,
-				F22EB2172ADD8D3C00B70773 /* UIViewDebug.swift in Sources */,
-				F22EB2192ADD8D3C00B70773 /* InferredConstraintsStrategy.swift in Sources */,
-				F22EB2DB2ADD8D3C00B70773 /* UIViewDSL+IBOutlet.swift in Sources */,
-				F22EB2132ADD8D3C00B70773 /* UIViewDSL+SwiftUIStyleStacks.swift in Sources */,
-				F22EB2112ADD8D3C00B70773 /* UIViewDSL+Constraints.swift in Sources */,
-				F22EB2122ADD8D3C00B70773 /* UIViewDSL+ResultBuilders.swift in Sources */,
-				F22EB21A2ADD8D3C00B70773 /* UIViewDSLEngineConstraintsProtocol.swift in Sources */,
-				F22EB21D2ADD8D3C00B70773 /* UIViewDSL.swift in Sources */,
+				F2FB74982ADDEEA300A07B7F /* UIViewDSL+Subviews.swift in Sources */,
+				F2FB74972ADDEEA300A07B7F /* InferredAttributesOwnerStrategy.swift in Sources */,
+				F2FB749A2ADDEEA300A07B7F /* UIViewDSL+IBOutlet.swift in Sources */,
+				F2FB74932ADDEEA300A07B7F /* UIViewDebug.swift in Sources */,
+				F2FB74962ADDEEA300A07B7F /* UIViewDSLEngineConstraintsProtocol.swift in Sources */,
+				F2FB748D2ADDEEA300A07B7F /* UIViewDSL+Helper.swift in Sources */,
+				F2FB74952ADDEEA300A07B7F /* InferredConstraintsStrategy.swift in Sources */,
+				F2FB74922ADDEEA300A07B7F /* UIViewPreviews.swift in Sources */,
+				F2FB74912ADDEEA300A07B7F /* UIViewDSL+Attributes.swift in Sources */,
+				F2FB74902ADDEEA300A07B7F /* UIViewDSL+SwiftUIStyleStacks.swift in Sources */,
+				F2FB748E2ADDEEA300A07B7F /* UIViewDSL+Constraints.swift in Sources */,
+				F2FB74992ADDEEA300A07B7F /* UIViewDSL.swift in Sources */,
+				F2FB748F2ADDEEA300A07B7F /* UIViewDSL+ResultBuilders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

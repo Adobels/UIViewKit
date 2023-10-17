@@ -17,7 +17,10 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "UIViewKit"
+            name: "UIViewKit",
+            exclude: [
+                "UIViewKit.h",
+            ]
         ),
         .target(
             name: "UIViewKitPreviewsDemo",
