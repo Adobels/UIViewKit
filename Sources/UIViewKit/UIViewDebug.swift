@@ -69,7 +69,7 @@ public struct UIViewDebug {
 
 extension UIViewDebug {
     
-    public func showViewsWhichHasAmbiguousLayout(for view: UIView) {
+    public static func showViewsWhichHasAmbiguousLayout(for view: UIView) {
         view.allSubviews.forEach { subview in
             if subview is DebugView {
                 subview.removeConstraints(subview.constraints)
