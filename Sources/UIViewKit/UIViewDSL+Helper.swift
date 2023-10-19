@@ -25,3 +25,30 @@ enum UIViewDSLHelper {
         subviews.forEach(adderFunction)
     }
 }
+
+extension UIViewController {
+
+    public func ibSetView<T: UIView>(with view: T, ibOutlet: inout T) {
+        ibOutlet = view
+        ibSetView(with: view)
+    }
+    
+    public func ibSetView(with view: UIView) {
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.frame = self.view.frame
+        view.layoutIfNeeded()
+        self.view = view
+    }
+}
+
+extension UIViewDSL where Self: UIView {
+    
+    @discardableResult
+    public func ibSetAsRootView(of controller: UIViewController) -> Self {
+        autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        frame = controller.view.frame
+        layoutIfNeeded()
+        controller.view = self
+        return self
+    }
+}
