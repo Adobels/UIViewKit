@@ -61,7 +61,7 @@ public class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
                     }
                 }
             }.ibAttributes {
-                ibConstraints(from: $0, to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
+                $0.ibConstraints(to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
             }
         }
     }

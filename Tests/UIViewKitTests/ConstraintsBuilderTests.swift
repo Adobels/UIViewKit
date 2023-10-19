@@ -13,29 +13,29 @@ class ConstraintsBuilderTests: XCTestCase {
     func test() throws {
         let view = UIView() { sv in
             UIView().ibAttributes {
-                ibConstraints(from: $0, to: sv, guide: .view, anchors: .top)
+                $0.ibConstraints(to: sv, guide: .view, anchors: .top)
                 if true {
-                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .left)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .left)
                 } else {
-                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .left)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .left)
                 }
                 if false {
-                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .right)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .right)
                 } else {
-                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .right)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .right)
                 }
                 if true {
-                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .bottom)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .bottom)
                 }
                 print()
                 $0.backgroundColor = .red
             }
             UIView().ibAttributes {
                 #if DEBUG
-                ibConstraints(from: $0, to: sv, guide: .view, anchors: .top)
+                $0.ibConstraints(to: sv, guide: .view, anchors: .top)
                 #endif
                 if let _ = Optional(true) {
-                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .bottom)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .bottom)
                 }
             }
         }
