@@ -19,6 +19,7 @@
 		F2FB74B82ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74AA2ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift */; };
 		F2FB74B92ADE7ECE00A07B7F /* UIViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74AB2ADE7ECE00A07B7F /* UIViewDSL.swift */; };
 		F2FB74BA2ADE7ECE00A07B7F /* UIViewDSL+IBOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74AC2ADE7ECE00A07B7F /* UIViewDSL+IBOutlet.swift */; };
+		F2FB74E42AE1932200A07B7F /* ViewInCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB74E32AE1932200A07B7F /* ViewInCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		F2FB74AA2ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Subviews.swift"; sourceTree = "<group>"; };
 		F2FB74AB2ADE7ECE00A07B7F /* UIViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDSL.swift; sourceTree = "<group>"; };
 		F2FB74AC2ADE7ECE00A07B7F /* UIViewDSL+IBOutlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBOutlet.swift"; sourceTree = "<group>"; };
+		F2FB74E32AE1932200A07B7F /* ViewInCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				F2FB749E2ADE7ECE00A07B7F /* UIViewDSL+Helper.swift */,
 				F2FB749F2ADE7ECE00A07B7F /* UIViewDSL+Constraints.swift */,
 				F2FB74A02ADE7ECE00A07B7F /* UIViewDSL+ResultBuilders.swift */,
+				F2FB74E32AE1932200A07B7F /* ViewInCode.swift */,
 				F2FB74A12ADE7ECE00A07B7F /* UIViewDSL+SwiftUIStyleStacks.swift */,
 				F2FB74A22ADE7ECE00A07B7F /* UIViewDSL+Attributes.swift */,
 				F2FB74A42ADE7ECE00A07B7F /* UIViewDebug.swift */,
@@ -170,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2FB74E42AE1932200A07B7F /* ViewInCode.swift in Sources */,
 				F2FB74B82ADE7ECE00A07B7F /* UIViewDSL+Subviews.swift in Sources */,
 				F2FB74B72ADE7ECE00A07B7F /* InferredAttributesOwnerStrategy.swift in Sources */,
 				F2FB74BA2ADE7ECE00A07B7F /* UIViewDSL+IBOutlet.swift in Sources */,
