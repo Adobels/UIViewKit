@@ -40,6 +40,12 @@ class InferredConstraintsStrategy: UIViewDSLEngineConstraintsProtocol {
         activateAutoLayout()
     }
     
+    #if DEBUG
+    var constraintsToApplyForDebug: [(UIView, [NSLayoutConstraint])] {
+        constraintsToApply
+    }
+    #endif
+    
     // MARK: - Initializer Methods
     
     init() { }

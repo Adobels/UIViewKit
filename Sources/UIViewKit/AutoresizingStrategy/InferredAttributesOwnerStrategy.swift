@@ -40,6 +40,12 @@ public class InferredAttributesOwnerStrategy: UIViewDSLEngineConstraintsProtocol
         activateAutoLayout()
     }
     
+    #if DEBUG
+    public var constraintsToApplyForDebug: [(UIView, [NSLayoutConstraint])] {
+        constraintsToApply
+    }
+    #endif
+    
     // MARK: - Initializer Methods
     
     public init() { }

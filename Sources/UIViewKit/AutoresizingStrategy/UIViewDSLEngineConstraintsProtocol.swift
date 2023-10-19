@@ -12,4 +12,7 @@ public protocol UIViewDSLEngineConstraintsProtocol: AnyObject {
     func ibSubviewsWillExecute(on rootView: UIView)
     func ibSubviewsDidExecute(on rootView: UIView)
     func ibAttributesDidExecute(on rootView: UIView)
+    #if DEBUG
+    var constraintsToApplyForDebug: [(UIView, [NSLayoutConstraint])] { get }
+    #endif
 }
