@@ -28,8 +28,8 @@ enum UIViewDSLHelper {
 
 extension UIViewController {
 
-    public func ibSetView<T: UIView>(with view: T, ibOutlet: inout T) {
-        ibOutlet = view
+    public func ibSetView<T: UIView>(with view: T, ibOutlet outlet: inout T?) {
+        outlet = view
         ibSetView(with: view)
     }
     
