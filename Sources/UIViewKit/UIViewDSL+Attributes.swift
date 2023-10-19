@@ -13,6 +13,13 @@ extension UIViewDSL where Self: UIView {
     @discardableResult
     public func ibAttributes(@NSLayoutConstraintBuilder _ block: (Self) -> [NSLayoutConstraint]) -> Self {
         let constraintsGenerated = block(self)
+        #if DEBUG
+        UIViewDSLEngine.shared.constraintsToApplyForDebug.forEach {
+            if $0.0 == self {
+                fatalError(Thread.callStackSymbols.debugDescription)
+            }
+        }
+        #endif
         UIViewDSLEngine.shared.addConstraints(for: self, constraints: constraintsGenerated)
         return self
     }
