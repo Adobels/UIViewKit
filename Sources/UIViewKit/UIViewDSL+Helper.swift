@@ -26,17 +26,17 @@ enum UIViewDSLHelper {
     }
 }
 
-extension UIViewController {
-
-    public func ibSetView<T: UIView>(with view: T, ibOutlet outlet: inout T?) {
-        ibSetView(with: view)
-        outlet = view
-    }
+extension UIViewDSL {
     
-    public func ibSetView(with view: UIView) {
+    @discardableResult
+    public func ibSetAsRootView(of controller: UIViewController) -> Self {
+        guard let view = self as? UIView else {
+            fatalError()
+        }
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.frame = self.view.frame
+        view.frame = controller.view.frame
         view.layoutIfNeeded()
-        self.view = view
+        controller.view = view
+        return self
     }
 }
