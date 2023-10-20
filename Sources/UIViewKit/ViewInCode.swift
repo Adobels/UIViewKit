@@ -20,5 +20,3 @@ open class ViewInCode: UIView {
     
     open func createView() { }
 }
-
-open class RootViewInCode: ViewInCode { }
