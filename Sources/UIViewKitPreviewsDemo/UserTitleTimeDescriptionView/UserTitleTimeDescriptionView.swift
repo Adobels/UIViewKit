@@ -20,18 +20,18 @@ public class UserTitleTimeDescriptionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self {
-            HorizontalStack(spacing: 12, alignment: .top) {
+            UIStackView(axis: .horizontal, spacing: 12, alignment: .top) {
                 UIImageView().ibOutlet(&imageViewUser).ibAttributes {
                     $0.widthAnchor.constraint(equalToConstant: 60)
                     $0.heightAnchor.constraint(equalToConstant: 60)
                     $0.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
                 }
-                VerticalStack() {
-                    HorizontalStack(spacing: 8, alignment: .center) {
+                UIStackView(axis: .vertical) {
+                    UIStackView(axis: .horizontal, spacing: 8, alignment: .center) {
                         UILabel().ibOutlet(&labelTitle).ibAttributes {
                             $0.font = .systemFont(ofSize: 20, weight: .semibold)
                         }
-                        HorizontalStack(spacing: 8) {
+                        UIStackView(axis: .horizontal, spacing: 8) {
                             UILabel().ibOutlet(&labelTime).ibAttributes {
                                 $0.textColor = .systemGray
                                 $0.font = .systemFont(ofSize: 15, weight: .semibold)
@@ -62,7 +62,7 @@ public class UserTitleTimeDescriptionView: UIView {
                     }
                 }
             }.ibAttributes {
-                IBConstraints(from: $0, to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
+                $0.ibConstraints(to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
             }
         }
     }

@@ -66,3 +66,42 @@ public struct UIViewDebug {
         print(prettyStringAllSubviews(of: view, includeItself: includeItself, includeUIKitPrivateViews: includeUIKitPrivateViews), separator: "\n")
     }
 }
+
+extension UIViewDebug {
+    
+    public static func showViewsWhichHasAmbiguousLayout(for view: UIView) {
+        view.allSubviews.forEach { subview in
+            if subview is DebugView {
+                subview.removeConstraints(subview.constraints)
+                subview.removeFromSuperview()
+            }
+            if subview.hasAmbiguousLayout {
+                let debugView = DebugView()
+                subview.addSubview(debugView)
+                debugView.frame = .init(origin: .zero, size: subview.frame.size)
+            }
+        }
+    }
+
+    class DebugView: UIView {
+
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            backgroundColor = .red.withAlphaComponent(0.5)
+            isUserInteractionEnabled = false
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError()
+        }
+    }
+}
+
+extension UIView {
+
+    var allSubviews: [UIView] {
+        subviews.flatMap {
+            [$0] + $0.allSubviews
+        }
+    }
+}

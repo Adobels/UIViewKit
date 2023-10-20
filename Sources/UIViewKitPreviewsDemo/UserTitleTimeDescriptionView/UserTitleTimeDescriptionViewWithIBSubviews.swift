@@ -19,18 +19,18 @@ public class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
         super.init(frame: frame)
         
         self.ibSubviews {
-            HorizontalStack(spacing: 12, alignment: .top).ibSubviews {
+            UIStackView(axis: .horizontal, spacing: 12, alignment: .top).ibSubviews {
                 UIImageView().ibOutlet(&imageViewUser).ibAttributes {
                     $0.widthAnchor.constraint(equalToConstant: 60)
                     $0.heightAnchor.constraint(equalToConstant: 60)
                     $0.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
                 }
-                VerticalStack().ibSubviews {
-                    HorizontalStack(spacing: 8, alignment: .center).ibSubviews {
+                UIStackView().ibSubviews {
+                    UIStackView(axis: .horizontal, spacing: 8, alignment: .center).ibSubviews {
                         UILabel().ibOutlet(&labelTitle).ibAttributes {
                             $0.font = .systemFont(ofSize: 20, weight: .semibold)
                         }
-                        HorizontalStack(spacing: 8).ibSubviews {
+                        UIStackView(axis: .horizontal, spacing: 8).ibSubviews {
                             UILabel().ibOutlet(&labelTime).ibAttributes {
                                 $0.textColor = .systemGray
                                 $0.font = .systemFont(ofSize: 15, weight: .semibold)
@@ -61,7 +61,7 @@ public class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
                     }
                 }
             }.ibAttributes {
-                IBConstraints(from: $0, to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
+                $0.ibConstraints(to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
             }
         }
     }

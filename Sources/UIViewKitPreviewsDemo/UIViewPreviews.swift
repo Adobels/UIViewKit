@@ -7,7 +7,7 @@
 
 import SwiftUI
 @available(iOS 13.0, *)
-public struct ViewControllerPreview<ViewController: UIViewController>: UIViewControllerRepresentable {
+struct ViewControllerPreview<ViewController: UIViewController>: UIViewControllerRepresentable {
 
     public var viewController: ViewController
     
@@ -29,7 +29,7 @@ public struct ViewControllerPreview<ViewController: UIViewController>: UIViewCon
 
 import SwiftUI
 @available(iOS 13.0, *)
-public struct ViewPreview<View: UIView>: UIViewRepresentable {
+struct ViewPreview<View: UIView>: UIViewRepresentable {
     
     public var view: UIView
 

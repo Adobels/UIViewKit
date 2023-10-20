@@ -24,56 +24,32 @@ extension UIStackView {
     }
 }
 
-public class HorizontalStack: UIStackView {
-    
-    @available(*, unavailable)
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+public func HorizontalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) -> UIStackView {
+    let stackView = UIStackView()
+    stackView.axis = .horizontal
+    if let alignment {
+        stackView.alignment = alignment
     }
-    
-    public required override init(frame: CGRect) {
-        super.init(frame: frame)
-        axis = .horizontal
+    if let distribution {
+        stackView.distribution = distribution
     }
-    
-    public init(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
-        self.init()
-        self.axis = .horizontal
-        if let alignment {
-            self.alignment = alignment
-        }
-        if let distribution {
-            self.distribution = distribution
-        }
-        if let spacing {
-            self.spacing = spacing
-        }
+    if let spacing {
+        stackView.spacing = spacing
     }
+    return stackView
 }
 
-public class VerticalStack: UIStackView {
-    
-    @available(*, unavailable)
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+public func VerticalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) -> UIStackView {
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    if let alignment {
+        stackView.alignment = alignment
     }
-    
-    public required override init(frame: CGRect) {
-        super.init(frame: frame)
-        axis = .vertical
+    if let distribution {
+        stackView.distribution = distribution
     }
-
-    public init(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {
-        self.init()
-        self.axis = .vertical
-        if let alignment {
-            self.alignment = alignment
-        }
-        if let distribution {
-            self.distribution = distribution
-        }
-        if let spacing {
-            self.spacing = spacing
-        }
+    if let spacing {
+        stackView.spacing = spacing
     }
+    return stackView
 }

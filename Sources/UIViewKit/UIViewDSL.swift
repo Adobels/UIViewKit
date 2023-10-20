@@ -55,6 +55,12 @@ public class UIViewDSLEngine {
         }
     }
     
+    #if DEBUG
+    var constraintsToApplyForDebug: [(UIView, [NSLayoutConstraint])] {
+        delegate!.constraintsToApplyForDebug
+    }
+    #endif
+    
     // MARK: - Private Methods
     
     private func setupDefaultDelegate() {
