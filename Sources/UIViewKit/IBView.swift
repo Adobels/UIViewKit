@@ -1,5 +1,5 @@
 //
-//  ViewInCode.swift
+//  IBView.swift
 //  UIViewKit
 //
 //  Created by MaxAir on 19/10/2023.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-open class ViewInCode: UIView {
+open class IBView: UIView {
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        createView()
+        createView(frame: frame)
     }
     
     required public init?(coder: NSCoder) {
         fatalError()
     }
     
-    open func createView() { }
+    open func createView(frame: CGRect) { }
 }

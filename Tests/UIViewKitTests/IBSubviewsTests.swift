@@ -63,5 +63,14 @@ class IBSubviewsTests: XCTestCase {
             UILabel()
         }
     }
-
+    
+    func testIBSubviewsWithForEach() throws {
+        let subviews = [
+            UILabel(),
+            UIView()
+        ]
+        _ = UIStackView() {
+            subviews.filter { _ =  $0; return true }
+        }
+    }
 }
