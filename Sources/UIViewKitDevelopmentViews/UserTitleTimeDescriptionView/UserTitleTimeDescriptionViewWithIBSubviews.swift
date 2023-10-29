@@ -1,5 +1,5 @@
 //
-//  UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView.swift
+//  UserTitleTimeDescriptionViewWithIBSubviews.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 18/09/2023.
@@ -8,7 +8,7 @@
 import UIKit
 import UIViewKit
 
-public class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView {
+public class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
     
     var imageViewUser: UIImageView!
     var labelTime: UILabel!
@@ -18,19 +18,19 @@ public class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.ibSubviews { _ in
-            UIStackView(axis: .horizontal, spacing: 12, alignment: .top).ibSubviews { _ in
+        self.ibSubviews {
+            UIStackView(axis: .horizontal, spacing: 12, alignment: .top).ibSubviews {
                 UIImageView().ibOutlet(&imageViewUser).ibAttributes {
                     $0.widthAnchor.constraint(equalToConstant: 60)
                     $0.heightAnchor.constraint(equalToConstant: 60)
                     $0.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
                 }
-                UIStackView().ibSubviews { _ in
-                    UIStackView(axis: .horizontal, spacing: 8, alignment: .center).ibSubviews { _ in
+                UIStackView(axis: .vertical).ibSubviews {
+                    UIStackView(axis: .horizontal, spacing: 8, alignment: .center).ibSubviews {
                         UILabel().ibOutlet(&labelTitle).ibAttributes {
                             $0.font = .systemFont(ofSize: 20, weight: .semibold)
                         }
-                        UIStackView(axis: .horizontal, spacing: 8).ibSubviews { _ in
+                        UIStackView(axis: .horizontal, spacing: 8).ibSubviews {
                             UILabel().ibOutlet(&labelTime).ibAttributes {
                                 $0.textColor = .systemGray
                                 $0.font = .systemFont(ofSize: 15, weight: .semibold)
@@ -73,10 +73,10 @@ public class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView
 
 import SwiftUI
 
-struct UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewViewPreviews: PreviewProvider {
+struct UserTitleTimeDescriptionViewWithIBSubviewsPreviews: PreviewProvider {
     static var previews: some View {
-        ViewPreview(
-            UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView().ibAttributes {
+        IBRepresentableForView(
+            UserTitleTimeDescriptionViewWithIBSubviews().ibAttributes {
                 $0.imageViewUser.image = .init(systemName: "person.circle")
                 $0.labelTitle.text = "Amanda Clarke"
                 $0.labelTime.text = "1:08 PM"

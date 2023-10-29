@@ -47,7 +47,7 @@ import SwiftUI
 @available(iOS 14.0, *)
 struct TestViewPreviews: PreviewProvider {
     static var previews: some View {
-        ViewPreview(TestView()).ignoresSafeArea()
+        IBRepresentableForView(TestView()).ignoresSafeArea()
     }
 }
 

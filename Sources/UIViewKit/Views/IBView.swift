@@ -20,6 +20,7 @@ open class IBView: UIView {
     
     open func createView(frame: CGRect) { }
 }
+<<<<<<< HEAD
 
 extension UILabel {
     
@@ -28,3 +29,5 @@ extension UILabel {
         self.text = text
     }
 }
+=======
+>>>>>>> 9b80acd (add IBScrollView)

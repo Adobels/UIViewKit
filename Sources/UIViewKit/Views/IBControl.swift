@@ -1,13 +1,13 @@
 //
-//  IBView.swift
+//  IBControl.swift
 //  UIViewKit
 //
-//  Created by MaxAir on 19/10/2023.
+//  Created by Blazej SLEBODA on 12/11/2023.
 //
 
 import UIKit
 
-open class IBView: UIView {
+open class IBControl: UIControl {
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
