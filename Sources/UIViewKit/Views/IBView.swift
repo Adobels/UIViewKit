@@ -2,7 +2,7 @@
 //  IBView.swift
 //  UIViewKit
 //
-//  Created by MaxAir on 19/10/2023.
+//  Created by Blazej SLEBODA on 19/10/2023.
 //
 
 import UIKit
@@ -19,4 +19,12 @@ open class IBView: UIView {
     }
     
     open func createView(frame: CGRect) { }
+}
+
+extension UILabel {
+    
+    public convenience init(_ text: String) {
+        self.init(frame: .zero)
+        self.text = text
+    }
 }
