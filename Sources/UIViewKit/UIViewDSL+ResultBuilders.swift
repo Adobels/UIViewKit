@@ -1,6 +1,6 @@
 //
 //  UIViewDSL+ResultBuilders.swift
-//
+//  UIViewKit
 //
 //  Created by Blazej SLEBODA on 29/09/2023.
 //
@@ -68,10 +68,6 @@ public enum NSLayoutConstraintBuilder {
     
     public static func buildExpression(_ expression: [NSLayoutConstraint]) -> [NSLayoutConstraint] {
         expression
-    }
-    
-    public static func buildExpression(_ expression: Void) -> [NSLayoutConstraint] {
-        []
     }
 
     public static func buildExpression(_ expression: Any?) -> [NSLayoutConstraint] {

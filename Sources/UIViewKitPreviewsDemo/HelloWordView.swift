@@ -27,12 +27,9 @@ public class HelloWordView: UIView {
 
 #if DEBUG
 
-import SwiftUI
-
-struct HelloWordViewPreviews: PreviewProvider {
-    static var previews: some View {
-        ViewPreview(HelloWordView())
-    }
+@available(iOS 17.0, *)
+#Preview("Default") {
+    HelloWordView()
 }
 
 #endif

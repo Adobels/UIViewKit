@@ -1,8 +1,8 @@
 //
-//  File.swift
-//  
+//  UIViewDSL+Helper.swift
+//  UIViewKit
 //
-//  Created by MaxAir on 29/09/2023.
+//  Created by Blazej SLEBODA on 29/09/2023.
 //
 
 import UIKit
@@ -10,7 +10,21 @@ import UIKit
 enum UIViewDSLHelper {
  
     static func involvesOwnerView(_ owner: UIView, in constraint: NSLayoutConstraint) -> Bool {
-        (constraint.firstItem as? UIView) == owner || (constraint.secondItem as? UIView) == owner
+        var ownerView: [UIView] = []
+        
+        if let layoutGuide = constraint.firstItem as? UILayoutGuide, let owningView = layoutGuide.owningView {
+            ownerView.append(owningView)
+        }
+        if let layoutGuide = constraint.secondItem as? UILayoutGuide, let owningView = layoutGuide.owningView {
+            ownerView.append(owningView)
+        }
+        if let owningView = constraint.firstItem as? UIView {
+            ownerView.append(owningView)
+        }
+        if let owningView = constraint.secondItem as? UIView {
+            ownerView.append(owningView)
+        }
+        return ownerView.contains(where: { $0 == owner } )
     }
 
     static func addSubviews(_ subviews: [UIView], to target: UIView) {
