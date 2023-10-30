@@ -10,11 +10,11 @@ import UIKit
 @MainActor
 extension UIViewDSL where Self: UIView {
 
-    @discardableResult
-    public func ibSubviews(@UIViewBuilder _ content: () -> [UIView]) -> Self {
-        UIViewDSLEngine.shared.addSubviews(content, to: self)
-        return self
-    }
+//    @discardableResult
+//    public func ibSubviews(@UIViewBuilder _ content: () -> [UIView]) -> Self {
+//        UIViewDSLEngine.shared.addSubviews(content, to: self)
+//        return self
+//    }
     
     @discardableResult
     public func ibSubviews(@UIViewBuilder _ content: (Self) -> [UIView]) -> Self {
