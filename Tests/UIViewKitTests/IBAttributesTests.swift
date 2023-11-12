@@ -8,12 +8,11 @@
 import XCTest
 @testable import UIViewKit
 
-
 @MainActor
 class IBAttributesTests: XCTestCase {
-    
+
     func testLabelText() throws {
-        _ = UIView() {
+        _ = UIView {
             ViewWithLabel().ibAttributes {
                 print($0)
                 $0.font = .italicSystemFont(ofSize: 20)
@@ -23,10 +22,10 @@ class IBAttributesTests: XCTestCase {
     }
 }
 
-fileprivate class ViewWithLabel: IBView {
-    
+private class ViewWithLabel: IBView {
+
     var font: UIFont!
-    
+
     override func createView(frame: CGRect) {
         super.createView(frame: frame)
         self {

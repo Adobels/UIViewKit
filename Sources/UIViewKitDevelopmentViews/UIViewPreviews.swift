@@ -10,37 +10,36 @@ import SwiftUI
 struct IBRepresentableForViewController<ViewController: UIViewController>: UIViewControllerRepresentable {
 
     public var viewController: ViewController
-    
+
     public init(_ viewController: @escaping @autoclosure () -> ViewController) {
         self.viewController = viewController()
     }
-    
+
     public init(_ viewController: @escaping () -> ViewController) {
         self.viewController = viewController()
     }
-    
+
     public func makeUIViewController(context: Context) -> UIViewController {
         viewController
     }
-    
+
     public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
-    
+
 }
 
-import SwiftUI
 @available(iOS 13.0, *)
 struct IBRepresentableForView<View: UIView>: UIViewRepresentable {
-    
+
     public var view: UIView
 
     public init(_ view: @escaping @autoclosure () -> UIView) {
         self.view = view()
     }
-    
+
     public init(_ view: @escaping () -> UIView) {
         self.view = view()
     }
-    
+
     public func makeUIView(context: Context) -> UIView {
         let rootView = UIView(); rootView {
             view.ibAttributes {
@@ -56,6 +55,6 @@ struct IBRepresentableForView<View: UIView>: UIViewRepresentable {
         rootView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         return rootView
     }
-    
+
     public func updateUIView(_ uiView: UIView, context: Context) { }
 }

@@ -8,11 +8,12 @@
 import XCTest
 @testable import UIViewKit
 
+// swiftlint:disable type_body_length
 @MainActor
 class ProTests: XCTestCase {
-    
+
     private typealias SUT = UIView
-    
+
     func testSingleSut() throws {
             let rootView = SUT()
             var sut: SUT!
@@ -244,7 +245,6 @@ class ProTests: XCTestCase {
             var label2: UILabel!
             var label3: UILabel!
 
-            // swiftlint:disable discouraged_debugprint
             rootView.ibSubviews {
                 SUT().ibOutlet(&sut).ibSubviews {
                     debugPrint()
@@ -265,7 +265,6 @@ class ProTests: XCTestCase {
                     }
                 }
             }
-            // swiftlint:enable discouraged_debugprint
 
             XCTAssertTrue(sut.subviews[.zero] is UIStackView)
             XCTAssertEqual(sut.subviews[.zero].subviews.count, 2)
@@ -309,3 +308,4 @@ class ProTests: XCTestCase {
             XCTAssertTrue(try XCTUnwrap( UIViewDSLEngine.shared.constraintsToApplyForDebug.isEmpty))
         }
 }
+// swiftlint:enable type_body_length

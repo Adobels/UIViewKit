@@ -15,13 +15,13 @@ extension UIViewDSL where Self: UIView {
         outlet = self
         return self
     }
-    
+
     @discardableResult
     public func ibOutlet(_ outlet: inout Self) -> Self {
         outlet = self
         return self
     }
-    
+
     @discardableResult
     public func ibOutlet(in outlet: inout [Self]) -> Self {
         outlet.append(self)

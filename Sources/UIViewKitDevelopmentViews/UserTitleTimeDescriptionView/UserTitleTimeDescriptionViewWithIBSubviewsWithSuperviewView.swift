@@ -9,15 +9,15 @@ import UIKit
 import UIViewKit
 
 public class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView {
-    
+
     var imageViewUser: UIImageView!
     var labelTime: UILabel!
     var labelTitle: UILabel!
     var labelDescription: UILabel!
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         self.ibSubviews { _ in
             UIStackView(axis: .horizontal, spacing: 12, alignment: .top).ibSubviews { _ in
                 UIImageView().ibOutlet(&imageViewUser).ibAttributes {
@@ -65,7 +65,7 @@ public class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView
             }
         }
     }
-    
+
     required init?(coder: NSCoder) { fatalError() }
 }
 

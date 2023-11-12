@@ -8,7 +8,7 @@
 import UIKit.NSLayoutConstraint
 
 extension UIView {
-    
+
     public func ibConstraints(to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
         generateConstraints(from: self, to: to, guide: guide, anchors: anchors)
     }
@@ -26,27 +26,27 @@ func generateConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: 
 }
 
 extension NSLayoutConstraint {
-    
+
     static public func ibActivate(@NSLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
         NSLayoutConstraint.activate(block())
     }
-    
+
     static public func ibActivateConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) {
         activate(generateConstraints(from: from, to: to, guide: guide, anchors: anchors))
     }
-    
+
     @discardableResult
     public func ibPriority(_ priority: UILayoutPriority) -> Self {
         self.priority = priority
         return self
     }
-    
+
     @discardableResult
     public func ibOutlet(_ outlet: inout NSLayoutConstraint?) -> Self {
         outlet = self
         return self
     }
-    
+
     @discardableResult
     public func ibOutlet(_ outlet: inout NSLayoutConstraint) -> Self {
         outlet = self
@@ -56,7 +56,8 @@ extension NSLayoutConstraint {
 
 func generateConstraints(from view: UIView, to target: Any, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
     var constraints: [NSLayoutConstraint] = []
-    
+
+    // swiftlint:disable force_cast
     for anchor in anchors {
         switch anchor {
         case .left(let value):
@@ -79,7 +80,7 @@ func generateConstraints(from view: UIView, to target: Any, anchors: [ViewAnchor
             constraints.append(contentsOf: generateConstraints(from: view, to: target, anchors: [.top, .bottom, .left, .right]))
         }
     }
-    
+    // swiftlint:enable force_cast
     return constraints
 }
 
@@ -99,7 +100,7 @@ public enum ViewAnchor {
     case leading(CGFloat)
     case trailing(CGFloat)
     case all
-    
+
     static public var left: ViewAnchor { return .left(.zero) }
     static public var right: ViewAnchor { return .right(.zero) }
     static public var top: ViewAnchor { return .top(.zero) }

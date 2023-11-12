@@ -15,27 +15,26 @@ extension UIViewDSL where Self: UIView {
         UIViewDSLEngine.shared.addSubviews(content, to: self)
         return self
     }
-    
+
     @discardableResult
     public func ibSubviews(@UIViewBuilder _ content: (Self) -> [UIView]) -> Self {
         let contentWrapper: (UIView) -> [UIView] = { arg1 in
-            content(arg1 as! Self)
+            content(arg1 as! Self) // swiftlint:disable:this force_cast
         }
         UIViewDSLEngine.shared.addSubviews(contentWrapper, to: self)
         return self
     }
-    
-    
+
     @discardableResult
     public func callAsFunction(@UIViewBuilder _ content: () -> [UIView]) -> Self {
         UIViewDSLEngine.shared.addSubviews(content, to: self)
         return self
     }
-    
+
     @discardableResult
     public func callAsFunction(@UIViewBuilder _ content: (Self) -> [UIView]) -> Self {
         let contentWrapper: (UIView) -> [UIView] = { arg1 in
-            content(arg1 as! Self)
+            content(arg1 as! Self) // swiftlint:disable:this force_cast
         }
         UIViewDSLEngine.shared.addSubviews(contentWrapper, to: self)
         return self

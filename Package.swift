@@ -6,11 +6,11 @@ import PackageDescription
 let package = Package(
     name: "UIViewKit",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v13)
     ],
     products: [
         .library(name: "UIViewKit", targets: ["UIViewKit"]),
-        .library(name: "UIViewKitDevelopmentViews", targets: ["UIViewKitDevelopmentViews"]),
+        .library(name: "UIViewKitDevelopmentViews", targets: ["UIViewKitDevelopmentViews"])
     ],
     targets: [
         .target(
@@ -22,6 +22,6 @@ let package = Package(
         ),
         .testTarget(
             name: "UIViewKitTests",
-            dependencies: ["UIViewKit", "UIViewKitDevelopmentViews"]),
+            dependencies: ["UIViewKit", "UIViewKitDevelopmentViews"])
     ]
 )

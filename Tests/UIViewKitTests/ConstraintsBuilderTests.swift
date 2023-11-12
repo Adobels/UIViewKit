@@ -11,7 +11,7 @@ import XCTest
 @MainActor
 class ConstraintsBuilderTests: XCTestCase {
     func test() throws {
-        let view = UIView() { sv in
+        let view = UIView { sv in
             UIView().ibAttributes {
                 $0.ibConstraints(to: sv, guide: .view, anchors: .top)
                 if true {
@@ -34,7 +34,7 @@ class ConstraintsBuilderTests: XCTestCase {
                 #if DEBUG
                 $0.ibConstraints(to: sv, guide: .view, anchors: .top)
                 #endif
-                if let _ = Optional(true) {
+                if Optional(true) != nil {
                     $0.ibConstraints(to: sv, guide: .view, anchors: .bottom)
                 }
             }

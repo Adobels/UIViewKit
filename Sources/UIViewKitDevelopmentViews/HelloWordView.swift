@@ -9,9 +9,9 @@ import UIKit
 import UIViewKit
 
 public class HelloWordView: UIView {
-    
+
     var label: UILabel!
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self {
@@ -21,7 +21,7 @@ public class HelloWordView: UIView {
             }
         }
     }
-    
+
     required init?(coder: NSCoder) { fatalError() }
 }
 

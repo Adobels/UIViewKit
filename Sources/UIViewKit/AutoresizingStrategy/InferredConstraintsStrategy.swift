@@ -8,12 +8,11 @@
 import UIKit
 
 class InferredConstraintsStrategy: UIViewDSLEngineConstraintsProtocol {
-    
-    
+
     // MARK: - Private Properties
 
     private var constraintsToApply: [(UIView, [NSLayoutConstraint])] = []
-    
+
     // MARK: - UIViewDSLEngineConstraintsProtocol Methods
 
     func ibSubviewsWillExecute(on rootView: UIView) {
@@ -21,11 +20,11 @@ class InferredConstraintsStrategy: UIViewDSLEngineConstraintsProtocol {
             fatalError("Attempted to begin subviews definition while constraintsToApply is not empty. This indicates that there may have been a previous incomplete or erroneous subviews definition process.")
         }
     }
-    
+
     func ibSubviewsDidExecute(on rootView: UIView) {
         activateAutoLayout()
     }
-    
+
     func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint]) {
         guard !constraints.isEmpty else { return }
         constraints.forEach {
@@ -35,26 +34,26 @@ class InferredConstraintsStrategy: UIViewDSLEngineConstraintsProtocol {
         }
         constraintsToApply.append((owner, constraints))
     }
-    
+
     func ibAttributesDidExecute(on rootView: UIView) {
         activateAutoLayout()
     }
-    
+
     #if DEBUG
     var constraintsToApplyForDebug: [(UIView, [NSLayoutConstraint])] {
         constraintsToApply
     }
     #endif
-    
+
     // MARK: - Initializer Methods
-    
+
     init() { }
-    
+
     // MARK: - Private Methods
-    
+
     private func activateAutoLayout() {
         var allConstraints: [NSLayoutConstraint] = []
-        constraintsToApply.forEach { owner, constraints in
+        constraintsToApply.forEach { _, constraints in
             allConstraints.append(contentsOf: constraints)
             for constraint in constraints {
                 if let firstView = constraint.firstItem as? UIView {

@@ -10,7 +10,7 @@ import XCTest
 @testable import UIViewKitPreviewsDemo
 
 class UserTitleTimeDescriptionViewTests: XCTestCase {
-    
+
     func testUserTitleTimeDescriptionView() throws {
         let sut = UserTitleTimeDescriptionView()
         XCTAssertNotNil(sut.labelTitle)
@@ -18,7 +18,7 @@ class UserTitleTimeDescriptionViewTests: XCTestCase {
         XCTAssertNotNil(sut.labelDescription)
         XCTAssertNotNil(sut.imageViewUser)
     }
-    
+
     func testUserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView() throws {
         let sut = UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView()
         XCTAssertNotNil(sut.labelTitle)
@@ -26,7 +26,7 @@ class UserTitleTimeDescriptionViewTests: XCTestCase {
         XCTAssertNotNil(sut.labelDescription)
         XCTAssertNotNil(sut.imageViewUser)
     }
-    
+
     func testUserTitleTimeDescriptionViewWithIBSubviews() throws {
         let sut = UserTitleTimeDescriptionViewWithIBSubviews()
         XCTAssertNotNil(sut.labelTitle)

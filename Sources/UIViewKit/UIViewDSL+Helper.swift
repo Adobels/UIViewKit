@@ -8,10 +8,10 @@
 import UIKit
 
 enum UIViewDSLHelper {
- 
+
     static func involvesOwnerView(_ owner: UIView, in constraint: NSLayoutConstraint) -> Bool {
         var ownerView: [UIView] = []
-        
+
         if let layoutGuide = constraint.firstItem as? UILayoutGuide, let owningView = layoutGuide.owningView {
             ownerView.append(owningView)
         }
@@ -24,24 +24,24 @@ enum UIViewDSLHelper {
         if let owningView = constraint.secondItem as? UIView {
             ownerView.append(owningView)
         }
-        return ownerView.contains(where: { $0 == owner } )
+        return ownerView.contains(where: { $0 == owner })
     }
 
     static func addSubviews(_ subviews: [UIView], to target: UIView) {
         let adderFunction: (UIView) -> Void
-        
+
         if let stackView = target as? UIStackView {
             adderFunction = stackView.addArrangedSubview(_:)
         } else {
             adderFunction = target.addSubview(_:)
         }
-        
+
         subviews.forEach(adderFunction)
     }
 }
 
 extension UIViewDSL {
-    
+
     @discardableResult
     public func ibSetAsRootView(of controller: UIViewController) -> Self {
         guard let view = self as? UIView else {

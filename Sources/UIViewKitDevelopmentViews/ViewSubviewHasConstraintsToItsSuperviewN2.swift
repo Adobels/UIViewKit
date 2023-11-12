@@ -9,10 +9,10 @@ import UIKit
 import UIViewKit
 
 class TestView: UIView {
-    
+
     var view2: UIView = .init()
     var view3: UIView = .init()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self {
@@ -34,7 +34,7 @@ class TestView: UIView {
         }
         UIViewDebug.showFrames(of: self, includeGivenView: true, includeUIKitPrivateViews: false)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError()
     }

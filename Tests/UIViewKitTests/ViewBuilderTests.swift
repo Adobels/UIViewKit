@@ -9,15 +9,15 @@ import XCTest
 
 @MainActor
 class ViewBuilderTests: XCTestCase {
-    
+
     func testSingleSubview() throws {
-        _ = UIView() {
+        _ = UIView {
             UIView()
         }
     }
-    
+
     func testComplexSubview() throws {
-        let view = UIView() {
+        let view = UIView {
             UIView()
             print()
             if true {
@@ -28,16 +28,16 @@ class ViewBuilderTests: XCTestCase {
             } else {
                 UIView()
             }
-            
+
             if false {
                 UIView()
             } else {
                 UIView()
             }
-            if let _ = Optional.some(true) {
+            if Optional.some(true) != nil {
                 UIView()
             }
-            UIView() {
+            UIView {
                 UIView()
             }
             [UIView(), UIView()]

@@ -9,15 +9,15 @@ import UIKit
 import UIViewKit
 
 public class UserTitleTimeDescriptionView: UIView {
-    
+
     var imageViewUser: UIImageView!
     var labelTime: UILabel!
     var labelTitle: UILabel!
     var labelDescription: UILabel!
-    
+
     var totoView: UIView!
     var tuut: UIScrollView!
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self {
@@ -67,7 +67,7 @@ public class UserTitleTimeDescriptionView: UIView {
             }
         }
     }
-    
+
     required init?(coder: NSCoder) { fatalError() }
 }
 
