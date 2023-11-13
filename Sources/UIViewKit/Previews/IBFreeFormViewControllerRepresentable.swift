@@ -14,11 +14,11 @@ public struct IBFreeFormViewControllerRepresentable<ViewController: UIViewContro
     
     private let makeUIViewController: () -> ViewController
 
-    init(_ maker: @autoclosure @escaping () -> ViewController) {
+    public init(_ maker: @autoclosure @escaping () -> ViewController) {
         makeUIViewController = maker
     }
     
-    init(_ maker: @escaping () -> ViewController) {
+    public init(_ maker: @escaping () -> ViewController) {
         makeUIViewController = maker
     }
 
