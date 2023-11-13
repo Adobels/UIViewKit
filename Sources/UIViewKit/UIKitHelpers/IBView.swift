@@ -19,4 +19,5 @@ open class IBView: UIView {
     }
 
     open func createView(frame: CGRect) { }
+
 }

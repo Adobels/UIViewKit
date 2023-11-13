@@ -10,10 +10,12 @@
 import UIKit
 
 public class IBPreviewLabel: UILabel {
+
     public convenience init(_ text: String) {
         self.init(frame: .zero)
         self.text = text
     }
+
 }
 
 #endif

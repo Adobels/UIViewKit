@@ -19,4 +19,5 @@ open class IBControl: UIControl {
     }
 
     open func createView(frame: CGRect) { }
+
 }
