@@ -39,18 +39,3 @@ enum UIViewDSLHelper {
         subviews.forEach(adderFunction)
     }
 }
-
-extension UIViewDSL {
-
-    @discardableResult
-    public func ibSetAsRootView(of controller: UIViewController) -> Self {
-        guard let view = self as? UIView else {
-            fatalError()
-        }
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.frame = controller.view.frame
-        view.layoutIfNeeded()
-        controller.view = view
-        return self
-    }
-}
