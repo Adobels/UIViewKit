@@ -1,34 +1,16 @@
 //
-//  UIViewPreviews.swift
+//  IBRepresentableForView.swift
 //  UIViewKit
 //
-//  Created by Blazej SLEBODA on 20/09/2023.
+//  Created by Blazej SLEBODA on 13/11/2023.
 //
 
+#if DEBUG
+
 import SwiftUI
-@available(iOS 13.0, *)
-struct IBRepresentableForViewController<ViewController: UIViewController>: UIViewControllerRepresentable {
-
-    public var viewController: ViewController
-
-    public init(_ viewController: @escaping @autoclosure () -> ViewController) {
-        self.viewController = viewController()
-    }
-
-    public init(_ viewController: @escaping () -> ViewController) {
-        self.viewController = viewController()
-    }
-
-    public func makeUIViewController(context: Context) -> UIViewController {
-        viewController
-    }
-
-    public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
-
-}
 
 @available(iOS 13.0, *)
-struct IBRepresentableForView<View: UIView>: UIViewRepresentable {
+public struct IBRepresentableForView<View: UIView>: UIViewRepresentable {
 
     public var view: UIView
 
@@ -58,3 +40,5 @@ struct IBRepresentableForView<View: UIView>: UIViewRepresentable {
 
     public func updateUIView(_ uiView: UIView, context: Context) { }
 }
+
+#endif

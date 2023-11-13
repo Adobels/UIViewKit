@@ -29,7 +29,6 @@ public struct IBFreeFormViewControllerRepresentable<ViewController: UIViewContro
     }
 
     public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
-
 }
 
 private class ContainerViewController: UIViewController {
@@ -63,7 +62,6 @@ private class ContainerViewController: UIViewController {
         }
         gesture.setTranslation(.zero, in: view)
     }
-
 }
 
 #endif
