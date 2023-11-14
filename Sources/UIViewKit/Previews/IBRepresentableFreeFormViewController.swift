@@ -1,5 +1,5 @@
 //
-//  IBFreeFormViewControllerRepresentable.swift
+//  IBRepresentableFreeFormViewController.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 13/11/2023.
@@ -10,7 +10,7 @@
 import UIKit
 import SwiftUI
 
-public struct IBFreeFormViewControllerRepresentable<ViewController: UIViewController>: UIViewControllerRepresentable {
+public struct IBRepresentableFreeFormViewController<ViewController: UIViewController>: UIViewControllerRepresentable {
 
     private let makeUIViewController: () -> ViewController
 

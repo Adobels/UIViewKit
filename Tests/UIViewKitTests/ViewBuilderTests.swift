@@ -17,19 +17,21 @@ class ViewBuilderTests: XCTestCase {
     }
 
     func testComplexSubview() throws {
+        var alwaysTrue = true
+        var alwaysFalse = false
         let view = UIView {
             UIView()
             print()
-            if true {
+            if alwaysTrue {
                 UIView()
             }
-            if true {
+            if alwaysTrue {
                 UIView()
             } else {
                 UIView()
             }
 
-            if false {
+            if alwaysFalse {
                 UIView()
             } else {
                 UIView()

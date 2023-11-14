@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import UIViewKit
-@testable import UIViewKitPreviewsDemo
+@testable import UIViewKitDevelopmentViews
 
 class UIViewDebugShowFramesTests: XCTestCase {
 

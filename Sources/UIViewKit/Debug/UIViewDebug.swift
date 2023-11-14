@@ -8,6 +8,16 @@
 import UIKit
 
 public struct UIViewDebug {
+    
+    public static func showColors(of view: UIView, includeGivenView: Bool, includeUIKitPrivateViews: Bool) {
+        let colors = [UIColor.red, .blue, .brown, .cyan, .darkGray, .magenta, .green, .lightGray, .orange, .purple, .yellow]
+        if includeGivenView {
+            view.layer.borderWidth = 1
+        }
+        allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews).forEach {
+            $0.backgroundColor = colors.randomElement()!
+        }
+    }
 
     public static func showFrames(of view: UIView, includeGivenView: Bool, includeUIKitPrivateViews: Bool) {
         if includeGivenView {
