@@ -11,13 +11,13 @@ import UIKit
 import SwiftUI
 
 public struct IBFreeFormViewControllerRepresentable<ViewController: UIViewController>: UIViewControllerRepresentable {
-    
+
     private let makeUIViewController: () -> ViewController
 
     public init(_ maker: @autoclosure @escaping () -> ViewController) {
         makeUIViewController = maker
     }
-    
+
     public init(_ maker: @escaping () -> ViewController) {
         makeUIViewController = maker
     }
@@ -31,7 +31,7 @@ public struct IBFreeFormViewControllerRepresentable<ViewController: UIViewContro
     public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
 }
 
-private class ContainerViewController: UIViewController {
+class ContainerViewController: UIViewController {
 
     var childViewController: UIViewController? {
         didSet {
