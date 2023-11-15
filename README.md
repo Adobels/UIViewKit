@@ -106,7 +106,7 @@ import SwiftUI
 
 struct ViewControllerPreviews: PreviewProvider {
     static var previews: some View {
-        PreviewViewController(ViewControllerComplex())
+        IBRepresentableFreeFormViewController(ViewControllerComplex())
     }
 }
 
