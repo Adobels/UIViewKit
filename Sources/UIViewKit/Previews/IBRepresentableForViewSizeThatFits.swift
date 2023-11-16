@@ -1,16 +1,16 @@
 //
-//  IBRepresentableForView.swift
+//  IBRepresentableForViewSizeThatFits.swift
 //  UIViewKit
 //
-//  Created by Blazej SLEBODA on 16/11/2023.
+//  Created by Blazej SLEBODA on 13/11/2023.
 //
 
 #if DEBUG
 
 import SwiftUI
 
-@available(iOS 13.0, *)
-public struct IBRepresentableForView: UIViewRepresentable {
+@available(iOS 16.0, *)
+public struct IBRepresentableForViewSizeThatFits: UIViewRepresentable {
 
     private let viewMaker: () -> UIView
 
@@ -34,6 +34,11 @@ public struct IBRepresentableForView: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: UIView, context: Context) { }
+
+    @available(iOS 16, *)
+    public func sizeThatFits(_ proposal: ProposedViewSize, uiView: UIView, context: Context) -> CGSize? {
+        uiView.subviews[0].systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+    }
 }
 
 #endif

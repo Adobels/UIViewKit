@@ -8,7 +8,7 @@
 import UIKit
 
 public struct UIViewDebug {
-    
+
     public static func showColors(of view: UIView, includeGivenView: Bool, includeUIKitPrivateViews: Bool) {
         let colors = [UIColor.red, .blue, .brown, .cyan, .darkGray, .magenta, .green, .lightGray, .orange, .purple, .yellow]
         if includeGivenView {

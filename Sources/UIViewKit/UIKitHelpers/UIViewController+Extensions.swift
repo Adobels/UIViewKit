@@ -31,7 +31,7 @@ extension UIViewController {
         child.view.removeFromSuperview()
         child.removeFromParent()
     }
-    
+
     /**
      Removes the first subview of a specified container view that is associated with one of the view controller's child view controllers.
 

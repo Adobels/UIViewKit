@@ -12,7 +12,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 public struct IBRepresentableForViewController<ViewController: UIViewController>: UIViewControllerRepresentable {
 
-    public var viewController: ViewController
+    private let viewController: ViewController
 
     public init(_ viewController: @escaping @autoclosure () -> ViewController) {
         self.viewController = viewController()
