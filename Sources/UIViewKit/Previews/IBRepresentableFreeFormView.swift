@@ -10,17 +10,17 @@
 import UIKit
 import SwiftUI
 
-public struct IBRepresentableFreeFormView<T: UIView>: UIViewControllerRepresentable {
+public struct IBRepresentableFreeFormView: UIViewControllerRepresentable {
 
-    private let viewMaker: (Context) -> T
+    private let viewMaker: (Context) -> UIView
 
-    public init(_ view: T) {
+    public init(_ view: UIView) {
         self.viewMaker = { _ in
             view
         }
     }
 
-    public init(viewMaker: @escaping (Context) -> T) {
+    public init(viewMaker: @escaping (Context) -> UIView) {
         self.viewMaker = viewMaker
     }
 

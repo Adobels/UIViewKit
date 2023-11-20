@@ -10,15 +10,15 @@
 import UIKit
 import SwiftUI
 
-public struct IBRepresentableFreeFormViewController<ViewController: UIViewController>: UIViewControllerRepresentable {
+public struct IBRepresentableFreeFormViewController: UIViewControllerRepresentable {
 
-    private let makeUIViewController: () -> ViewController
+    private let makeUIViewController: () -> UIViewController
 
-    public init(_ maker: @autoclosure @escaping () -> ViewController) {
+    public init(_ maker: @autoclosure @escaping () -> UIViewController) {
         makeUIViewController = maker
     }
 
-    public init(_ maker: @escaping () -> ViewController) {
+    public init(_ maker: @escaping () -> UIViewController) {
         makeUIViewController = maker
     }
 

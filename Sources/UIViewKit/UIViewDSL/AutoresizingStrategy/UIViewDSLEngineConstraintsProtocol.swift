@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 public protocol UIViewDSLEngineConstraintsProtocol: AnyObject {
     func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint])
     func ibSubviewsWillExecute(on rootView: UIView)

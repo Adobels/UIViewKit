@@ -28,7 +28,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(labels[.zero], newLabel)
     }
 
-    func testIBOutletWithForceUnwrap() async throws {
+    func testIBOutletWithForceUnwrap() throws {
         var label: UILabel!
 
         let newLabel = UILabel().ibOutlet(&label)
@@ -80,7 +80,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(views[.zero], newView)
     }
 
-    func testIBOutletWithForceUnwrapWithTrailingClosureOfIbSubviews() async throws {
+    func testIBOutletWithForceUnwrapWithTrailingClosureOfIbSubviews() throws {
         var view: UIView!
 
         let newView = UIView().ibOutlet(&view).ibSubviews {
@@ -90,7 +90,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(view, newView)
     }
 
-    func testIBOutletWithForceUnwrapWithTrailingClosureOfIbSubviewsAndSuperview() async throws {
+    func testIBOutletWithForceUnwrapWithTrailingClosureOfIbSubviewsAndSuperview() throws {
         var view: UIView!
 
         let newView = UIView().ibOutlet(&view).ibSubviews { _ in

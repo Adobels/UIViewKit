@@ -9,6 +9,14 @@ import UIKit
 
 extension UIViewController {
 
+    public func ibSetAsRootView<T: UIView>(_ view: T) -> T {
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.frame = view.frame
+        view.layoutIfNeeded()
+        self.view = view
+        return view
+    }
+
     public func ibAdd(child: UIViewController, to containerView: UIView) {
         child.view.frame = .init(origin: .zero, size: view.frame.size)
         addChild(child)

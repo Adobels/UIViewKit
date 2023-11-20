@@ -33,7 +33,9 @@ public struct IBRepresentableForView: UIViewRepresentable {
         }
     }
 
-    public func updateUIView(_ uiView: UIView, context: Context) { }
+    public func updateUIView(_ uiView: UIView, context: Context) {
+        uiView.setNeedsUpdateConstraints()
+    }
 }
 
 #endif

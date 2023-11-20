@@ -33,7 +33,9 @@ public struct IBRepresentableForViewSizeThatFits: UIViewRepresentable {
         }
     }
 
-    public func updateUIView(_ uiView: UIView, context: Context) { }
+    public func updateUIView(_ uiView: UIView, context: Context) {
+        uiView.setNeedsUpdateConstraints()
+    }
 
     @available(iOS 16, *)
     public func sizeThatFits(_ proposal: ProposedViewSize, uiView: UIView, context: Context) -> CGSize? {
