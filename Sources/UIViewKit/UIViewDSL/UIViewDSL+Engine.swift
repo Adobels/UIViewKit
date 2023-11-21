@@ -10,16 +10,7 @@ import UIKit
 @MainActor
 public class UIViewDSLEngine {
 
-    // MARK: - Public Properties
-
-    public weak var delegate: UIViewDSLEngineConstraintsProtocol?
-
-    // MARK: - Private Properties
-
-    private var ibSubviewsDepthCallCounter: Int = 0
-    private var defaultDelegate: UIViewDSLEngineConstraintsProtocol?
-
-    // MARK: - Singleton Instance
+    // MARK: Public
 
     public static let shared: UIViewDSLEngine = {
         let instance = UIViewDSLEngine()
@@ -27,21 +18,19 @@ public class UIViewDSLEngine {
         return instance
     }()
 
-    // MARK: - Initializers
+    public weak var delegate: UIViewDSLEngineConstraintsProtocol?
 
-    private init() { }
-
-    // MARK: - Public Methods
+    // MARK: Internal
 
     func addSubviews(_ subviews: (UIView) -> [UIView], to owner: UIView) {
         beginSubviewsDefinition()
-        UIViewDSLHelper.addSubviews(subviews(owner), to: owner)
+        Helper.addSubviews(subviews(owner), to: owner)
         endSubviewsDefinition(on: owner)
     }
 
     func addSubviews(_ subviews: () -> [UIView], to owner: UIView) {
         beginSubviewsDefinition()
-        UIViewDSLHelper.addSubviews(subviews(), to: owner)
+        Helper.addSubviews(subviews(), to: owner)
         endSubviewsDefinition(on: owner)
     }
 
@@ -52,13 +41,12 @@ public class UIViewDSLEngine {
         }
     }
 
-    #if DEBUG
-    var constraintsToApplyForDebug: [(UIView, [NSLayoutConstraint])] {
-        delegate!.constraintsToApplyForDebug
-    }
-    #endif
+    // MARK: - Private
 
-    // MARK: - Private Methods
+    private var ibSubviewsDepthCallCounter: Int = 0
+    private var defaultDelegate: UIViewDSLEngineConstraintsProtocol?
+
+    private init() { }
 
     private func setupDefaultDelegate() {
         defaultDelegate = InferredAttributesOwnerStrategy()
@@ -76,3 +64,33 @@ public class UIViewDSLEngine {
         }
     }
 }
+
+extension UIViewDSLEngine {
+
+    @MainActor
+    struct Helper {
+
+        static func addSubviews(_ subviews: [UIView], to target: UIView) {
+            let adderFunction: (UIView) -> Void
+
+            if let stackView = target as? UIStackView {
+                adderFunction = stackView.addArrangedSubview(_:)
+            } else {
+                adderFunction = target.addSubview(_:)
+            }
+
+            subviews.forEach(adderFunction)
+        }
+    }
+}
+
+#if DEBUG
+
+extension UIViewDSLEngine {
+
+    var constraintsToApplyForDebug: [(UIView, [NSLayoutConstraint])] {
+        delegate!.constraintsToApplyForDebug
+    }
+}
+
+#endif

@@ -7,7 +7,6 @@
 
 import UIKit
 
-@MainActor
 extension UIViewDSL where Self: UIView {
 
     @discardableResult

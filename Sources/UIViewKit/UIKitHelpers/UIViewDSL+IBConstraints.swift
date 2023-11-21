@@ -7,22 +7,8 @@
 
 import UIKit.NSLayoutConstraint
 
-extension UIView {
-
-    public func ibConstraints(to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
-        generateConstraints(from: self, to: to, guide: guide, anchors: anchors)
-    }
-}
-
-func generateConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
-    switch guide {
-    case .view:
-        return generateConstraints(from: from, to: to, anchors: anchors)
-    case .viewMargins:
-        return generateConstraints(from: from, to: to.layoutMarginsGuide, anchors: anchors)
-    case .viewSafeArea:
-        return generateConstraints(from: from, to: to.safeAreaLayoutGuide, anchors: anchors)
-    }
+public func ibConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
+    generateConstraints(from: from, to: to, guide: guide, anchors: anchors)
 }
 
 extension NSLayoutConstraint {
@@ -51,6 +37,17 @@ extension NSLayoutConstraint {
     public func ibOutlet(_ outlet: inout NSLayoutConstraint) -> Self {
         outlet = self
         return self
+    }
+}
+
+func generateConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
+    switch guide {
+    case .view:
+        return generateConstraints(from: from, to: to, anchors: anchors)
+    case .viewMargins:
+        return generateConstraints(from: from, to: to.layoutMarginsGuide, anchors: anchors)
+    case .viewSafeArea:
+        return generateConstraints(from: from, to: to.safeAreaLayoutGuide, anchors: anchors)
     }
 }
 

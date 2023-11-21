@@ -25,8 +25,8 @@ public struct IBRepresentableForView: UIViewRepresentable {
     public func makeUIView(context: Context) -> UIView {
         UIView().ibSubviews { containerView in
             viewMaker().ibAttributes {
-                $0.topAnchor.constraint(equalTo: containerView.topAnchor).ibPriority(.init(1))
-                $0.leftAnchor.constraint(equalTo: containerView.leftAnchor).ibPriority(.init(1))
+                $0.topAnchor.constraint(equalTo: containerView.topAnchor)
+                $0.leftAnchor.constraint(equalTo: containerView.leftAnchor)
                 $0.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
                 $0.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
             }

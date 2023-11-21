@@ -18,7 +18,7 @@ public class InferredAttributesOwnerStrategy: UIViewDSLEngineConstraintsProtocol
     public func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint]) {
         guard !constraints.isEmpty else { return }
         constraints.forEach {
-            if !UIViewDSLHelper.involvesOwnerView(owner, in: $0) {
+            if !Helper.involvesOwnerView(owner, in: $0) {
                 fatalError("Added constraints do not involve the specified owner view. Please ensure that constraints are correctly defined for the owner view.")
             }
         }
@@ -59,5 +59,25 @@ public class InferredAttributesOwnerStrategy: UIViewDSLEngineConstraintsProtocol
         }
         NSLayoutConstraint.activate(allConstraints)
         constraintsToApply.removeAll()
+    }
+
+    struct Helper {
+        static func involvesOwnerView(_ owner: UIView, in constraint: NSLayoutConstraint) -> Bool {
+            var ownerView: [UIView] = []
+
+            if let layoutGuide = constraint.firstItem as? UILayoutGuide, let owningView = layoutGuide.owningView {
+                ownerView.append(owningView)
+            }
+            if let layoutGuide = constraint.secondItem as? UILayoutGuide, let owningView = layoutGuide.owningView {
+                ownerView.append(owningView)
+            }
+            if let owningView = constraint.firstItem as? UIView {
+                ownerView.append(owningView)
+            }
+            if let owningView = constraint.secondItem as? UIView {
+                ownerView.append(owningView)
+            }
+            return ownerView.contains(where: { $0 == owner })
+        }
     }
 }

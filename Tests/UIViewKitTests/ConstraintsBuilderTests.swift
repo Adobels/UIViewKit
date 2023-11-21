@@ -11,31 +11,33 @@ import XCTest
 @MainActor
 class ConstraintsBuilderTests: XCTestCase {
     func test() throws {
+        let alwaysTrue = true
+        let alwaysFalse = false
         let view = UIView { sv in
             UIView().ibAttributes {
-                $0.ibConstraints(to: sv, guide: .view, anchors: .top)
-                if true {
-                    $0.ibConstraints(to: sv, guide: .view, anchors: .left)
+                ibConstraints(from: $0, to: sv, guide: .view, anchors: .top)
+                if alwaysTrue {
+                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .left)
                 } else {
-                    $0.ibConstraints(to: sv, guide: .view, anchors: .left)
+                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .left)
                 }
-                if false {
-                    $0.ibConstraints(to: sv, guide: .view, anchors: .right)
+                if alwaysFalse {
+                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .right)
                 } else {
-                    $0.ibConstraints(to: sv, guide: .view, anchors: .right)
+                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .right)
                 }
-                if true {
-                    $0.ibConstraints(to: sv, guide: .view, anchors: .bottom)
+                if alwaysTrue {
+                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .bottom)
                 }
                 print()
                 $0.backgroundColor = .red
             }
             UIView().ibAttributes {
                 #if DEBUG
-                $0.ibConstraints(to: sv, guide: .view, anchors: .top)
+                ibConstraints(from: $0, to: sv, guide: .view, anchors: .top)
                 #endif
-                if Optional(true) != nil {
-                    $0.ibConstraints(to: sv, guide: .view, anchors: .bottom)
+                if Optional(alwaysTrue) != nil {
+                    ibConstraints(from: $0, to: sv, guide: .view, anchors: .bottom)
                 }
             }
         }

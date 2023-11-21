@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import UIViewKit
 
 @MainActor
 class ViewBuilderTests: XCTestCase {
@@ -17,8 +18,8 @@ class ViewBuilderTests: XCTestCase {
     }
 
     func testComplexSubview() throws {
-        var alwaysTrue = true
-        var alwaysFalse = false
+        let alwaysTrue = true
+        let alwaysFalse = false
         let view = UIView {
             UIView()
             print()

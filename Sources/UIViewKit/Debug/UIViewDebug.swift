@@ -84,6 +84,7 @@ extension UIViewDebug {
                 subview.removeConstraints(subview.constraints)
                 subview.removeFromSuperview()
             }
+            subview.exerciseAmbiguityInLayout()
             if subview.hasAmbiguousLayout {
                 let debugView = DebugView()
                 subview.addSubview(debugView)
