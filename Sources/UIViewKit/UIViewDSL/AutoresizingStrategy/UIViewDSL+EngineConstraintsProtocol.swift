@@ -1,5 +1,5 @@
 //
-//  UIViewDSLEngineConstraintsProtocol.swift
+//  UIViewDSL+EngineConstraintsProtocol.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 29/09/2023.
