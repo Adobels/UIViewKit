@@ -1,5 +1,5 @@
 //
-//  UIViewDSL+Constraints.swift
+//  IBConstraints.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 29/09/2023.
@@ -7,13 +7,9 @@
 
 import UIKit.NSLayoutConstraint
 
-public func ibConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
-    generateConstraints(from: from, to: to, guide: guide, anchors: anchors)
-}
-
 extension NSLayoutConstraint {
 
-    static public func ibActivate(@NSLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
+    static public func ibActivate(@IBLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
         NSLayoutConstraint.activate(block())
     }
 

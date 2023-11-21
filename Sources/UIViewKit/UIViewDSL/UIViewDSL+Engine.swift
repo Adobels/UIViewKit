@@ -2,7 +2,7 @@
 //  UIViewDSL+Engine.swift
 //
 //
-//  Created by MaxAir on 21/11/2023.
+//  Created by Blazej SLEBODA on 21/11/2023.
 //
 
 import UIKit

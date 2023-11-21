@@ -8,7 +8,7 @@
 import UIKit
 
 @resultBuilder
-public enum UIViewBuilder {
+public enum IBSubviewsBuilder {
 
     public static func buildBlock(_ components: [UIView]...) -> [UIView] {
         components.flatMap { $0 }
@@ -40,7 +40,7 @@ public enum UIViewBuilder {
 }
 
 @resultBuilder
-public enum NSLayoutConstraintBuilder {
+public enum IBLayoutConstraintBuilder {
 
     public static func buildBlock(_ components: [NSLayoutConstraint]...) -> [NSLayoutConstraint] {
         components.flatMap { $0 }

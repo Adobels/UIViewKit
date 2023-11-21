@@ -1,8 +1,8 @@
 //
-//  Pro.swift
+//  ProTests.swift
+//  UIViewKit
 //
-//
-//  Created by MaxAir on 19/10/2023.
+//  Created by Blazej SLEBODA on 19/10/2023.
 //
 
 import XCTest

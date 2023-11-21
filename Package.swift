@@ -10,7 +10,7 @@ let package = Package(
     ],
     products: [
         .library(name: "UIViewKit", targets: ["UIViewKit"]),
-        .library(name: "UIViewKitDevelopmentViews", targets: ["UIViewKitDevelopmentViews"])
+//        .library(name: "UIViewKitDevelopmentViews", targets: ["UIViewKitDevelopmentViews"])
     ],
     targets: [
         .target(

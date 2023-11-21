@@ -10,7 +10,7 @@
 import UIKit
 
 @MainActor
-public func IBPreviewScrollView(backgroundColor: UIColor? = nil, horizontalPadding: CGFloat = 0, with contentBuilder: () -> UIView) -> UIScrollView {
+public func IBScrollView(backgroundColor: UIColor? = nil, horizontalPadding: CGFloat = 0, with contentBuilder: () -> UIView) -> UIScrollView {
     UIScrollView().ibSubviews { scrollView in
         contentBuilder().ibAttributes {
             $0.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor)
@@ -25,7 +25,6 @@ public func IBPreviewScrollView(backgroundColor: UIColor? = nil, horizontalPaddi
         if let backgroundColor {
             $0.backgroundColor = backgroundColor
         }
-        $0.contentInsetAdjustmentBehavior = .always
     }
 }
 
