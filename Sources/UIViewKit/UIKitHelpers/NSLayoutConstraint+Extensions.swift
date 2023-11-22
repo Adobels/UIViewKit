@@ -10,11 +10,15 @@ import UIKit.NSLayoutConstraint
 extension NSLayoutConstraint {
 
     static public func ibActivate(@IBLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
-        NSLayoutConstraint.activate(block())
+        let constraints = block()
+        constraints.forEach { $0.identifier = NSLayoutConstraintIdentifier.ibActivate.rawValue }
+        activate(constraints)
     }
 
     static public func ibActivateConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) {
-        activate(generateConstraints(from: from, to: to, guide: guide, anchors: anchors))
+        let constraints = generateConstraints(from: from, to: to, guide: guide, anchors: anchors)
+        constraints.forEach { $0.identifier = NSLayoutConstraintIdentifier.ibActivateConstraints.rawValue }
+        activate(constraints)
     }
 
     @discardableResult
