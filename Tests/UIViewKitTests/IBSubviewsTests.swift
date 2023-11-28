@@ -9,15 +9,15 @@ import XCTest
 
 @MainActor
 class IBSubviewsTests: XCTestCase {
-    
+
     func testIBSubviews() throws {
-        _ = UIView() {
+        _ = UIView {
             UILabel()
         }
     }
 
     func testIBSubviewsView() throws {
-        _ = UIView() {
+        _ = UIView {
             UILabel()
         }
         _ = UIView().callAsFunction {
@@ -27,9 +27,9 @@ class IBSubviewsTests: XCTestCase {
             UILabel()
         }
     }
-    
+
     func testIBSubviewsViewAsSuperview() throws {
-        _ = UIView() { _ in
+        _ = UIView { _ in
             UILabel()
         }
         _ = UIView().callAsFunction { _ in
@@ -39,9 +39,9 @@ class IBSubviewsTests: XCTestCase {
             UILabel()
         }
     }
-    
+
     func testIBSubviewsStackView() throws {
-        _ = UIStackView() {
+        _ = UIStackView {
             UILabel()
         }
         _ = UIStackView().callAsFunction {
@@ -51,9 +51,9 @@ class IBSubviewsTests: XCTestCase {
             UILabel()
         }
     }
-    
+
     func testIBSubviewsStackViewAsSuperview() throws {
-        _ = UIStackView() { _ in
+        _ = UIStackView { _ in
             UILabel()
         }
         _ = UIStackView().callAsFunction { _ in
@@ -63,13 +63,13 @@ class IBSubviewsTests: XCTestCase {
             UILabel()
         }
     }
-    
+
     func testIBSubviewsWithForEach() throws {
         let subviews = [
             UILabel(),
             UIView()
         ]
-        _ = UIStackView() {
+        _ = UIStackView {
             subviews.filter { _ =  $0; return true }
         }
     }

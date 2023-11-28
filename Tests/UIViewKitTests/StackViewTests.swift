@@ -9,9 +9,9 @@ import XCTest
 @testable import UIViewKit
 
 class StackViewTests: XCTestCase {
-    
+
     typealias SUT = UIStackView
-    
+
     func testHorizontalStackView() throws {
         let sut = SUT(axis: .horizontal, spacing: 1, alignment: .center, distribution: .fillEqually)
         XCTAssertNotNil(sut.axis)
@@ -20,7 +20,7 @@ class StackViewTests: XCTestCase {
         XCTAssertEqual(sut.alignment, .center)
         XCTAssertEqual(sut.distribution, .fillEqually)
     }
-    
+
     func testVerticalStackView() throws {
         let sut = SUT(axis: .vertical, spacing: 1, alignment: .center, distribution: .fillEqually)
         XCTAssertNotNil(sut.axis)

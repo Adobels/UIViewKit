@@ -9,16 +9,16 @@ import XCTest
 
 @MainActor
 class NSLayoutConstraintTests: XCTestCase {
-    
+
     func testNSLayoutConstraintActivate() throws {
-        
+
         var viewFirst: UIView!
         var viewSecond: UIView!
         var view: UIView!
-        
+
         var constraintTop: NSLayoutConstraint!
         var constraintLeft: NSLayoutConstraint = .init()
-        
+
         UIView().ibOutlet(&view).ibSubviews { _ in
             UIView().ibOutlet(&viewFirst)
             UIView().ibOutlet(&viewSecond)
@@ -31,7 +31,7 @@ class NSLayoutConstraintTests: XCTestCase {
             viewFirst.bottomAnchor.constraint(equalTo: viewSecond.bottomAnchor)
         }
         XCTAssertEqual(view.constraints.count, 4)
-        
+
         XCTAssertEqual(constraintTop.priority, UILayoutPriority.defaultHigh)
         XCTAssertEqual(constraintLeft.priority, UILayoutPriority.defaultLow)
     }

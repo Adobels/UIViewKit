@@ -6,38 +6,41 @@
 //
 
 import XCTest
+@testable import UIViewKit
 
 @MainActor
 class ViewBuilderTests: XCTestCase {
-    
+
     func testSingleSubview() throws {
-        _ = UIView() {
+        _ = UIView {
             UIView()
         }
     }
-    
+
     func testComplexSubview() throws {
-        let view = UIView() {
+        let alwaysTrue = true
+        let alwaysFalse = false
+        let view = UIView {
             UIView()
             print()
-            if true {
+            if alwaysTrue {
                 UIView()
             }
-            if true {
+            if alwaysTrue {
                 UIView()
             } else {
                 UIView()
             }
-            
-            if false {
+
+            if alwaysFalse {
                 UIView()
             } else {
                 UIView()
             }
-            if let _ = Optional.some(true) {
+            if Optional.some(true) != nil {
                 UIView()
             }
-            UIView() {
+            UIView {
                 UIView()
             }
             [UIView(), UIView()]

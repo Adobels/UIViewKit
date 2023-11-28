@@ -1,0 +1,6 @@
+disabled_rules:
+  - type_name
+  - line_length
+  - identifier_name
+  - trailing_comma
+opt_in_rules:

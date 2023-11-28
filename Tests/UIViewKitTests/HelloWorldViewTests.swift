@@ -7,14 +7,14 @@
 
 import XCTest
 @testable import UIViewKit
-@testable import UIViewKitPreviewsDemo
+@testable import UIViewKitDevelopmentViews
 
 class HelloWorldViewTests: XCTestCase {
     typealias SUT = HelloWordView
-    
+
     func testLabelText() throws {
         let sut = SUT()
-        
+
         let label = try XCTUnwrap(sut.subviews.first! as? UILabel)
         XCTAssertEqual(label.superview, sut)
         XCTAssertEqual(label.text, "Hello, world!")
