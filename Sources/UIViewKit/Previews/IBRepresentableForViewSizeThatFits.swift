@@ -8,7 +8,7 @@
 #if DEBUG
 
 import SwiftUI
-
+import UIViewDSL
 @available(iOS 16.0, *)
 public struct IBRepresentableForViewSizeThatFits: UIViewRepresentable {
 

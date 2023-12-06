@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import UIViewKit
+@testable import UIViewDSL
 
 // swiftlint:disable type_body_length
 @MainActor

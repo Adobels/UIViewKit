@@ -8,7 +8,7 @@
 #if DEBUG
 
 import UIKit
-
+import UIViewDSL
 @MainActor
 public func IBScrollView(backgroundColor: UIColor? = nil, horizontalPadding: CGFloat = 0, with contentBuilder: () -> UIView) -> UIScrollView {
     UIScrollView().ibSubviews { scrollView in

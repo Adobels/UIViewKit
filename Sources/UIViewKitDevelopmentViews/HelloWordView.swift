@@ -7,6 +7,7 @@
 
 import UIKit
 import UIViewKit
+import UIViewDSL
 
 public class HelloWordView: UIView {
 

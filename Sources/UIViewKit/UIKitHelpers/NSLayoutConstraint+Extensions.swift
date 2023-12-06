@@ -6,37 +6,13 @@
 //
 
 import UIKit.NSLayoutConstraint
-
+import UIViewDSL
 extension NSLayoutConstraint {
-
-    static public func ibActivate(@IBLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
-        let constraints = block()
-        constraints.forEach { $0.identifier = NSLayoutConstraintIdentifier.ibActivate.rawValue }
-        activate(constraints)
-    }
 
     static public func ibActivateConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) {
         let constraints = generateConstraints(from: from, to: to, guide: guide, anchors: anchors)
-        constraints.forEach { $0.identifier = NSLayoutConstraintIdentifier.ibActivateConstraints.rawValue }
+        constraints.forEach { $0.identifier = UIViewKitLayoutConstraintIdentifier.ibActivateConstraints }
         activate(constraints)
-    }
-
-    @discardableResult
-    public func ibPriority(_ priority: UILayoutPriority) -> Self {
-        self.priority = priority
-        return self
-    }
-
-    @discardableResult
-    public func ibOutlet(_ outlet: inout NSLayoutConstraint?) -> Self {
-        outlet = self
-        return self
-    }
-
-    @discardableResult
-    public func ibOutlet(_ outlet: inout NSLayoutConstraint) -> Self {
-        outlet = self
-        return self
     }
 }
 
@@ -106,4 +82,8 @@ public enum ViewAnchor {
     static public var centerY: ViewAnchor { return .centerY(.zero) }
     static public var leading: ViewAnchor { return .leading(.zero) }
     static public var trailing: ViewAnchor { return .trailing(.zero) }
+}
+
+extension UIViewKitLayoutConstraintIdentifier {
+    static let ibActivateConstraints = "UIViewKit(ibActivateConstraints)"
 }

@@ -8,6 +8,7 @@
 #if DEBUG
 
 import SwiftUI
+import UIViewDSL
 
 @available(iOS 13.0, *)
 public struct IBRepresentableForView: UIViewRepresentable {

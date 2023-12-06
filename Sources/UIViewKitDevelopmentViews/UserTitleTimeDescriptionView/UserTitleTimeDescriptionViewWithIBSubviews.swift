@@ -7,6 +7,7 @@
 
 import UIKit
 import UIViewKit
+import SwiftUI
 
 public class UserTitleTimeDescriptionViewWithIBSubviews: UIView {
 
