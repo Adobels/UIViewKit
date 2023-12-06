@@ -9,26 +9,22 @@ let package = Package(
         .iOS(.v13)
     ],
     products: [
-        .library(name: "UIViewDSL", targets: ["UIViewDSL"]),
         .library(name: "UIViewKit", targets: ["UIViewKit"]),
-        .library(name: "UIViewKitDevelopmentViews", targets: ["UIViewKitDevelopmentViews"])
+        //.library(name: "UIViewKitDevelopmentViews", targets: ["UIViewKitDevelopmentViews"])
     ],
     targets: [
         .target(
-            name: "UIViewDSL",
-            path: "Sources/UIViewDSL"
+            name: "UIViewDSL"
         ),
         .target(
             name: "UIViewKit",
             dependencies: [
                 "UIViewDSL",
-            ],
-            path: "Sources/UIViewKit"
+            ]
         ),
         .target(
             name: "UIViewKitDevelopmentViews",
-            dependencies: ["UIViewKit", "UIViewDSL"],
-            path: "Sources/UIViewKitDevelopmentViews"
+            dependencies: ["UIViewKit", "UIViewDSL"]
         ),
         .testTarget(
             name: "UIViewKitTests",
