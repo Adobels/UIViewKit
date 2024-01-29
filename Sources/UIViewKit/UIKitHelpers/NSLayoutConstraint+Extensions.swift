@@ -11,7 +11,6 @@ extension NSLayoutConstraint {
 
     static public func ibActivateConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) {
         let constraints = generateConstraints(from: from, to: to, guide: guide, anchors: anchors)
-        constraints.forEach { $0.identifier = UIViewKitLayoutConstraintIdentifier.ibActivateConstraints }
         activate(constraints)
     }
 }
@@ -82,8 +81,4 @@ public enum ViewAnchor {
     static public var centerY: ViewAnchor { return .centerY(.zero) }
     static public var leading: ViewAnchor { return .leading(.zero) }
     static public var trailing: ViewAnchor { return .trailing(.zero) }
-}
-
-extension UIViewKitLayoutConstraintIdentifier {
-    static let ibActivateConstraints = "UIViewKit(ibActivateConstraints)"
 }

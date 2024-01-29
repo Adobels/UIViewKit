@@ -11,7 +11,6 @@ extension NSLayoutConstraint {
 
     static public func ibActivate(@IBLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
         let constraints = block()
-        constraints.forEach { $0.identifier = UIViewKitLayoutConstraintIdentifier.ibActivate }
         activate(constraints)
     }
 
@@ -20,7 +19,7 @@ extension NSLayoutConstraint {
         self.identifier = identifier
         return self
     }
-    
+
     @discardableResult
     public func ibPriority(_ priority: UILayoutPriority) -> Self {
         self.priority = priority
@@ -36,6 +35,12 @@ extension NSLayoutConstraint {
     @discardableResult
     public func ibOutlet(_ outlet: inout NSLayoutConstraint) -> Self {
         outlet = self
+        return self
+    }
+
+    @discardableResult
+    public func ibShouldBeArchived(_ shouldBeArchived: Bool) -> Self {
+        self.shouldBeArchived = shouldBeArchived
         return self
     }
 }
