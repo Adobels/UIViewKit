@@ -2,7 +2,7 @@
 //  IBConstraints.swift
 //  UIViewKit
 //
-//  Created by MaxAir on 30/01/2024.
+//  Created by Blazej SLEBODA on 30/01/2024.
 //
 
 import UIKit
