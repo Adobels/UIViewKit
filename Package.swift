@@ -9,8 +9,10 @@ let package = Package(
         .iOS(.v13)
     ],
     products: [
-        .library(name: "UIViewKit", targets: ["UIViewKit"]),
-        //.library(name: "UIViewKitDevelopmentViews", targets: ["UIViewKitDevelopmentViews"])
+        .library(name: "UIViewKit", targets: ["UIViewKit"])
+    ],
+    dependencies: [
+        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.15.3"),
     ],
     targets: [
         .target(
@@ -18,16 +20,19 @@ let package = Package(
         ),
         .target(
             name: "UIViewKit",
-            dependencies: [
-                "UIViewDSL",
-            ]
+            dependencies: ["UIViewDSL"]
         ),
         .target(
             name: "UIViewKitDevelopmentViews",
-            dependencies: ["UIViewKit", "UIViewDSL"]
+            dependencies: ["UIViewDSL", "UIViewKit"]
         ),
         .testTarget(
             name: "UIViewKitTests",
-            dependencies: ["UIViewKit", "UIViewDSL", "UIViewKitDevelopmentViews"])
+            dependencies: [
+                "UIViewDSL",
+                "UIViewKit",
+                "UIViewKitDevelopmentViews",
+                .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
+            ])
     ]
 )

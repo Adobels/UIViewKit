@@ -20,6 +20,8 @@ public class HelloWordView: UIView {
                 IBConstraints.createConstraints(from: $0, to: self, guide: .view, anchors: .centerX, .centerY)
                 $0.text = "Hello, world!"
             }
+        }.ibAttributes {
+            $0.backgroundColor = .systemBackground
         }
     }
 
