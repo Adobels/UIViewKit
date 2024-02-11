@@ -1,5 +1,5 @@
 //
-//  IBPreviewScrollView.swift
+//  IBScrollView.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 12/11/2023.
@@ -9,8 +9,9 @@
 
 import UIKit
 import UIViewDSL
+
 @MainActor
-public func IBScrollView(backgroundColor: UIColor? = nil, horizontalPadding: CGFloat = 0, with contentBuilder: () -> UIView) -> UIScrollView {
+public func IBScrollView(horizontalPadding: CGFloat = 0, backgroundColor: UIColor? = nil, with contentBuilder: () -> UIView) -> UIScrollView {
     UIScrollView().ibSubviews { scrollView in
         contentBuilder().ibAttributes {
             $0.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor)

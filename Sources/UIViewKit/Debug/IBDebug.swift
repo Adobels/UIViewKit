@@ -1,5 +1,5 @@
 //
-//  UIViewDebug.swift
+//  IBDebug.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 19/09/2023.
@@ -7,9 +7,11 @@
 
 import UIKit
 
-public struct UIViewDebug {
+public class IBDebug {
+    
+    private init() {}
 
-    public static func showColors(of view: UIView, includeGivenView: Bool, includeUIKitPrivateViews: Bool) {
+    public static func showColors(of view: UIView, includeGivenView: Bool = true, includeUIKitPrivateViews: Bool = false) {
         let colors = [UIColor.red, .blue, .brown, .cyan, .darkGray, .magenta, .green, .lightGray, .orange, .purple, .yellow]
         if includeGivenView {
             view.layer.borderWidth = 1
@@ -19,7 +21,7 @@ public struct UIViewDebug {
         }
     }
 
-    public static func showFrames(of view: UIView, includeGivenView: Bool, includeUIKitPrivateViews: Bool) {
+    public static func showFrames(of view: UIView, includeGivenView: Bool = true, includeUIKitPrivateViews: Bool = false) {
         if includeGivenView {
             view.layer.borderWidth = 1
         }
@@ -44,9 +46,9 @@ public struct UIViewDebug {
         return all
     }
 
-    public static func prettyStringAllSubviews(of view: UIView, includeItself: Bool, includeUIKitPrivateViews: Bool) -> String {
+    public static func allSubviewsPrettyString(of view: UIView, includeGivenView: Bool, includeUIKitPrivateViews: Bool = false) -> String {
         let allSubviews: [UIView]
-        if includeItself {
+        if includeGivenView {
             allSubviews = [view] + self.allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews)
         } else {
             allSubviews = self.allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews)
@@ -71,29 +73,27 @@ public struct UIViewDebug {
         return output
     }
 
-    public static func prettyPrintAllSubviews(of view: UIView, includeItself: Bool, includeUIKitPrivateViews: Bool) {
-        print(prettyStringAllSubviews(of: view, includeItself: includeItself, includeUIKitPrivateViews: includeUIKitPrivateViews), separator: "\n")
+    public static func allSubviewsPrettyPrint(of view: UIView, includeGivenView: Bool, includeUIKitPrivateViews: Bool = false) {
+        print(allSubviewsPrettyString(of: view, includeGivenView: includeGivenView, includeUIKitPrivateViews: includeUIKitPrivateViews), separator: "\n")
     }
-}
-
-extension UIViewDebug {
 
     public static func showViewsWhichHasAmbiguousLayout(for view: UIView) {
-        view.allSubviews.forEach { subview in
-            if subview is DebugView {
+
+        IBHelper.allSubviews(of: view).forEach { subview in
+            if subview is UIDebugView {
                 subview.removeConstraints(subview.constraints)
                 subview.removeFromSuperview()
             }
             subview.exerciseAmbiguityInLayout()
             if subview.hasAmbiguousLayout {
-                let debugView = DebugView()
+                let debugView = UIDebugView()
                 subview.addSubview(debugView)
                 debugView.frame = .init(origin: .zero, size: subview.frame.size)
             }
         }
     }
 
-    class DebugView: UIView {
+    private class UIDebugView: UIView {
 
         override init(frame: CGRect) {
             super.init(frame: frame)
@@ -107,11 +107,10 @@ extension UIViewDebug {
     }
 }
 
-extension UIView {
-
-    var allSubviews: [UIView] {
-        subviews.flatMap {
-            [$0] + $0.allSubviews
+class IBHelper {
+    static func allSubviews(of view: UIView) -> [UIView] {
+        view.subviews.flatMap {
+            [$0] + IBHelper.allSubviews(of: $0)
         }
     }
 }

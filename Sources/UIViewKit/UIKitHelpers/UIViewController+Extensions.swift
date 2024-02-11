@@ -2,64 +2,44 @@
 //  UIViewController+Extensions.swift
 //  UIViewKit
 //
-//  Created by Blazej SLEBODA on 13/11/2023.
+//  Created by Blazej SLEBODA on 10/02/2024.
 //
 
 import UIKit
 
 extension UIViewController {
 
-    public func ibSetAsRootView<T: UIView>(_ view: T) -> T {
+    @discardableResult
+    public final func ibSetView<T: UIView>(with view: T) -> T {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.frame = view.frame
+        view.translatesAutoresizingMaskIntoConstraints = true
+        view.frame = self.view.frame
         view.layoutIfNeeded()
         self.view = view
         return view
     }
 
-    public func ibAdd(child: UIViewController, to containerView: UIView) {
-        child.view.frame = .init(origin: .zero, size: view.frame.size)
-        addChild(child)
-        containerView.addSubview(child.view)
-        child.didMove(toParent: self)
+    public final func ibEmbed(_ viewController: UIViewController, _ containerView: UIView) {
+        viewController.view.frame = .init(origin: .zero, size: containerView.frame.size)
+        addChild(viewController)
+        containerView.addSubview(viewController.view)
+        viewController.didMove(toParent: self)
     }
-
+    
     /**
-     Removes a specified child view controller from its parent view controller.
+     Remove a specified view controller from its parent view controller and container view
 
      This method ensures that the view controller hierarchy is updated correctly when a child view controller is removed, maintaining the integrity of the view controller lifecycle which is described [here](https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaContainerViewController.html#//apple_ref/doc/uid/TP40007457-CH11-SW1)
 
      - Parameters:
-     - child: The `UIViewController` instance to be removed from its parent view controller.
+     - viewController: The `UIViewController` instance to be removed from its parent view controller and container view
 
-     - Important: This method assumes that the `child` view controller is already added to a parent view controller. Calling this method on a view controller that is not a child of any parent will not have any effect.
+     - Important: This method assumes that the `viewController` view controller is already added to a parent view controller. Calling this method on a view controller that is not a child of any parent will not have any effect.
      */
-    public func ibRemove(child: UIViewController) {
-        child.willMove(toParent: nil)
-        child.view.removeFromSuperview()
-        child.removeFromParent()
+    public func ibUnembed(_ viewController: UIViewController) {
+        guard children.contains(viewController) else { return }
+        viewController.willMove(toParent: nil)
+        viewController.view.removeFromSuperview()
+        viewController.removeFromParent()
     }
-
-    /**
-     Removes the first subview of a specified container view that is associated with one of the view controller's child view controllers.
-
-     The removal process ensures a safe and clean detachment of the child view controller's view from the view hierarchy which is described [here](https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaContainerViewController.html#//apple_ref/doc/uid/TP40007457-CH11-SW1)
-
-     - Parameters:
-     - containerView: The UIView container from which the first subview, if it's a child view controller's view, will be removed.
-
-     - Important: This method does not perform any action if `containerView` does not have any subviews or if the first subview is not a child view controller's view.
-     */
-    public func ibRemove(from containerView: UIView) {
-        guard let childView = containerView.subviews.first else {
-            return
-        }
-        guard let child = children.first(where: { $0.view == childView }) else {
-            return
-        }
-        child.willMove(toParent: nil)
-        child.view.removeFromSuperview()
-        child.removeFromParent()
-    }
-
 }

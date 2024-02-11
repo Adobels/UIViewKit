@@ -11,7 +11,7 @@ import XCTest
 
 class UIViewDebugShowFramesTests: XCTestCase {
 
-    typealias SUT = UIViewDebug
+    typealias SUT = IBDebug
 
     private var view: HelloWordView!
 

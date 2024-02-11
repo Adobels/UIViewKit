@@ -20,7 +20,7 @@ class TestView: UIView {
             view2 {
                 view3.ibAttributes {
                     $0.tag = 3
-                    ibConstraints(from: $0, to: self, guide: .view, anchors: .all)
+                    IBConstraints.createConstraints(from: $0, to: self, guide: .view, anchors: .all)
                     $0.backgroundColor = .green
                     $0.alpha = 0.3
                 }
@@ -33,7 +33,7 @@ class TestView: UIView {
         }.ibAttributes {
             $0.tag = 1
         }
-        UIViewDebug.showFrames(of: self, includeGivenView: true, includeUIKitPrivateViews: false)
+        IBDebug.showFrames(of: self, includeGivenView: true, includeUIKitPrivateViews: false)
     }
 
     required init?(coder: NSCoder) {
@@ -48,7 +48,7 @@ import SwiftUI
 @available(iOS 14.0, *)
 struct TestViewPreviews: PreviewProvider {
     static var previews: some View {
-        IBRepresentableForView(TestView()).ignoresSafeArea()
+        IBPreview.FullScreenView(TestView()).ignoresSafeArea()
     }
 }
 

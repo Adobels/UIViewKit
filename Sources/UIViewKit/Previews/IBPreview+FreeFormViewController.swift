@@ -1,5 +1,5 @@
 //
-//  IBRepresentableFreeFormViewController.swift
+//  IBPreview+FreeFormViewController.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 13/11/2023.
@@ -10,25 +10,29 @@
 import UIKit
 import SwiftUI
 
-public struct IBRepresentableFreeFormViewController: UIViewControllerRepresentable {
+extension IBPreview {
 
-    private let makeUIViewController: () -> UIViewController
+    @available(iOS 13.0, *)
+    public struct FreeFormViewController: UIViewControllerRepresentable {
 
-    public init(_ maker: @autoclosure @escaping () -> UIViewController) {
-        makeUIViewController = maker
+        private let makeUIViewController: () -> UIViewController
+
+        public init(_ maker: @autoclosure @escaping () -> UIViewController) {
+            makeUIViewController = maker
+        }
+
+        public init(_ maker: @escaping () -> UIViewController) {
+            makeUIViewController = maker
+        }
+
+        public func makeUIViewController(context: Context) -> UIViewController {
+            let containerVC = ContainerViewController()
+            containerVC.childViewController = makeUIViewController()
+            return containerVC
+        }
+
+        public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
     }
-
-    public init(_ maker: @escaping () -> UIViewController) {
-        makeUIViewController = maker
-    }
-
-    public func makeUIViewController(context: Context) -> UIViewController {
-        let containerVC = ContainerViewController()
-        containerVC.childViewController = makeUIViewController()
-        return containerVC
-    }
-
-    public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
 }
 
 class ContainerViewController: UIViewController {
