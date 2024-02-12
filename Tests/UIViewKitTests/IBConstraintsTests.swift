@@ -18,7 +18,7 @@ class ibConstraintsTests: XCTestCase {
 
         view {
             subview.ibAttributes {
-                IBConstraints.createConstraints(from: $0, to: view, guide: .view, anchors: .all)
+                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .all)
             }
         }
 
@@ -109,15 +109,15 @@ class ibConstraintsTests: XCTestCase {
 
         view {
             subview.ibAttributes {
-                IBConstraints.createConstraints(from: $0, to: view, guide: .view, anchors: .all)
-                IBConstraints.createConstraints(from: $0, to: view, guide: .view, anchors: .top, .left, .right, .bottom)
-                IBConstraints.createConstraints(from: $0, to: view, guide: .view, anchors: .top(1), .left(1), .right(-1), .bottom(-1))
-                IBConstraints.createConstraints(from: $0, to: view, guide: .view, anchors: .top, .leading, .trailing, .bottom)
-                IBConstraints.createConstraints(from: $0, to: view, guide: .view, anchors: .top(1), .leading(1), .trailing(-1), .bottom(-1))
-                IBConstraints.createConstraints(from: $0, to: view, guide: .view, anchors: .centerX, .centerY)
-                IBConstraints.createConstraints(from: $0, to: view, guide: .view, anchors: .centerX(1), .centerY(1))
-                IBConstraints.createConstraints(from: $0, to: view, guide: .viewMargins, anchors: .all)
-                IBConstraints.createConstraints(from: $0, to: view, guide: .viewSafeArea, anchors: .all)
+                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .all)
+                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .top, .left, .right, .bottom)
+                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .top(1), .left(1), .right(-1), .bottom(-1))
+                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .top, .leading, .trailing, .bottom)
+                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .top(1), .leading(1), .trailing(-1), .bottom(-1))
+                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .centerX, .centerY)
+                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .centerX(1), .centerY(1))
+                IBConstraints.create(from: $0, to: view, guide: .viewMargins, anchors: .all)
+                IBConstraints.create(from: $0, to: view, guide: .viewSafeArea, anchors: .all)
             }
         }
 

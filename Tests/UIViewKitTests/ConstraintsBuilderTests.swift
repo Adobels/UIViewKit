@@ -15,29 +15,29 @@ class ConstraintsBuilderTests: XCTestCase {
         let alwaysFalse = false
         let view = UIView { sv in
             UIView().ibAttributes {
-                $0.ibCreateConstraints(to: sv, guide: .view, anchors: .top)
+                $0.ibConstraints(to: sv, guide: .view, anchors: .top)
                 if alwaysTrue {
-                    $0.ibCreateConstraints(to: sv, guide: .view, anchors: .left)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .left)
                 } else {
-                    $0.ibCreateConstraints(to: sv, guide: .view, anchors: .left)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .left)
                 }
                 if alwaysFalse {
-                    $0.ibCreateConstraints(to: sv, guide: .view, anchors: .right)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .right)
                 } else {
-                    $0.ibCreateConstraints(to: sv, guide: .view, anchors: .right)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .right)
                 }
                 if alwaysTrue {
-                    $0.ibCreateConstraints(to: sv, guide: .view, anchors: .bottom)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .bottom)
                 }
                 print()
                 $0.backgroundColor = .red
             }
             UIView().ibAttributes {
                 #if DEBUG
-                $0.ibCreateConstraints(to: sv, guide: .view, anchors: .top)
+                $0.ibConstraints(to: sv, guide: .view, anchors: .top)
                 #endif
                 if Optional(alwaysTrue) != nil {
-                    $0.ibCreateConstraints(to: sv, guide: .view, anchors: .bottom)
+                    $0.ibConstraints(to: sv, guide: .view, anchors: .bottom)
                 }
             }
         }

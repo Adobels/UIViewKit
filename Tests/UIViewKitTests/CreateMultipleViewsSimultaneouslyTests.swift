@@ -27,19 +27,19 @@ class CreateMultipleViewsSimultaneouslyTests: XCTestCase {
                                     UIView().ibSubviews { _ in
                                         UILabel()
                                     }.ibAttributes {
-                                        $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                                        $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                                     }
                                 }.ibAttributes {
-                                    $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                                    $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                                 }
                             }.ibAttributes {
-                                $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                                $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                             }
                         }.ibAttributes {
-                            $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                            $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                         }
                     }.ibAttributes {
-                        $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                        $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                     }
                 }.ibAttributes { _ in
                     exp1.fulfill()
@@ -57,19 +57,19 @@ class CreateMultipleViewsSimultaneouslyTests: XCTestCase {
                                     UIView().ibSubviews { _ in
                                         UILabel()
                                     }.ibAttributes {
-                                        $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                                        $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                                     }
                                 }.ibAttributes {
-                                    $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                                    $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                                 }
                             }.ibAttributes {
-                                $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                                $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                             }
                         }.ibAttributes {
-                            $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                            $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                         }
                     }.ibAttributes {
-                        $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                        $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                     }
                 }.ibAttributes { _ in
                     exp2.fulfill()
@@ -87,19 +87,19 @@ class CreateMultipleViewsSimultaneouslyTests: XCTestCase {
                                     UIView().ibSubviews { _ in
                                         UILabel()
                                     }.ibAttributes {
-                                        $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                                        $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                                     }
                                 }.ibAttributes {
-                                    $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                                    $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                                 }
                             }.ibAttributes {
-                                $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                                $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                             }
                         }.ibAttributes {
-                            $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                            $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                         }
                     }.ibAttributes {
-                        $0.ibCreateConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
+                        $0.ibConstraints(to: superview, guide: .viewSafeArea, anchors: .all)
                     }
                 }.ibAttributes { _ in
                     exp3.fulfill()

@@ -22,16 +22,11 @@ let package = Package(
             name: "UIViewKit",
             dependencies: ["UIViewDSL"]
         ),
-        .target(
-            name: "UIViewKitDevelopmentViews",
-            dependencies: ["UIViewDSL", "UIViewKit"]
-        ),
         .testTarget(
             name: "UIViewKitTests",
             dependencies: [
                 "UIViewDSL",
                 "UIViewKit",
-                "UIViewKitDevelopmentViews",
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
             ])
     ]

@@ -8,7 +8,6 @@
 import XCTest
 import UIKit
 @testable import UIViewKit
-@testable import UIViewKitDevelopmentViews
 import SnapshotTesting
 
 class HelloWorldViewTests: XCTestCase {

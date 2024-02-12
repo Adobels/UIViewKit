@@ -11,11 +11,11 @@ public class IBConstraints {
 
     private init() {}
     
-    public static func createConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
-        createConstraintsInternal(from: from, to: to, guide: guide, anchors: anchors)
+    public static func create(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
+        createConstraints(from: from, to: to, guide: guide, anchors: anchors)
     }
     
-    static func createConstraintsInternal(from: UIView, to: UIView, guide: LayoutGuide, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
+    static func createConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
         switch guide {
         case .view:
             return createConstraints(from: from, to: to, anchors: anchors)

@@ -11,7 +11,7 @@ import UIKit
 import UIViewDSL
 
 @MainActor
-public func IBScrollView(horizontalPadding: CGFloat = 0, backgroundColor: UIColor? = nil, with contentBuilder: () -> UIView) -> UIScrollView {
+func IBScrollView(horizontalPadding: CGFloat = 0, backgroundColor: UIColor? = nil, with contentBuilder: () -> UIView) -> UIScrollView {
     UIScrollView().ibSubviews { scrollView in
         contentBuilder().ibAttributes {
             $0.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor)
