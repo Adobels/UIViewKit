@@ -30,6 +30,7 @@
 		F27DB4FF2B7ACF4400AD7F66 /* UIViewDSL+Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4EC2B7ACE8000AD7F66 /* UIViewDSL+Engine.swift */; };
 		F27DB5002B7ACF4400AD7F66 /* UIViewDSL+IBOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4EB2B7ACE8000AD7F66 /* UIViewDSL+IBOutlet.swift */; };
 		F27DB5012B7ACF4400AD7F66 /* UIViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4EA2B7ACE8000AD7F66 /* UIViewDSL.swift */; };
+		F27DB5252B7AD61C00AD7F66 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4E42B7ACE8000AD7F66 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -291,6 +292,7 @@
 				F27DB4BA2B7A156400AD7F66 /* IBPreview+FreeFormViewController.swift in Sources */,
 				F27DB4FD2B7ACF4400AD7F66 /* UIViewDSL+InferredAttributesOwnerStrategy.swift in Sources */,
 				F27DB4FE2B7ACF4400AD7F66 /* UIViewDSL+EngineConstraintsProtocol.swift in Sources */,
+				F27DB5252B7AD61C00AD7F66 /* File.swift in Sources */,
 				F27DB4FA2B7ACF3C00AD7F66 /* UIViewDSL+ResultBuilders.swift in Sources */,
 				F27DB4B52B7A156400AD7F66 /* IBConstraints.swift in Sources */,
 				F27DB4BC2B7A156400AD7F66 /* IBScrollView.swift in Sources */,
