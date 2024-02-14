@@ -20,12 +20,14 @@ class HelloWorldViewTests: XCTestCase {
         XCTAssertEqual(sut.constraints.count, 2)
     }
     
-    func testSnapshotHierarchy() {
+    func testSnapshotHierarchy() throws {
+        throw XCTSkip("Snapshot assets management under development")
         let sut = SUT()
         sut.frame = .init(origin: .zero, size: .init(width: 320, height: 548))
         assertSnapshot(of: sut, as: .recursiveDescription)
     }
-    func testSnapshotUI() {
+    func testSnapshotUI() throws {
+        XCTSkip("Snapshot assets management under development")
         let sut = SUT()
         sut.frame = .init(origin: .zero, size: .init(width: 320, height: 548))
         assertSnapshot(of: sut, as: .image)
