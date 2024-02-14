@@ -5,7 +5,6 @@
 //  Created by Blazej SLEBODA on 20/09/2023.
 //
 
-import UIViewDSL
 import SwiftUI
 
 extension IBPreview {

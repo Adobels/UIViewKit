@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import UIViewDSL
 
 @MainActor
 public func IBScrollView(horizontalPadding: CGFloat = 0, backgroundColor: UIColor? = nil, with contentBuilder: () -> UIView) -> UIScrollView {
