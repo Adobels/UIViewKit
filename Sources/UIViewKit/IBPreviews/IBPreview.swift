@@ -11,17 +11,3 @@ public final class IBPreview {
 
     private init() { }
 }
-
-#if CARTAGE
-
-public func yesCart() {
-    
-}
-
-#endif
-
-#if BLAZEJ
-
-public func yesBlazej() {}
-
-#endif

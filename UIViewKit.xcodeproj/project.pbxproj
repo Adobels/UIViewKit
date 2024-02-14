@@ -84,10 +84,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F22D2FBB2B7D60440085D819 /* UIViewDSL */ = {
+			isa = PBXGroup;
+			children = (
+				F27DB4E12B7ACE8000AD7F66 /* UIViewDSL+IBSubviews.swift */,
+				F27DB4E22B7ACE8000AD7F66 /* UIViewDSL+ResultBuilders.swift */,
+				F27DB4E32B7ACE8000AD7F66 /* UIViewDSL+IBAttributes.swift */,
+				F27DB4E52B7ACE8000AD7F66 /* UIViewDSL+NSLayoutConstraint.swift */,
+				F27DB4E62B7ACE8000AD7F66 /* UIViewDSL.h */,
+				F27DB4E72B7ACE8000AD7F66 /* AutoresizingStrategy */,
+				F27DB4EA2B7ACE8000AD7F66 /* UIViewDSL.swift */,
+				F27DB4EB2B7ACE8000AD7F66 /* UIViewDSL+IBOutlet.swift */,
+				F27DB4EC2B7ACE8000AD7F66 /* UIViewDSL+Engine.swift */,
+			);
+			path = UIViewDSL;
+			sourceTree = "<group>";
+		};
 		F22EB0DF2ADD8CFC00B70773 = {
 			isa = PBXGroup;
 			children = (
-				F27DB4E02B7ACE8000AD7F66 /* UIViewDSL */,
 				F258E7542B02D52B00900EF1 /* UIViewKit */,
 				F22EB0EA2ADD8CFC00B70773 /* Products */,
 				F27DB4D62B7A161000AD7F66 /* Frameworks */,
@@ -105,25 +120,26 @@
 		F258E7542B02D52B00900EF1 /* UIViewKit */ = {
 			isa = PBXGroup;
 			children = (
-				F27DB4992B7A156400AD7F66 /* Constraints */,
-				F27DB49B2B7A156400AD7F66 /* Previews */,
-				F27DB4A22B7A156400AD7F66 /* Views */,
+				F27DB4992B7A156400AD7F66 /* IBConstraints */,
+				F27DB4AA2B7A156400AD7F66 /* IBDebug */,
+				F27DB49B2B7A156400AD7F66 /* IBPreviews */,
 				F27DB4A62B7A156400AD7F66 /* UIKitExtensions */,
-				F27DB4AA2B7A156400AD7F66 /* Debug */,
+				F22D2FBB2B7D60440085D819 /* UIViewDSL */,
+				F27DB4A22B7A156400AD7F66 /* Views */,
 			);
 			name = UIViewKit;
 			path = Sources/UIViewKit;
 			sourceTree = "<group>";
 		};
-		F27DB4992B7A156400AD7F66 /* Constraints */ = {
+		F27DB4992B7A156400AD7F66 /* IBConstraints */ = {
 			isa = PBXGroup;
 			children = (
 				F27DB49A2B7A156400AD7F66 /* IBConstraints.swift */,
 			);
-			path = Constraints;
+			path = IBConstraints;
 			sourceTree = "<group>";
 		};
-		F27DB49B2B7A156400AD7F66 /* Previews */ = {
+		F27DB49B2B7A156400AD7F66 /* IBPreviews */ = {
 			isa = PBXGroup;
 			children = (
 				F27DB49C2B7A156400AD7F66 /* IBPreview+FullScreenViewController.swift */,
@@ -133,7 +149,7 @@
 				F27DB4A02B7A156400AD7F66 /* IBPreview+FreeFormViewController.swift */,
 				F27DB4A12B7A156400AD7F66 /* IBPreview+FullScreenView.swift */,
 			);
-			path = Previews;
+			path = IBPreviews;
 			sourceTree = "<group>";
 		};
 		F27DB4A22B7A156400AD7F66 /* Views */ = {
@@ -156,12 +172,12 @@
 			path = UIKitExtensions;
 			sourceTree = "<group>";
 		};
-		F27DB4AA2B7A156400AD7F66 /* Debug */ = {
+		F27DB4AA2B7A156400AD7F66 /* IBDebug */ = {
 			isa = PBXGroup;
 			children = (
 				F27DB4AB2B7A156400AD7F66 /* IBDebug.swift */,
 			);
-			path = Debug;
+			path = IBDebug;
 			sourceTree = "<group>";
 		};
 		F27DB4D62B7A161000AD7F66 /* Frameworks */ = {
@@ -169,23 +185,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F27DB4E02B7ACE8000AD7F66 /* UIViewDSL */ = {
-			isa = PBXGroup;
-			children = (
-				F27DB4E12B7ACE8000AD7F66 /* UIViewDSL+IBSubviews.swift */,
-				F27DB4E22B7ACE8000AD7F66 /* UIViewDSL+ResultBuilders.swift */,
-				F27DB4E32B7ACE8000AD7F66 /* UIViewDSL+IBAttributes.swift */,
-				F27DB4E52B7ACE8000AD7F66 /* UIViewDSL+NSLayoutConstraint.swift */,
-				F27DB4E62B7ACE8000AD7F66 /* UIViewDSL.h */,
-				F27DB4E72B7ACE8000AD7F66 /* AutoresizingStrategy */,
-				F27DB4EA2B7ACE8000AD7F66 /* UIViewDSL.swift */,
-				F27DB4EB2B7ACE8000AD7F66 /* UIViewDSL+IBOutlet.swift */,
-				F27DB4EC2B7ACE8000AD7F66 /* UIViewDSL+Engine.swift */,
-			);
-			name = UIViewDSL;
-			path = Sources/UIViewDSL;
 			sourceTree = "<group>";
 		};
 		F27DB4E72B7ACE8000AD7F66 /* AutoresizingStrategy */ = {

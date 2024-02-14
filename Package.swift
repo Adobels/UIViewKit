@@ -16,10 +16,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "UIViewKit",
-            swiftSettings: [
-                .define("BLAZEJ")
-            ]
+            name: "UIViewKit"
         ),
         .testTarget(
             name: "UIViewKitTests",
