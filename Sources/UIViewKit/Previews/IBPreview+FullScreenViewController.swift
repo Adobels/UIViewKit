@@ -5,8 +5,7 @@
 //  Created by Blazej SLEBODA on 20/09/2023.
 //
 
-#if DEBUG
-
+import UIViewDSL
 import SwiftUI
 
 extension IBPreview {
@@ -29,8 +28,5 @@ extension IBPreview {
         }
 
         public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
-
     }
 }
-
-#endif

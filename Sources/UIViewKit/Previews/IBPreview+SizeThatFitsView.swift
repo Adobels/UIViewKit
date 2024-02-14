@@ -5,10 +5,8 @@
 //  Created by Blazej SLEBODA on 13/11/2023.
 //
 
-#if DEBUG
-
-import SwiftUI
 import UIViewDSL
+import SwiftUI
 
 extension IBPreview {
 
@@ -46,6 +44,3 @@ extension IBPreview {
         }
     }
 }
-
-
-#endif

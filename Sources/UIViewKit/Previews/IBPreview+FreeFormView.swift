@@ -5,14 +5,10 @@
 //  Created by Blazej SLEBODA on 14/11/2023.
 //
 
-#if DEBUG
-
 import UIKit
 import SwiftUI
 
 extension IBPreview {
-    
-    public func toto() { }
 
     @available(iOS 13.0, *)
     public struct FreeFormView: UIViewControllerRepresentable {
@@ -46,5 +42,3 @@ extension IBPreview {
         public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
     }
 }
-
-#endif

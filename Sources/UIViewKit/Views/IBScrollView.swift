@@ -5,8 +5,6 @@
 //  Created by Blazej SLEBODA on 12/11/2023.
 //
 
-#if DEBUG
-
 import UIKit
 import UIViewDSL
 
@@ -28,5 +26,3 @@ public func IBScrollView(horizontalPadding: CGFloat = 0, backgroundColor: UIColo
         }
     }
 }
-
-#endif

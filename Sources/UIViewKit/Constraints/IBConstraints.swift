@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class IBConstraints {
+public final class IBConstraints {
 
     private init() {}
     

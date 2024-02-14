@@ -7,7 +7,15 @@
 
 import Foundation
 
-public class IBPreview {
+public final class IBPreview {
 
     private init() { }
 }
+
+#if CARTAGE
+
+public func yesCart() {
+    
+}
+
+#endif

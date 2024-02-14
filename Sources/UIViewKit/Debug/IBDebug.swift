@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class IBDebug {
+public final class IBDebug {
     
     private init() {}
 
@@ -107,7 +107,7 @@ public class IBDebug {
     }
 }
 
-class IBHelper {
+final class IBHelper {
     static func allSubviews(of view: UIView) -> [UIView] {
         view.subviews.flatMap {
             [$0] + IBHelper.allSubviews(of: $0)

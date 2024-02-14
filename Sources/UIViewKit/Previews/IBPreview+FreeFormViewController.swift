@@ -5,15 +5,13 @@
 //  Created by Blazej SLEBODA on 13/11/2023.
 //
 
-#if DEBUG
-
 import UIKit
 import SwiftUI
 
-public extension IBPreview {
+extension IBPreview {
 
     @available(iOS 13.0, *)
-    struct FreeFormViewController: UIViewControllerRepresentable {
+    public struct FreeFormViewController: UIViewControllerRepresentable {
 
         private let makeUIViewController: () -> UIViewController
 
@@ -35,37 +33,38 @@ public extension IBPreview {
     }
 }
 
-class ContainerViewController: UIViewController {
+extension IBPreview {
 
-    var childViewController: UIViewController? {
-        didSet {
-            setupChildViewController()
+    final class ContainerViewController: UIViewController {
+
+        var childViewController: UIViewController? {
+            didSet {
+                setupChildViewController()
+            }
         }
-    }
 
-    private func setupChildViewController() {
-        guard let childVC = childViewController else { return }
+        private func setupChildViewController() {
+            guard let childVC = childViewController else { return }
 
-        addChild(childVC)
-        view.addSubview(childVC.view)
+            addChild(childVC)
+            view.addSubview(childVC.view)
 
-        childVC.view.frame = .init(origin: .zero, size: view.frame.size)
+            childVC.view.frame = .init(origin: .zero, size: view.frame.size)
 
-        childVC.didMove(toParent: self)
+            childVC.didMove(toParent: self)
 
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        view.addGestureRecognizer(panGesture)
-    }
-
-    @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: view)
-        if let childView = childViewController?.view {
-            let newWidth = max(20, childView.frame.width + translation.x)
-            let newHeight = max(20, childView.frame.height + translation.y)
-            childView.frame.size = CGSize(width: newWidth, height: newHeight)
+            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+            view.addGestureRecognizer(panGesture)
         }
-        gesture.setTranslation(.zero, in: view)
+
+        @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
+            let translation = gesture.translation(in: view)
+            if let childView = childViewController?.view {
+                let newWidth = max(20, childView.frame.width + translation.x)
+                let newHeight = max(20, childView.frame.height + translation.y)
+                childView.frame.size = CGSize(width: newWidth, height: newHeight)
+            }
+            gesture.setTranslation(.zero, in: view)
+        }
     }
 }
-
-#endif
