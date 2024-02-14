@@ -10,10 +10,10 @@
 import UIKit
 import SwiftUI
 
-extension IBPreview {
+public extension IBPreview {
 
     @available(iOS 13.0, *)
-    public struct FreeFormViewController: UIViewControllerRepresentable {
+    struct FreeFormViewController: UIViewControllerRepresentable {
 
         private let makeUIViewController: () -> UIViewController
 
