@@ -11,6 +11,8 @@ import UIKit
 import SwiftUI
 
 extension IBPreview {
+    
+    public func toto() { }
 
     @available(iOS 13.0, *)
     public struct FreeFormView: UIViewControllerRepresentable {
