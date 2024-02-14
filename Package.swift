@@ -11,9 +11,6 @@ let package = Package(
     products: [
         .library(name: "UIViewKit", targets: ["UIViewKit"])
     ],
-    dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.15.3"),
-    ],
     targets: [
         .target(
             name: "UIViewKit"
@@ -21,8 +18,7 @@ let package = Package(
         .testTarget(
             name: "UIViewKitTests",
             dependencies: [
-                "UIViewKit",
-                .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
+                "UIViewKit"
             ])
     ]
 )

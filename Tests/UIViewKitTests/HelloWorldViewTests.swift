@@ -8,7 +8,6 @@
 import XCTest
 import UIKit
 @testable import UIViewKit
-import SnapshotTesting
 
 class HelloWorldViewTests: XCTestCase {
     typealias SUT = HelloWordView
@@ -18,18 +17,5 @@ class HelloWorldViewTests: XCTestCase {
         let label = try XCTUnwrap(sut.subviews.first! as? UILabel)
         XCTAssertEqual(label.superview, sut)
         XCTAssertEqual(sut.constraints.count, 2)
-    }
-    
-    func testSnapshotHierarchy() throws {
-        throw XCTSkip("Snapshot assets management under development")
-        let sut = SUT()
-        sut.frame = .init(origin: .zero, size: .init(width: 320, height: 548))
-        assertSnapshot(of: sut, as: .recursiveDescription)
-    }
-    func testSnapshotUI() throws {
-        XCTSkip("Snapshot assets management under development")
-        let sut = SUT()
-        sut.frame = .init(origin: .zero, size: .init(width: 320, height: 548))
-        assertSnapshot(of: sut, as: .image)
     }
 }
