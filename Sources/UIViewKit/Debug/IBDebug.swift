@@ -6,14 +6,6 @@
 //
 
 import UIKit
-import UIViewDSL
-
-extension UIViewDSL where Self: UIView {
-    public func ibDebug() -> Self {
-        self.layer.borderWidth = 1
-        return self
-    }
-}
 
 public class IBDebug {
     

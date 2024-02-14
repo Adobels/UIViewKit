@@ -64,7 +64,6 @@
 		F27DB4E12B7ACE8000AD7F66 /* UIViewDSL+IBSubviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBSubviews.swift"; sourceTree = "<group>"; };
 		F27DB4E22B7ACE8000AD7F66 /* UIViewDSL+ResultBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+ResultBuilders.swift"; sourceTree = "<group>"; };
 		F27DB4E32B7ACE8000AD7F66 /* UIViewDSL+IBAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBAttributes.swift"; sourceTree = "<group>"; };
-		F27DB4E42B7ACE8000AD7F66 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		F27DB4E52B7ACE8000AD7F66 /* UIViewDSL+NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
 		F27DB4E62B7ACE8000AD7F66 /* UIViewDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewDSL.h; sourceTree = "<group>"; };
 		F27DB4E82B7ACE8000AD7F66 /* UIViewDSL+EngineConstraintsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+EngineConstraintsProtocol.swift"; sourceTree = "<group>"; };
@@ -178,7 +177,6 @@
 				F27DB4E12B7ACE8000AD7F66 /* UIViewDSL+IBSubviews.swift */,
 				F27DB4E22B7ACE8000AD7F66 /* UIViewDSL+ResultBuilders.swift */,
 				F27DB4E32B7ACE8000AD7F66 /* UIViewDSL+IBAttributes.swift */,
-				F27DB4E42B7ACE8000AD7F66 /* File.swift */,
 				F27DB4E52B7ACE8000AD7F66 /* UIViewDSL+NSLayoutConstraint.swift */,
 				F27DB4E62B7ACE8000AD7F66 /* UIViewDSL.h */,
 				F27DB4E72B7ACE8000AD7F66 /* AutoresizingStrategy */,
