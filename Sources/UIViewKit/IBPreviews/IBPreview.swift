@@ -19,3 +19,9 @@ public func yesCart() {
 }
 
 #endif
+
+#if BLAZEJ
+
+public func yesBlazej() {}
+
+#endif

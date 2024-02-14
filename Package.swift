@@ -16,16 +16,14 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "UIViewDSL"
-        ),
-        .target(
             name: "UIViewKit",
-            dependencies: ["UIViewDSL"]
+            swiftSettings: [
+                .define("BLAZEJ")
+            ]
         ),
         .testTarget(
             name: "UIViewKitTests",
             dependencies: [
-                "UIViewDSL",
                 "UIViewKit",
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
             ])
