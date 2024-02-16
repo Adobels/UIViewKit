@@ -7,11 +7,10 @@
 
 import XCTest
 @testable import UIViewKit
-@testable import UIViewKitDevelopmentViews
 
 class UIViewDebugTests: XCTestCase {
 
-    typealias SUT = UIViewDebug
+    typealias SUT = IBDebug
 
     func testShow() throws {
         let view = HelloWordView()

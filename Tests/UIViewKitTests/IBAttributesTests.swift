@@ -22,12 +22,16 @@ class IBAttributesTests: XCTestCase {
     }
 }
 
-private class ViewWithLabel: IBView {
+private class ViewWithLabel: UIView {
 
     var font: UIFont!
-
-    override func createView(frame: CGRect) {
-        super.createView(frame: frame)
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         self {
             UILabel().ibAttributes {
                 $0.font = font

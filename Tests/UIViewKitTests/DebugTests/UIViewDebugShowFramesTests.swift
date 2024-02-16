@@ -7,11 +7,10 @@
 
 import XCTest
 @testable import UIViewKit
-@testable import UIViewKitDevelopmentViews
 
 class UIViewDebugShowFramesTests: XCTestCase {
 
-    typealias SUT = UIViewDebug
+    typealias SUT = IBDebug
 
     private var view: HelloWordView!
 

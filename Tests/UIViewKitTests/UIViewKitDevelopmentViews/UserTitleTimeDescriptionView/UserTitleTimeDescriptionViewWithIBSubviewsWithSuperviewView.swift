@@ -61,30 +61,10 @@ public class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView
                     }
                 }
             }.ibAttributes {
-                ibConstraints(from: $0, to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
+                IBConstraints.create(from: $0, to: self, guide: .view, anchors: .top, .left(12), .right(-12), .bottom)
             }
         }
     }
 
     required init?(coder: NSCoder) { fatalError() }
 }
-
-#if DEBUG
-
-import SwiftUI
-
-struct UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewViewPreviews: PreviewProvider {
-    static var previews: some View {
-        IBRepresentableForView(
-            UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView().ibAttributes {
-                $0.imageViewUser.image = .init(systemName: "person.circle")
-                $0.labelTitle.text = "Amanda Clarke"
-                $0.labelTime.text = "1:08 PM"
-                $0.labelDescription.text = "Hey, how are you doing today? I have got a question about our trip to Mexi..."
-                UIViewDebug.showFrames(of: $0, includeGivenView: true, includeUIKitPrivateViews: false)
-            }
-        )
-    }
-}
-
-#endif
