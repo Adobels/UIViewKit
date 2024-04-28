@@ -30,6 +30,7 @@
 		F27DB4FF2B7ACF4400AD7F66 /* UIViewDSL+Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4EC2B7ACE8000AD7F66 /* UIViewDSL+Engine.swift */; };
 		F27DB5002B7ACF4400AD7F66 /* UIViewDSL+IBOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4EB2B7ACE8000AD7F66 /* UIViewDSL+IBOutlet.swift */; };
 		F27DB5012B7ACF4400AD7F66 /* UIViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4EA2B7ACE8000AD7F66 /* UIViewDSL.swift */; };
+		F29368412BDEB0180063FA4B /* IBMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293683F2BDEB0180063FA4B /* IBMeasure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +72,7 @@
 		F27DB4EA2B7ACE8000AD7F66 /* UIViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDSL.swift; sourceTree = "<group>"; };
 		F27DB4EB2B7ACE8000AD7F66 /* UIViewDSL+IBOutlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBOutlet.swift"; sourceTree = "<group>"; };
 		F27DB4EC2B7ACE8000AD7F66 /* UIViewDSL+Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Engine.swift"; sourceTree = "<group>"; };
+		F293683F2BDEB0180063FA4B /* IBMeasure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBMeasure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			children = (
 				F27DB4992B7A156400AD7F66 /* IBConstraints */,
 				F27DB4AA2B7A156400AD7F66 /* IBDebug */,
+				F29368402BDEB0180063FA4B /* IBMeasure */,
 				F27DB49B2B7A156400AD7F66 /* IBPreviews */,
 				F27DB4A62B7A156400AD7F66 /* UIKitExtensions */,
 				F22D2FBB2B7D60440085D819 /* UIViewDSL */,
@@ -194,6 +197,14 @@
 				F27DB4E92B7ACE8000AD7F66 /* UIViewDSL+InferredAttributesOwnerStrategy.swift */,
 			);
 			path = AutoresizingStrategy;
+			sourceTree = "<group>";
+		};
+		F29368402BDEB0180063FA4B /* IBMeasure */ = {
+			isa = PBXGroup;
+			children = (
+				F293683F2BDEB0180063FA4B /* IBMeasure.swift */,
+			);
+			path = IBMeasure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +309,7 @@
 				F27DB4FF2B7ACF4400AD7F66 /* UIViewDSL+Engine.swift in Sources */,
 				F27DB4BE2B7A156400AD7F66 /* HorizontalStack.swift in Sources */,
 				F27DB4BB2B7A156400AD7F66 /* IBPreview+FullScreenView.swift in Sources */,
+				F29368412BDEB0180063FA4B /* IBMeasure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
