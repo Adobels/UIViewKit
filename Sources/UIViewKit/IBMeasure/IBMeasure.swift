@@ -7,12 +7,12 @@
 
 import UIKit
 
-public class IBMeasure {
+public final class IBMeasure {
 
     private init() {}
 
     @MainActor
-    func printVerticalDistance(from: NSLayoutAnchor<NSLayoutYAxisAnchor>, to: NSLayoutAnchor<NSLayoutYAxisAnchor>, rootView: UIView) {
+    public static func printVerticalDistance(from: NSLayoutAnchor<NSLayoutYAxisAnchor>, to: NSLayoutAnchor<NSLayoutYAxisAnchor>, rootView: UIView) {
         rootView.ibSubviews {
             MeasureView().ibAttributes {
                 $0.widthAnchor.constraint(equalToConstant: 1)
@@ -21,9 +21,9 @@ public class IBMeasure {
             }
         }
     }
-    
+
     @MainActor
-    func printHorizontalDistance(fromLeft: NSLayoutAnchor<NSLayoutXAxisAnchor>, toRight: NSLayoutAnchor<NSLayoutXAxisAnchor>, rootView: UIView) {
+    public static func printHorizontalDistance(fromLeft: NSLayoutAnchor<NSLayoutXAxisAnchor>, toRight: NSLayoutAnchor<NSLayoutXAxisAnchor>, rootView: UIView) {
         rootView.ibSubviews {
             MeasureView().ibAttributes {
                 $0.heightAnchor.constraint(equalToConstant: 1)
