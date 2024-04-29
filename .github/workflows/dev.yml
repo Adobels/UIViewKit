@@ -10,6 +10,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: unsignedapps/swift-create-xcframework@v2.3.0
+      - name: swift-create-xcframework
+        uses: segment-integrations/swift-create-xcframework@v2.4
         env:
           GITHUB_TOKEN: ${{ secrets.XCFRAMEWORK_SIGN_KEY }}
