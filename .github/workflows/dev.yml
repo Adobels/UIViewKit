@@ -12,6 +12,6 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v4
       - name: swift-create-xcframework
-        uses: segment-integrations/swift-create-xcframework@v2
+        uses: segment-integrations/swift-create-xcframework@v2.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.XCFRAMEWORK_SIGN_KEY }}
