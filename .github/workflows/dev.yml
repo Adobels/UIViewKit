@@ -1,0 +1,14 @@
+name: swift-create-xcframework
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  create-xcframework:
+    runs-on: macos-latest
+    steps:
+      - uses: unsignedapps/swift-create-xcframework@v2.3.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.XCFRAMEWORK_SIGN_KEY }}
