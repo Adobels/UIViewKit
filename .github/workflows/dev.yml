@@ -12,6 +12,6 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v4.1.4
       - name: swift-create-xcframework
-        uses: buildxcf.sh
+        uses: ./buildxcf.sh
         env:
           XCFRAMEWORK_SIGN_KEY: ${{secrets.XCFRAMEWORK_SIGN_KEY}}
