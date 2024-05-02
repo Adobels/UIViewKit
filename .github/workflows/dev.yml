@@ -10,8 +10,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.4
       - name: swift-create-xcframework
-        uses: segment-integrations/swift-create-xcframework@2.4.0
+        uses: buildxcf.sh
         env:
-          GITHUB_TOKEN: ${{ secrets.XCFRAMEWORK_SIGN_KEY }}
+          XCFRAMEWORK_SIGN_KEY: ${{secrets.XCFRAMEWORK_SIGN_KEY}}
