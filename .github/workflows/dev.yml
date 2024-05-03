@@ -23,7 +23,7 @@ jobs:
           codesign -s "iPhone Distribution: Blazej SLEBODA (43VBDTY4E3)" \
           --force \
           --deep \
-          -- .xcframwork/UIViewKit.xcframework
+          -- .xcframework/UIViewKit.xcframework
       - uses: actions/upload-artifact@v4
         with:
           name: Upload UIViewKit.xcframework to Release Assets
