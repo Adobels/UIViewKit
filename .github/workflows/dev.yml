@@ -35,10 +35,12 @@ jobs:
           --force \
           --deep \
           -- $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION
-      - name: Test Content of current folder
+      - name: Asset's path
         run: ls -a $XCFRAMEWORK_OUTPUT_DIR
       - name: Upload XCFramework as Artifact
+        env:
+          XCFRAMEWORK_PATH: ${{ $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION }}
         uses: actions/upload-artifact@v4
         with:
-          name: $XCFRAMEWORK_NAME_WITH_EXTENSION
-          path: .xcframework/UIViewKit.xcframework
+          name: UIViewKit.xcframework
+          path: ${{ XCFRAMEWORK_PATH }}
