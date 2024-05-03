@@ -1,9 +1,14 @@
-name: swift-create-xcframework
+name: swift-create-sign-upload-xcframework
 
 on:
   push:
     branches:
       - develop
+
+env:
+  XCFRAMEWORK_OUTPUT_DIR: .xcframework
+  XCFRAMEWORK_NAME: UIViewKit
+  XCFRAMEWORK_NAME_WITH_EXTENSION: UIViewKit.xcframework
 
 jobs:
   create-xcframework:
@@ -18,13 +23,13 @@ jobs:
         uses: actions/checkout@v4.1.4
       - name: Build XCFramework
         run: ./buildxcf.sh
-      - name: Sign
+      - name: Sign XCFramework
         run: |
           codesign -s "iPhone Distribution: Blazej SLEBODA (43VBDTY4E3)" \
           --force \
           --deep \
-          -- .xcframework/UIViewKit.xcframework
+          -- $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION
       - uses: actions/upload-artifact@v4
         with:
-          name: Upload UIViewKit.xcframework to Release Assets
-          path: .xcframework/UIViewKit.xcframework
+          name: $XCFRAMEWORK_NAME_WITH_EXTENSION
+          path: $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION
