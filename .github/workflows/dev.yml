@@ -23,6 +23,10 @@ jobs:
           p12-password: ${{ secrets.CERTIFICATE_P12_PASSWORD }}
       - name: Checkout Project
         uses: actions/checkout@v4.1.4
+      - name: Test Content of current folder
+        run: ls -a
+      - name: Test Path echo
+        run: echo $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION
       - name: Build XCFramework
         run: ./buildxcf.sh
       - name: Sign XCFramework
