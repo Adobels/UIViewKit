@@ -14,6 +14,8 @@ jobs:
   create-xcframework:
     runs-on: macos-latest
     steps:
+      - name: Test Paths
+        run: ls -a
       - name: Import Code-Signing Certificates
         uses: Apple-Actions/import-codesign-certs@v1
         with: 
@@ -29,7 +31,8 @@ jobs:
           --force \
           --deep \
           -- $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION
-      - uses: actions/upload-artifact@v4
+      - name: Upload XCFramework as Artifact
+        uses: actions/upload-artifact@v4
         with:
           name: $XCFRAMEWORK_NAME_WITH_EXTENSION
           path: $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION
