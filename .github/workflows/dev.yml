@@ -17,7 +17,7 @@ jobs:
       - name: Test Paths
         run: ls -a
       - name: Test Expression
-        run: echo ${{ $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION }}
+        run: echo ${{ $XCFRAMEWORK_OUTPUT_DIR }}
       - name: Import Code-Signing Certificates
         uses: Apple-Actions/import-codesign-certs@v1
         with: 
