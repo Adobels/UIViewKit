@@ -14,10 +14,6 @@ jobs:
   create-xcframework:
     runs-on: macos-latest
     steps:
-      - name: Test Paths
-        run: ls -a
-      - name: Test Expression
-        run: echo ${{ env.XCFRAMEWORK_OUTPUT_DIR }}
       - name: Import Code-Signing Certificates
         uses: Apple-Actions/import-codesign-certs@v1
         with: 
@@ -25,10 +21,6 @@ jobs:
           p12-password: ${{ secrets.CERTIFICATE_P12_PASSWORD }}
       - name: Checkout Project
         uses: actions/checkout@v4.1.4
-      - name: Test Content of current folder
-        run: ls -a
-      - name: Test Path echo
-        run: echo $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION
       - name: Build XCFramework
         run: ./buildxcf.sh
       - name: Sign XCFramework
@@ -37,12 +29,8 @@ jobs:
           --force \
           --deep \
           -- $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION
-      - name: Asset's path
-        run: ls -a $XCFRAMEWORK_OUTPUT_DIR
       - name: Upload XCFramework as Artifact
-        env:
-          XCFRAMEWORK_PATH: ${{ env.XCFRAMEWORK_OUTPUT_DIR }}/${{ env.XCFRAMEWORK_NAME_WITH_EXTENSION }}
         uses: actions/upload-artifact@v4
         with:
-          name: UIViewKit.xcframework
-          path: ${{ env.XCFRAMEWORK_PATH }}
+          name: ${{ env.XCFRAMEWORK_NAME_WITH_EXTENSION }}
+          path: ${{ env.XCFRAMEWORK_OUTPUT_DIR }}/${{ env.XCFRAMEWORK_NAME_WITH_EXTENSION }}
