@@ -41,7 +41,7 @@ jobs:
         run: ls -a $XCFRAMEWORK_OUTPUT_DIR
       - name: Upload XCFramework as Artifact
         env:
-          XCFRAMEWORK_PATH: ${{ $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION }}
+          XCFRAMEWORK_PATH: ${{ env.XCFRAMEWORK_OUTPUT_DIR }}/${{ env.XCFRAMEWORK_NAME_WITH_EXTENSION }}
         uses: actions/upload-artifact@v4
         with:
           name: UIViewKit.xcframework
