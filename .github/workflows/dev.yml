@@ -19,7 +19,7 @@ jobs:
       - name: Build XCFramework
         run: ./buildxcf.sh
       - name: Sign
-        run: 
+        run: |
           codesign -s "iPhone Distribution: Blazej SLEBODA (43VBDTY4E3)" \
           --force \
           --deep \
