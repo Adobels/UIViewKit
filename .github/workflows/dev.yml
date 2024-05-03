@@ -35,6 +35,8 @@ jobs:
           --force \
           --deep \
           -- $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION
+      - name: Test Content of current folder
+        run: ls -a
       - name: Upload XCFramework as Artifact
         uses: actions/upload-artifact@v4
         with:
