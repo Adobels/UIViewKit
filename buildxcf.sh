@@ -30,6 +30,3 @@ xcodebuild -create-xcframework \
   -framework "$OUTPUT_DIR/ios.xcarchive/Products/Library/Frameworks/$PACKAGE_NAME.framework" \
   -framework "$OUTPUT_DIR/ios_simulator.xcarchive/Products/Library/Frameworks/$PACKAGE_NAME.framework" \
   -output "$OUTPUT_DIR/$XCFRAMEWORK_NAME.xcframework"
-
-# Sign
-codesign -s "iPhone Distribution: Blazej SLEBODA (43VBDTY4E3)" --force --deep -- $OUTPUT_DIR/$XCFRAMEWORK_NAME.xcframework
