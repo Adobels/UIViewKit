@@ -23,12 +23,6 @@ jobs:
         uses: actions/checkout@v4.1.4
       - name: Build XCFramework
         run: ./buildxcf.sh
-      - name: Sign XCFramework
-        run: |
-          codesign -s "iPhone Distribution: Blazej SLEBODA (43VBDTY4E3)" \
-          --force \
-          --deep \
-          -- $XCFRAMEWORK_OUTPUT_DIR/$XCFRAMEWORK_NAME_WITH_EXTENSION
       - name: Upload XCFramework as Artifact
         uses: actions/upload-artifact@v4
         with:
