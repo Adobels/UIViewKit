@@ -1,0 +1,30 @@
+name: swift-create-sign-upload-xcframework
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+env:
+  XCFRAMEWORK_OUTPUT_DIR: .xcframework
+  XCFRAMEWORK_NAME: UIViewKit
+  XCFRAMEWORK_NAME_WITH_EXTENSION: UIViewKit.xcframework
+
+jobs:
+  create-xcframework:
+    runs-on: macos-latest
+    steps:
+      - name: Import Code-Signing Certificates
+        uses: Apple-Actions/import-codesign-certs@v1
+        with: 
+          p12-file-base64: ${{ secrets.CERTIFICATE_P12 }}
+          p12-password: ${{ secrets.CERTIFICATE_P12_PASSWORD }}
+      - name: Checkout Project
+        uses: actions/checkout@v4.1.4
+      - name: Build XCFramework
+        run: ./buildxcf.sh
+      - name: Upload XCFramework as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.XCFRAMEWORK_NAME_WITH_EXTENSION }}
+          path: ${{ env.XCFRAMEWORK_OUTPUT_DIR }}/${{ env.XCFRAMEWORK_NAME_WITH_EXTENSION }}

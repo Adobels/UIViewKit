@@ -21,12 +21,18 @@ public final class IBDebug {
         }
     }
 
-    public static func showFrames(of view: UIView, includeGivenView: Bool = true, includeUIKitPrivateViews: Bool = false) {
+    public static func showFrames(of view: UIView, borderColor: UIColor? = nil, includeGivenView: Bool = true, includeUIKitPrivateViews: Bool = false) {
         if includeGivenView {
             view.layer.borderWidth = 1
+            if let borderColor {
+                view.layer.borderColor = borderColor.cgColor
+            }
         }
         allSubviews(of: view, includeUIKitPrivateViews: includeUIKitPrivateViews).forEach {
             $0.layer.borderWidth = 1
+            if let borderColor {
+                $0.layer.borderColor = borderColor.cgColor
+            }
         }
     }
 
