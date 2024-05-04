@@ -1,9 +1,8 @@
 name: swift-create-sign-upload-xcframework
 
 on:
-  push:
-    branches:
-      - develop
+  release:
+    types: [created]
 
 env:
   XCFRAMEWORK_OUTPUT_DIR: .xcframework
