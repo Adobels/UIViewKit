@@ -7,15 +7,16 @@
 
 import XCTest
 
-@MainActor
 class IBSubviewsTests: XCTestCase {
 
+    @MainActor
     func testIBSubviews() throws {
         _ = UIView {
             UILabel()
         }
     }
 
+    @MainActor
     func testIBSubviewsView() throws {
         _ = UIView {
             UILabel()
@@ -28,6 +29,7 @@ class IBSubviewsTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testIBSubviewsViewAsSuperview() throws {
         _ = UIView { _ in
             UILabel()
@@ -40,6 +42,7 @@ class IBSubviewsTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testIBSubviewsStackView() throws {
         _ = UIStackView {
             UILabel()
@@ -52,6 +55,7 @@ class IBSubviewsTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testIBSubviewsStackViewAsSuperview() throws {
         _ = UIStackView { _ in
             UILabel()
@@ -64,6 +68,7 @@ class IBSubviewsTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testIBSubviewsWithForEach() throws {
         let subviews = [
             UILabel(),

@@ -8,9 +8,9 @@
 import XCTest
 @testable import UIViewKit
 
-@MainActor
 class ibConstraintsTests: XCTestCase {
 
+    @MainActor
     // swiftlint:disable:next function_body_length
     func testViewAll() throws {
         let view = UIView()
@@ -18,7 +18,7 @@ class ibConstraintsTests: XCTestCase {
 
         view {
             subview.ibAttributes {
-                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .all)
+                $0.ibConstraints(to: view, anchors: .all)
             }
         }
 
@@ -103,21 +103,22 @@ class ibConstraintsTests: XCTestCase {
         }()
     }
 
+    @MainActor
     func testRunDifferentConfigurations() throws {
         let view = UIView()
         let subview = UIView()
 
         view {
             subview.ibAttributes {
-                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .all)
-                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .top, .left, .right, .bottom)
-                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .top(1), .left(1), .right(-1), .bottom(-1))
-                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .top, .leading, .trailing, .bottom)
-                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .top(1), .leading(1), .trailing(-1), .bottom(-1))
-                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .centerX, .centerY)
-                IBConstraints.create(from: $0, to: view, guide: .view, anchors: .centerX(1), .centerY(1))
-                IBConstraints.create(from: $0, to: view, guide: .viewMargins, anchors: .all)
-                IBConstraints.create(from: $0, to: view, guide: .viewSafeArea, anchors: .all)
+                $0.ibConstraints(to: view, anchors: .all)
+                $0.ibConstraints(to: view, anchors: .top, .left, .right, .bottom)
+                $0.ibConstraints(to: view, anchors: .top(1), .left(1), .right(-1), .bottom(-1))
+                $0.ibConstraints(to: view, anchors: .top, .leading, .trailing, .bottom)
+                $0.ibConstraints(to: view, anchors: .top(1), .leading(1), .trailing(-1), .bottom(-1))
+                $0.ibConstraints(to: view, anchors: .centerX, .centerY)
+                $0.ibConstraints(to: view, anchors: .centerX(1), .centerY(1))
+                $0.ibConstraints(to: view.layoutMarginsGuide, anchors: .all)
+                $0.ibConstraints(to: view.safeAreaLayoutGuide, anchors: .all)
             }
         }
 

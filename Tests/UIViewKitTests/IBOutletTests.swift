@@ -7,9 +7,9 @@
 
 import XCTest
 
-@MainActor
 class IBOutletTests: XCTestCase {
 
+    @MainActor
     func testIBOutlet() throws {
 
         var label = UILabel()
@@ -19,6 +19,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(label, newLabel)
     }
 
+    @MainActor
     func testIBOutletIn() throws {
         var labels: [UILabel] = []
 
@@ -28,6 +29,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(labels[.zero], newLabel)
     }
 
+    @MainActor
     func testIBOutletWithForceUnwrap() throws {
         var label: UILabel!
 
@@ -36,6 +38,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(label, newLabel)
     }
 
+    @MainActor
     func testIBOutletWithTrailingClosureOfIbSubviews() throws {
 
         var view = UIView()
@@ -47,6 +50,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(view, newView)
     }
 
+    @MainActor
     func testIBOutletWithTrailingClosureOfIbSubviewsAndSuperview() throws {
 
         var view = UIView()
@@ -58,6 +62,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(view, newView)
     }
 
+    @MainActor
     func testIBOutletInWithTrailingClosureOfIbSubviews() throws {
         var views: [UIView] = []
 
@@ -69,6 +74,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(views[.zero], newView)
     }
 
+    @MainActor
     func testIBOutletInWithTrailingClosureOfIbSubviewsAndSuperview() throws {
         var views: [UIView] = []
 
@@ -80,6 +86,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(views[.zero], newView)
     }
 
+    @MainActor
     func testIBOutletWithForceUnwrapWithTrailingClosureOfIbSubviews() throws {
         var view: UIView!
 
@@ -90,6 +97,7 @@ class IBOutletTests: XCTestCase {
         XCTAssertEqual(view, newView)
     }
 
+    @MainActor
     func testIBOutletWithForceUnwrapWithTrailingClosureOfIbSubviewsAndSuperview() throws {
         var view: UIView!
 

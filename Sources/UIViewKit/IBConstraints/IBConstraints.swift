@@ -11,22 +11,11 @@ public final class IBConstraints {
 
     private init() {}
     
-    public static func create(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
-        createConstraints(from: from, to: to, guide: guide, anchors: anchors)
-    }
-    
-    static func createConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
-        switch guide {
-        case .view:
-            return createConstraints(from: from, to: to, anchors: anchors)
-        case .viewMargins:
-            return createConstraints(from: from, to: to.layoutMarginsGuide, anchors: anchors)
-        case .viewSafeArea:
-            return createConstraints(from: from, to: to.safeAreaLayoutGuide, anchors: anchors)
-        }
+    public static func create(from: UIView, to: UILayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
+        return createConstraints(from: from, to: to, anchors: anchors)
     }
 
-    private static func createConstraints(from view: UIView, to target: Any, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
+    static func createConstraints(from view: UIView, to target: Any, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
         var constraints: [NSLayoutConstraint] = []
         // swiftlint:disable force_cast
         for anchor in anchors {

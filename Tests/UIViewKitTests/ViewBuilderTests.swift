@@ -8,15 +8,16 @@
 import XCTest
 @testable import UIViewKit
 
-@MainActor
 class ViewBuilderTests: XCTestCase {
 
+    @MainActor
     func testSingleSubview() throws {
         _ = UIView {
             UIView()
         }
     }
 
+    @MainActor
     func testComplexSubview() throws {
         let alwaysTrue = true
         let alwaysFalse = false

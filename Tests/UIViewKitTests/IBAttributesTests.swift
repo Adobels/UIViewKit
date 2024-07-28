@@ -8,9 +8,9 @@
 import XCTest
 @testable import UIViewKit
 
-@MainActor
 class IBAttributesTests: XCTestCase {
 
+    @MainActor
     func testLabelText() throws {
         _ = UIView {
             ViewWithLabel().ibAttributes {

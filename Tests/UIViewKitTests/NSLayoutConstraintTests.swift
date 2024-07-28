@@ -7,9 +7,9 @@
 
 import XCTest
 
-@MainActor
 class NSLayoutConstraintTests: XCTestCase {
 
+    @MainActor
     func testNSLayoutConstraintActivate() throws {
 
         var viewFirst: UIView!

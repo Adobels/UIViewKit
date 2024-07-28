@@ -9,11 +9,11 @@ import XCTest
 @testable import UIViewKit
 
 // swiftlint:disable type_body_length
-@MainActor
 class ProTests: XCTestCase {
 
     private typealias SUT = UIView
-
+    
+    @MainActor
     func testSingleSut() throws {
         let rootView = SUT()
         var sut: SUT!
@@ -25,6 +25,7 @@ class ProTests: XCTestCase {
         XCTAssertEqual(sut.subviews.count, Int.zero)
     }
 
+    @MainActor
     func testFirstLevel() throws {
         let rootView = SUT()
         var sut: SUT!
@@ -56,6 +57,7 @@ class ProTests: XCTestCase {
         XCTAssertTrue(sut.subviews[9] is UICollectionView)
     }
 
+    @MainActor
     func testStackViewWithTwoLabels() throws {
         let rootView = SUT()
         var sut: SUT!
@@ -77,6 +79,7 @@ class ProTests: XCTestCase {
         XCTAssertTrue(sut.subviews[.zero].subviews[1] is UILabel)
     }
 
+    @MainActor
     func testStackViewWithinStackViewWithTwoLabels() throws {
         let rootView = SUT()
         var sut: SUT!
@@ -102,6 +105,7 @@ class ProTests: XCTestCase {
         XCTAssertTrue(sut.subviews[.zero].subviews[.zero].subviews[1] is UILabel)
     }
 
+    @MainActor
     func testStackViewWithLabelScopedByMacroIf() throws {
         let rootView = SUT()
         var sut: SUT!
@@ -126,6 +130,7 @@ class ProTests: XCTestCase {
         XCTAssertEqual(sut.subviews[.zero].subviews[.zero], label2)
     }
 
+    @MainActor
     func testStackViewWithLabelScopedByMacroIfElse() throws {
         let rootView = SUT()
         var sut: SUT!
@@ -160,6 +165,7 @@ class ProTests: XCTestCase {
         XCTAssertEqual(sut.subviews[.zero].subviews[1], label3)
     }
 
+    @MainActor
     func testStackViewWithLabelScopedByIfLet() throws {
         let rootView = SUT()
         var sut: SUT!
@@ -185,6 +191,7 @@ class ProTests: XCTestCase {
         XCTAssertEqual(sut.subviews[.zero].subviews[1], label2)
     }
 
+    @MainActor
     func testStackViewWithLabelScopedByIf() throws {
         let rootView = SUT()
         var sut: SUT!
@@ -209,6 +216,7 @@ class ProTests: XCTestCase {
         XCTAssertEqual(sut.subviews[.zero].subviews[.zero], label2)
     }
 
+    @MainActor
     func testStackViewWithLabelScopedByIfElse() throws {
         let rootView = SUT()
         var sut: SUT!
@@ -237,6 +245,7 @@ class ProTests: XCTestCase {
         XCTAssertEqual(sut.subviews[.zero].subviews[1], label3)
     }
 
+    @MainActor
     func testExpressionsWhichReturnsVoid() throws {
         let rootView = SUT()
         var sut: SUT!
@@ -273,6 +282,7 @@ class ProTests: XCTestCase {
         XCTAssertEqual(sut.subviews[.zero].subviews[1], label3)
     }
 
+    @MainActor
     func testSetConstraintsSingle() throws {
         let rootView = SUT()
 
@@ -289,6 +299,7 @@ class ProTests: XCTestCase {
         XCTAssertTrue(try XCTUnwrap( UIViewDSLEngine.shared.constraintsToApplyForDebug.isEmpty))
     }
 
+    @MainActor
     func testSetConstraintsMultiple() throws {
         let rootView = SUT()
 
