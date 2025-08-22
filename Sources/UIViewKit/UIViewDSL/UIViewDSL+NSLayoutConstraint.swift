@@ -37,6 +37,24 @@ extension NSLayoutConstraint {
         outlet = self
         return self
     }
+    
+    @discardableResult
+    public func ibOutlet<Owner: Any>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, NSLayoutConstraint>) -> Self {
+        owner?[keyPath: property] = self
+        return self
+    }
+    
+    @discardableResult
+    public func ibOutlet<Owner: Any>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, NSLayoutConstraint?>) -> Self {
+        owner?[keyPath: property] = self
+        return self
+    }
+    
+    @discardableResult
+    public func ibOutlets(_ block: (Self) -> Void) -> Self {
+        block(self)
+        return self
+    }
 
     @discardableResult
     public func ibShouldBeArchived(_ shouldBeArchived: Bool) -> Self {

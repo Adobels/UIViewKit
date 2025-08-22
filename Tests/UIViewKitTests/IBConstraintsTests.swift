@@ -123,4 +123,30 @@ class ibConstraintsTests: XCTestCase {
 
         XCTAssertEqual(view.constraints.count, 40)
     }
+    
+    class MyView: UIView {
+        var heightConstraint: NSLayoutConstraint!
+    }
+    
+    class MyViewWithHeightConstraintOptional: UIView {
+        var heightConstraint: NSLayoutConstraint!
+    }
+
+    func testConstraintIBOutletKeyPathOptionalOwnerAndDestinationForced() throws {
+        let myView: MyView? = .init()
+        UIView().heightAnchor.constraint(equalToConstant: 1).ibOutlet(myView, \.heightConstraint)
+        XCTAssertEqual(myView?.heightConstraint.constant, 1)
+    }
+    
+    func testConstraintIBOutletKeyPathOptionalOwnerAndDestinationOptional() throws {
+        let myView: MyViewWithHeightConstraintOptional? = .init()
+        UIView().heightAnchor.constraint(equalToConstant: 1).ibOutlet(myView, \.heightConstraint)
+        XCTAssertEqual(myView?.heightConstraint.constant, 1)
+    }
+    
+    func testConstraintIBOutlets() throws {
+        let myView: MyView? = .init()
+        UIView().heightAnchor.constraint(equalToConstant: 1).ibOutlets { myView?.heightConstraint = $0 }
+        XCTAssertEqual(myView?.heightConstraint.constant, 1)
+    }
 }

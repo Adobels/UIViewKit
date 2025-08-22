@@ -26,4 +26,23 @@ extension UIViewDSL where Self: UIView {
         outlet.append(self)
         return self
     }
+
+    @discardableResult
+    public func ibOutlets(_ block: (Self) -> Void) -> Self {
+        block(self)
+        return self
+    }
+    
+    @discardableResult
+    public func ibOutlet<Owner: Any>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self>) -> Self {
+        owner?[keyPath: property] = self
+        return self
+    }
+    
+    @discardableResult
+    public func ibOutlet<Owner: Any>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self?>) -> Self {
+        owner?[keyPath: property] = self
+        return self
+    }
+    
 }
