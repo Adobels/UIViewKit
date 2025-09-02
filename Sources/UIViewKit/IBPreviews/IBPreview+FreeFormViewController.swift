@@ -33,7 +33,7 @@ extension IBPreview {
         public init(_ viewController: T) {
             self.viewControllerMaker = { viewController }
         }
-        public init(viewControllerMaker: @escaping () -> T) {
+        public init(_ viewControllerMaker: @escaping () -> T) {
             self.viewControllerMaker = viewControllerMaker
         }
         
@@ -98,7 +98,7 @@ extension IBPreview {
                     $0.leadingAnchor.constraint(equalTo: superview.leadingAnchor)
                     $0.widthAnchor.constraint(equalToConstant: iPhoneSE2WithKeyboardFrame.width)
                     $0.heightAnchor.constraint(equalToConstant: iPhoneSE2WithKeyboardFrame.height)
-                    $0.layer.borderColor = UIColor.cyan.cgColor
+                    $0.layer.borderColor = UIColor.yellow.cgColor
                     $0.layer.borderWidth = 2
                 }
             }
