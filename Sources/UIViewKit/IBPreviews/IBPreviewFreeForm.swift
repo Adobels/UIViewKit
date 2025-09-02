@@ -9,15 +9,13 @@ import UIKit
 import SwiftUI
 
 @available(iOS 13.0, *)
-public struct IBPreviewFreeForm<T: UIViewController>: UIViewControllerRepresentable {
+public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
     
-    public typealias UIViewControllerType = UIViewController
-    
-    private let viewControllerMaker: () -> T
+    private let viewControllerMaker: () -> UIViewController
     
     public init(_ view: UIView) {
         self.viewControllerMaker = {
-            let vc = T()
+            let vc = UIViewController()
             vc.loadViewIfNeeded()
             vc.view.ibSubviews {
                 view.ibAttributes {
@@ -26,35 +24,39 @@ public struct IBPreviewFreeForm<T: UIViewController>: UIViewControllerRepresenta
             }
             return vc
         }
+        super.init(nibName: nil, bundle: nil)
     }
     
-    public init(_ viewController: T) {
+    public init(_ viewController: UIViewController) {
         self.viewControllerMaker = { viewController }
+        super.init(nibName: nil, bundle: nil)
     }
 
-    public init(_ viewControllerMaker: @escaping () -> T) {
+    public init(_ viewControllerMaker: @escaping () -> UIViewController) {
         self.viewControllerMaker = viewControllerMaker
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    public required init?(coder: NSCoder) {
+        fatalError()
     }
 
-    public func makeUIViewController(context: Context) -> UIViewController {
+    public override func loadView() {
+        super.loadView()
         let controller = viewControllerMaker()
         controller.loadViewIfNeeded()
-        let freeFormContainer = ViewControllerFreeFormContainer()
-        freeFormContainer.loadViewIfNeeded()
-        freeFormContainer.containerView.ibSubviews { superview in
+        containerView.ibSubviews { superview in
             controller.view.ibAttributes {
                 $0.ibConstraints(to: superview, guide: .view, anchors: .all)
             }
         }
-        freeFormContainer.addChild(controller)
-        controller.willMove(toParent: freeFormContainer)
-        return freeFormContainer
+        addChild(controller)
+        controller.willMove(toParent: self)
     }
-    
-    public func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
+
 }
 
-final class ViewControllerFreeFormContainer: UIViewController {
+public class ViewControllerFreeFormContainer: UIViewController {
     var containerView: UIView!
     var heightConstraint: NSLayoutConstraint!
     var widthConstraint: NSLayoutConstraint!
@@ -64,8 +66,8 @@ final class ViewControllerFreeFormContainer: UIViewController {
     private let iPhoneSE2Frame = CGRect(origin: .zero, size: .init(width: 375, height: 667))
     private let iPhoneSE2WithKeyboardFrame = CGRect(origin: .zero, size: .init(width: 375, height: 451))
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    public override func loadView() {
+        super.loadView()
         view.backgroundColor = .lightGray
         view.ibSubviews { superview in
             UIView().ibOutlet(&iPhoneSE2FrameView).ibSubviews { superview in
@@ -121,7 +123,7 @@ final class ViewControllerFreeFormContainer: UIViewController {
         view.addGestureRecognizer(snapToViewFeature.tapGesture())
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         workaroundHideKeyboardAndSizeContainerView()
     }
@@ -134,7 +136,7 @@ final class ViewControllerFreeFormContainer: UIViewController {
         }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         guard let touch = touches.first else { return }
         let loc = touch.location(in: view)
