@@ -7,7 +7,8 @@
 
 import UIKit
 
-public class ContainerView: UIView {
+public class IBContainerView: UIView {
+
     private var controllerCreator: (() -> UIViewController)?
 
     public required init?(coder: NSCoder) {
@@ -24,22 +25,17 @@ public class ContainerView: UIView {
     public override func didMoveToWindow() {
         super.didMoveToWindow()
         guard let controllerCreator else { return }
-        embedViewContrloller(controllerCreator())
         self.controllerCreator = nil
+        embed(controllerCreator())
     }
     
-    public func embedViewContrloller(_ viewControllerToEmbed: UIViewController) {
+    public func ibEmbed(_ viewControllerToEmbed: UIViewController) {
+        self.controllerCreator = { viewControllerToEmbed }
+    }
+    
+    private func embed(_ viewControllerToEmbed: UIViewController) {
         guard let parent = nearestViewController() else { return }
-        guard !subviews.contains(viewControllerToEmbed.view) else { return }
-        removeChildrenWithRootView(parentViewController: parent)
         parent.ibEmbed(viewControllerToEmbed, self)
-    }
-    
-    private func removeChildrenWithRootView(parentViewController parent: UIViewController) {
-        let controllers = subviews.compactMap { subview in
-            parent.children.first { $0.view === subview }
-        }
-        controllers.forEach { parent.ibUnembed($0) }
     }
 }
 
