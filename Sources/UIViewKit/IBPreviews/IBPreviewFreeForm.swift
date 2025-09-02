@@ -41,9 +41,9 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         super.loadView()
         if let viewMaker = viewMaker {
             let viewToPreview = viewMaker()
-            view.ibSubviews {
+            containerView.ibSubviews { superview in
                 viewToPreview.ibAttributes {
-                    $0.ibConstraints(to: view, guide: .view, anchors: .all)
+                    $0.ibConstraints(to: superview, guide: .view, anchors: .all)
                 }
             }
             return
