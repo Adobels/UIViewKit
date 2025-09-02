@@ -29,7 +29,11 @@ public class IBContainerView: UIView {
         embed(controllerCreator())
     }
     
-    public func ibEmbed(_ viewControllerToEmbed: @autoclosure @escaping () -> UIViewController) {
+    public func ibEmbed(_ viewControllerToEmbed: UIViewController) {
+        self.controllerCreator = { viewControllerToEmbed }
+    }
+    
+    public func ibEmbed(maker viewControllerToEmbed: @escaping () -> UIViewController) {
         self.controllerCreator = viewControllerToEmbed
     }
     
