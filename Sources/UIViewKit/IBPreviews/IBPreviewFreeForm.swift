@@ -31,10 +31,11 @@ public struct IBPreviewFreeForm<T: UIViewController>: UIViewControllerRepresenta
     public init(_ viewController: T) {
         self.viewControllerMaker = { viewController }
     }
+
     public init(_ viewControllerMaker: @escaping () -> T) {
         self.viewControllerMaker = viewControllerMaker
     }
-    
+
     public func makeUIViewController(context: Context) -> UIViewController {
         let controller = viewControllerMaker()
         controller.loadViewIfNeeded()
