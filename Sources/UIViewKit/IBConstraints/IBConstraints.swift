@@ -39,6 +39,9 @@ public final class IBConstraints {
                 constraints.append(view.topAnchor.constraint(equalTo: (target as? UILayoutGuide)?.topAnchor ?? (target as! UIView).topAnchor, constant: value))
             case .bottom(let value):
                 constraints.append(view.bottomAnchor.constraint(equalTo: (target as? UILayoutGuide)?.bottomAnchor ?? (target as! UIView).bottomAnchor, constant: value))
+            case .center:
+                constraints.append(view.centerXAnchor.constraint(equalTo: (target as? UILayoutGuide)?.centerXAnchor ?? (target as! UIView).centerXAnchor))
+                constraints.append(view.centerYAnchor.constraint(equalTo: (target as? UILayoutGuide)?.centerYAnchor ?? (target as! UIView).centerYAnchor))
             case .centerX(let value):
                 constraints.append(view.centerXAnchor.constraint(equalTo: (target as? UILayoutGuide)?.centerXAnchor ?? (target as! UIView).centerXAnchor, constant: value))
             case .centerY(let value):
@@ -66,6 +69,7 @@ public final class IBConstraints {
         case right(CGFloat)
         case top(CGFloat)
         case bottom(CGFloat)
+        case center
         case centerX(CGFloat)
         case centerY(CGFloat)
         case leading(CGFloat)
