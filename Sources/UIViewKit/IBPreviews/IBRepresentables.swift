@@ -14,11 +14,11 @@ public struct IBRepresentableViewController: UIViewControllerRepresentable {
 
     private let viewControllerMaker: () -> UIViewController
 
-    init(_ viewController: UIViewController) {
+    public init(_ viewController: UIViewController) {
         viewControllerMaker = { viewController }
     }
 
-    init(_ viewControllerMaker: @escaping () -> UIViewController) {
+    public init(_ viewControllerMaker: @escaping () -> UIViewController) {
         self.viewControllerMaker = viewControllerMaker
     }
 
@@ -35,11 +35,11 @@ public struct IBRepresentableView: UIViewRepresentable {
     
     private let viewMaker: () -> UIView
     
-    init(_ view: UIView) {
+    public init(_ view: UIView) {
         viewMaker = { view }
     }
     
-    init (_ viewMaker: @escaping () -> UIView) {
+    public init (_ viewMaker: @escaping () -> UIView) {
         self.viewMaker = viewMaker
     }
     
