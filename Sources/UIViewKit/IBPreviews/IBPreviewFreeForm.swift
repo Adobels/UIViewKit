@@ -1,62 +1,71 @@
 //
-//  IBPreview+FreeFormViewController.swift
+//  IBPreviewFreeForm.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 13/11/2023.
 //
 
 import UIKit
-import SwiftUI
 
 @available(iOS 13.0, *)
 public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
     
-    private let viewControllerMaker: () -> UIViewController
-    
-    public init(_ view: UIView) {
-        self.viewControllerMaker = {
-            let vc = UIViewController()
-            vc.loadViewIfNeeded()
-            vc.view.ibSubviews {
-                view.ibAttributes {
-                    $0.ibConstraints(to: vc.view, guide: .view, anchors: .all)
-                }
-            }
-            return vc
-        }
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    public init(_ viewController: UIViewController) {
-        self.viewControllerMaker = { viewController }
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    public init(_ viewControllerMaker: @escaping () -> UIViewController) {
-        self.viewControllerMaker = viewControllerMaker
-        super.init(nibName: nil, bundle: nil)
-    }
+    private var viewControllerMaker: (() -> UIViewController)?
+    private var viewMaker: (() -> UIView)?
     
     public required init?(coder: NSCoder) {
         fatalError()
     }
+    
+    public init(view: UIView) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewMaker = { view }
+    }
+    
+    public init(_ viewMaker: @escaping () -> UIView) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewMaker = viewMaker
+    }
+    
+    public init(viewController: UIViewController) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewControllerMaker = { viewController }
+    }
+
+    public init(_ viewControllerMaker: @escaping () -> UIViewController) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewControllerMaker = viewControllerMaker
+    }
 
     public override func loadView() {
         super.loadView()
-        let controller = viewControllerMaker()
-        controller.loadViewIfNeeded()
-        containerView.ibSubviews { superview in
-            controller.view.ibAttributes {
-                $0.ibConstraints(to: superview, guide: .view, anchors: .all)
+        if let viewMaker = viewMaker {
+            let viewToPreview = viewMaker()
+            view.ibSubviews {
+                viewToPreview.ibAttributes {
+                    $0.ibConstraints(to: view, guide: .view, anchors: .all)
+                }
             }
+            return
+        } else if let viewControllerMaker = viewControllerMaker {
+            let controller = viewControllerMaker()
+            controller.loadViewIfNeeded()
+            addChild(controller)
+            containerView.ibSubviews { superview in
+                controller.view.ibAttributes {
+                    $0.ibConstraints(to: superview, guide: .view, anchors: .all)
+                }
+            }
+            controller.didMove(toParent: self)
+        } else {
+            fatalError()
         }
-        addChild(controller)
-        controller.willMove(toParent: self)
     }
 
 }
 
 public class ViewControllerFreeFormContainer: UIViewController {
+
     var containerView: UIView!
     var heightConstraint: NSLayoutConstraint!
     var widthConstraint: NSLayoutConstraint!
