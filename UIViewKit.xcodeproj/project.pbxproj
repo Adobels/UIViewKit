@@ -3,35 +3,8 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
-
-/* Begin PBXBuildFile section */
-		F27DB4B52B7A156400AD7F66 /* IBConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB49A2B7A156400AD7F66 /* IBConstraints.swift */; };
-		F27DB4B62B7A156400AD7F66 /* IBPreview+FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB49C2B7A156400AD7F66 /* IBPreview+FullScreenViewController.swift */; };
-		F27DB4B72B7A156400AD7F66 /* IBPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB49D2B7A156400AD7F66 /* IBPreview.swift */; };
-		F27DB4B82B7A156400AD7F66 /* IBPreview+FreeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB49E2B7A156400AD7F66 /* IBPreview+FreeFormView.swift */; };
-		F27DB4B92B7A156400AD7F66 /* IBPreview+SizeThatFitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB49F2B7A156400AD7F66 /* IBPreview+SizeThatFitsView.swift */; };
-		F27DB4BA2B7A156400AD7F66 /* IBPreview+FreeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4A02B7A156400AD7F66 /* IBPreview+FreeFormViewController.swift */; };
-		F27DB4BB2B7A156400AD7F66 /* IBPreview+FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4A12B7A156400AD7F66 /* IBPreview+FullScreenView.swift */; };
-		F27DB4BC2B7A156400AD7F66 /* IBScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4A32B7A156400AD7F66 /* IBScrollView.swift */; };
-		F27DB4BD2B7A156400AD7F66 /* VerticalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4A42B7A156400AD7F66 /* VerticalStack.swift */; };
-		F27DB4BE2B7A156400AD7F66 /* HorizontalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4A52B7A156400AD7F66 /* HorizontalStack.swift */; };
-		F27DB4BF2B7A156400AD7F66 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4A72B7A156400AD7F66 /* UIViewController+Extensions.swift */; };
-		F27DB4C02B7A156400AD7F66 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4A82B7A156400AD7F66 /* UIView+Extensions.swift */; };
-		F27DB4C12B7A156400AD7F66 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4A92B7A156400AD7F66 /* UIStackView+Extensions.swift */; };
-		F27DB4C22B7A156400AD7F66 /* IBDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4AB2B7A156400AD7F66 /* IBDebug.swift */; };
-		F27DB4F82B7ACF3C00AD7F66 /* UIViewDSL+IBSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4E12B7ACE8000AD7F66 /* UIViewDSL+IBSubviews.swift */; };
-		F27DB4F92B7ACF3C00AD7F66 /* UIViewDSL+IBAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4E32B7ACE8000AD7F66 /* UIViewDSL+IBAttributes.swift */; };
-		F27DB4FA2B7ACF3C00AD7F66 /* UIViewDSL+ResultBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4E22B7ACE8000AD7F66 /* UIViewDSL+ResultBuilders.swift */; };
-		F27DB4FB2B7ACF3C00AD7F66 /* UIViewDSL+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4E52B7ACE8000AD7F66 /* UIViewDSL+NSLayoutConstraint.swift */; };
-		F27DB4FD2B7ACF4400AD7F66 /* UIViewDSL+InferredAttributesOwnerStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4E92B7ACE8000AD7F66 /* UIViewDSL+InferredAttributesOwnerStrategy.swift */; };
-		F27DB4FE2B7ACF4400AD7F66 /* UIViewDSL+EngineConstraintsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4E82B7ACE8000AD7F66 /* UIViewDSL+EngineConstraintsProtocol.swift */; };
-		F27DB4FF2B7ACF4400AD7F66 /* UIViewDSL+Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4EC2B7ACE8000AD7F66 /* UIViewDSL+Engine.swift */; };
-		F27DB5002B7ACF4400AD7F66 /* UIViewDSL+IBOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4EB2B7ACE8000AD7F66 /* UIViewDSL+IBOutlet.swift */; };
-		F27DB5012B7ACF4400AD7F66 /* UIViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27DB4EA2B7ACE8000AD7F66 /* UIViewDSL.swift */; };
-		F29368412BDEB0180063FA4B /* IBMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293683F2BDEB0180063FA4B /* IBMeasure.swift */; };
-/* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F27DB4DB2B7A161000AD7F66 /* Embed Frameworks */ = {
@@ -48,32 +21,11 @@
 
 /* Begin PBXFileReference section */
 		F22EB0E92ADD8CFC00B70773 /* UIViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F27DB49A2B7A156400AD7F66 /* IBConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBConstraints.swift; sourceTree = "<group>"; };
-		F27DB49C2B7A156400AD7F66 /* IBPreview+FullScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBPreview+FullScreenViewController.swift"; sourceTree = "<group>"; };
-		F27DB49D2B7A156400AD7F66 /* IBPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBPreview.swift; sourceTree = "<group>"; };
-		F27DB49E2B7A156400AD7F66 /* IBPreview+FreeFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBPreview+FreeFormView.swift"; sourceTree = "<group>"; };
-		F27DB49F2B7A156400AD7F66 /* IBPreview+SizeThatFitsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBPreview+SizeThatFitsView.swift"; sourceTree = "<group>"; };
-		F27DB4A02B7A156400AD7F66 /* IBPreview+FreeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBPreview+FreeFormViewController.swift"; sourceTree = "<group>"; };
-		F27DB4A12B7A156400AD7F66 /* IBPreview+FullScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBPreview+FullScreenView.swift"; sourceTree = "<group>"; };
-		F27DB4A32B7A156400AD7F66 /* IBScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBScrollView.swift; sourceTree = "<group>"; };
-		F27DB4A42B7A156400AD7F66 /* VerticalStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalStack.swift; sourceTree = "<group>"; };
-		F27DB4A52B7A156400AD7F66 /* HorizontalStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalStack.swift; sourceTree = "<group>"; };
-		F27DB4A72B7A156400AD7F66 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		F27DB4A82B7A156400AD7F66 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		F27DB4A92B7A156400AD7F66 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
-		F27DB4AB2B7A156400AD7F66 /* IBDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDebug.swift; sourceTree = "<group>"; };
-		F27DB4E12B7ACE8000AD7F66 /* UIViewDSL+IBSubviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBSubviews.swift"; sourceTree = "<group>"; };
-		F27DB4E22B7ACE8000AD7F66 /* UIViewDSL+ResultBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+ResultBuilders.swift"; sourceTree = "<group>"; };
-		F27DB4E32B7ACE8000AD7F66 /* UIViewDSL+IBAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBAttributes.swift"; sourceTree = "<group>"; };
-		F27DB4E52B7ACE8000AD7F66 /* UIViewDSL+NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
-		F27DB4E62B7ACE8000AD7F66 /* UIViewDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewDSL.h; sourceTree = "<group>"; };
-		F27DB4E82B7ACE8000AD7F66 /* UIViewDSL+EngineConstraintsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+EngineConstraintsProtocol.swift"; sourceTree = "<group>"; };
-		F27DB4E92B7ACE8000AD7F66 /* UIViewDSL+InferredAttributesOwnerStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+InferredAttributesOwnerStrategy.swift"; sourceTree = "<group>"; };
-		F27DB4EA2B7ACE8000AD7F66 /* UIViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDSL.swift; sourceTree = "<group>"; };
-		F27DB4EB2B7ACE8000AD7F66 /* UIViewDSL+IBOutlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+IBOutlet.swift"; sourceTree = "<group>"; };
-		F27DB4EC2B7ACE8000AD7F66 /* UIViewDSL+Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewDSL+Engine.swift"; sourceTree = "<group>"; };
-		F293683F2BDEB0180063FA4B /* IBMeasure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBMeasure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BEFE69582E68DDC0006AC2FB /* UIViewKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); name = UIViewKit; path = Sources/UIViewKit; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F22EB0E62ADD8CFC00B70773 /* Frameworks */ = {
@@ -86,28 +38,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F22D2FBB2B7D60440085D819 /* UIViewDSL */ = {
-			isa = PBXGroup;
-			children = (
-				F27DB4E12B7ACE8000AD7F66 /* UIViewDSL+IBSubviews.swift */,
-				F27DB4E22B7ACE8000AD7F66 /* UIViewDSL+ResultBuilders.swift */,
-				F27DB4E32B7ACE8000AD7F66 /* UIViewDSL+IBAttributes.swift */,
-				F27DB4E52B7ACE8000AD7F66 /* UIViewDSL+NSLayoutConstraint.swift */,
-				F27DB4E62B7ACE8000AD7F66 /* UIViewDSL.h */,
-				F27DB4E72B7ACE8000AD7F66 /* AutoresizingStrategy */,
-				F27DB4EA2B7ACE8000AD7F66 /* UIViewDSL.swift */,
-				F27DB4EB2B7ACE8000AD7F66 /* UIViewDSL+IBOutlet.swift */,
-				F27DB4EC2B7ACE8000AD7F66 /* UIViewDSL+Engine.swift */,
-			);
-			path = UIViewDSL;
-			sourceTree = "<group>";
-		};
 		F22EB0DF2ADD8CFC00B70773 = {
 			isa = PBXGroup;
 			children = (
-				F258E7542B02D52B00900EF1 /* UIViewKit */,
 				F22EB0EA2ADD8CFC00B70773 /* Products */,
 				F27DB4D62B7A161000AD7F66 /* Frameworks */,
+				BEFE69582E68DDC0006AC2FB /* UIViewKit */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,92 +55,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F258E7542B02D52B00900EF1 /* UIViewKit */ = {
-			isa = PBXGroup;
-			children = (
-				F27DB4992B7A156400AD7F66 /* IBConstraints */,
-				F27DB4AA2B7A156400AD7F66 /* IBDebug */,
-				F29368402BDEB0180063FA4B /* IBMeasure */,
-				F27DB49B2B7A156400AD7F66 /* IBPreviews */,
-				F27DB4A62B7A156400AD7F66 /* UIKitExtensions */,
-				F22D2FBB2B7D60440085D819 /* UIViewDSL */,
-				F27DB4A22B7A156400AD7F66 /* Views */,
-			);
-			name = UIViewKit;
-			path = Sources/UIViewKit;
-			sourceTree = "<group>";
-		};
-		F27DB4992B7A156400AD7F66 /* IBConstraints */ = {
-			isa = PBXGroup;
-			children = (
-				F27DB49A2B7A156400AD7F66 /* IBConstraints.swift */,
-			);
-			path = IBConstraints;
-			sourceTree = "<group>";
-		};
-		F27DB49B2B7A156400AD7F66 /* IBPreviews */ = {
-			isa = PBXGroup;
-			children = (
-				F27DB49C2B7A156400AD7F66 /* IBPreview+FullScreenViewController.swift */,
-				F27DB49D2B7A156400AD7F66 /* IBPreview.swift */,
-				F27DB49E2B7A156400AD7F66 /* IBPreview+FreeFormView.swift */,
-				F27DB49F2B7A156400AD7F66 /* IBPreview+SizeThatFitsView.swift */,
-				F27DB4A02B7A156400AD7F66 /* IBPreview+FreeFormViewController.swift */,
-				F27DB4A12B7A156400AD7F66 /* IBPreview+FullScreenView.swift */,
-			);
-			path = IBPreviews;
-			sourceTree = "<group>";
-		};
-		F27DB4A22B7A156400AD7F66 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				F27DB4A32B7A156400AD7F66 /* IBScrollView.swift */,
-				F27DB4A42B7A156400AD7F66 /* VerticalStack.swift */,
-				F27DB4A52B7A156400AD7F66 /* HorizontalStack.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		F27DB4A62B7A156400AD7F66 /* UIKitExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				F27DB4A72B7A156400AD7F66 /* UIViewController+Extensions.swift */,
-				F27DB4A82B7A156400AD7F66 /* UIView+Extensions.swift */,
-				F27DB4A92B7A156400AD7F66 /* UIStackView+Extensions.swift */,
-			);
-			path = UIKitExtensions;
-			sourceTree = "<group>";
-		};
-		F27DB4AA2B7A156400AD7F66 /* IBDebug */ = {
-			isa = PBXGroup;
-			children = (
-				F27DB4AB2B7A156400AD7F66 /* IBDebug.swift */,
-			);
-			path = IBDebug;
-			sourceTree = "<group>";
-		};
 		F27DB4D62B7A161000AD7F66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F27DB4E72B7ACE8000AD7F66 /* AutoresizingStrategy */ = {
-			isa = PBXGroup;
-			children = (
-				F27DB4E82B7ACE8000AD7F66 /* UIViewDSL+EngineConstraintsProtocol.swift */,
-				F27DB4E92B7ACE8000AD7F66 /* UIViewDSL+InferredAttributesOwnerStrategy.swift */,
-			);
-			path = AutoresizingStrategy;
-			sourceTree = "<group>";
-		};
-		F29368402BDEB0180063FA4B /* IBMeasure */ = {
-			isa = PBXGroup;
-			children = (
-				F293683F2BDEB0180063FA4B /* IBMeasure.swift */,
-			);
-			path = IBMeasure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +89,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				BEFE69582E68DDC0006AC2FB /* UIViewKit */,
+			);
 			name = UIViewKit;
 			productName = UIViewKit;
 			productReference = F22EB0E92ADD8CFC00B70773 /* UIViewKit.framework */;
@@ -246,6 +104,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					F22EB0E82ADD8CFC00B70773 = {
@@ -286,30 +145,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F27DB4F92B7ACF3C00AD7F66 /* UIViewDSL+IBAttributes.swift in Sources */,
-				F27DB4C02B7A156400AD7F66 /* UIView+Extensions.swift in Sources */,
-				F27DB4C12B7A156400AD7F66 /* UIStackView+Extensions.swift in Sources */,
-				F27DB4B82B7A156400AD7F66 /* IBPreview+FreeFormView.swift in Sources */,
-				F27DB4C22B7A156400AD7F66 /* IBDebug.swift in Sources */,
-				F27DB4B92B7A156400AD7F66 /* IBPreview+SizeThatFitsView.swift in Sources */,
-				F27DB5002B7ACF4400AD7F66 /* UIViewDSL+IBOutlet.swift in Sources */,
-				F27DB4FB2B7ACF3C00AD7F66 /* UIViewDSL+NSLayoutConstraint.swift in Sources */,
-				F27DB4F82B7ACF3C00AD7F66 /* UIViewDSL+IBSubviews.swift in Sources */,
-				F27DB4B72B7A156400AD7F66 /* IBPreview.swift in Sources */,
-				F27DB4BA2B7A156400AD7F66 /* IBPreview+FreeFormViewController.swift in Sources */,
-				F27DB4FD2B7ACF4400AD7F66 /* UIViewDSL+InferredAttributesOwnerStrategy.swift in Sources */,
-				F27DB4FE2B7ACF4400AD7F66 /* UIViewDSL+EngineConstraintsProtocol.swift in Sources */,
-				F27DB4FA2B7ACF3C00AD7F66 /* UIViewDSL+ResultBuilders.swift in Sources */,
-				F27DB4B52B7A156400AD7F66 /* IBConstraints.swift in Sources */,
-				F27DB4BC2B7A156400AD7F66 /* IBScrollView.swift in Sources */,
-				F27DB5012B7ACF4400AD7F66 /* UIViewDSL.swift in Sources */,
-				F27DB4B62B7A156400AD7F66 /* IBPreview+FullScreenViewController.swift in Sources */,
-				F27DB4BF2B7A156400AD7F66 /* UIViewController+Extensions.swift in Sources */,
-				F27DB4BD2B7A156400AD7F66 /* VerticalStack.swift in Sources */,
-				F27DB4FF2B7ACF4400AD7F66 /* UIViewDSL+Engine.swift in Sources */,
-				F27DB4BE2B7A156400AD7F66 /* HorizontalStack.swift in Sources */,
-				F27DB4BB2B7A156400AD7F66 /* IBPreview+FullScreenView.swift in Sources */,
-				F29368412BDEB0180063FA4B /* IBMeasure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
