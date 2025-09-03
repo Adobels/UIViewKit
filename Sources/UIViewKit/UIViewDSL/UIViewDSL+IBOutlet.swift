@@ -7,7 +7,8 @@
 
 import UIKit
 
-extension UIViewDSL where Self: UIView {
+@MainActor
+extension UIViewDSL {
 
     @discardableResult
     public func ibOutlet(_ outlet: inout Self?) -> Self {
@@ -34,13 +35,13 @@ extension UIViewDSL where Self: UIView {
     }
     
     @discardableResult
-    public func ibOutlet<Owner: Any>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self>) -> Self {
+    public func ibOutlet<Owner: AnyObject>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self>) -> Self {
         owner?[keyPath: property] = self
         return self
     }
     
     @discardableResult
-    public func ibOutlet<Owner: Any>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self?>) -> Self {
+    public func ibOutlet<Owner: AnyObject>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self?>) -> Self {
         owner?[keyPath: property] = self
         return self
     }

@@ -37,6 +37,10 @@ public enum IBSubviewsBuilder {
     public static func buildEither(second component: [UIView]) -> [UIView] {
         component
     }
+    
+    public static func buildArray(_ components: [[UIView]]) -> [UIView] {
+        components.flatMap { $0 }
+    }
 }
 
 @resultBuilder

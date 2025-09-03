@@ -8,7 +8,7 @@
 import UIKit
 
 @MainActor
-extension UIViewDSL where Self: UIView {
+extension UIViewDSL {
 
     @discardableResult
     public func ibAttributes(@IBLayoutConstraintBuilder _ block: (Self) -> [NSLayoutConstraint]) -> Self {

@@ -1,5 +1,5 @@
 //
-//  VerticalStack.swift
+//  IBHorizontalStack.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 11/02/2024.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-public func VerticalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) -> UIStackView {
+public func IBHorizontalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) -> UIStackView {
     let stackView = UIStackView()
-    stackView.axis = .vertical
+    stackView.axis = .horizontal
     if let alignment {
         stackView.alignment = alignment
     }

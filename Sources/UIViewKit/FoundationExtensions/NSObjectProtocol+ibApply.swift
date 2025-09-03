@@ -2,7 +2,7 @@
 //  NSObjectProtocol+ibApply.swift
 //  UIViewKit
 //
-//  Created by blz on 22/08/2025.
+//  Created by Blazej SLEBODA on 22/08/2025.
 //
 
 import Foundation
