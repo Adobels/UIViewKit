@@ -42,6 +42,11 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = { UIHostingController(rootView: view) }
     }
+    
+    public init(_ viewMaker: @escaping () -> some View) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewControllerMaker = { UIHostingController(rootView: viewMaker()) }
+    }
 
     public override func loadView() {
         super.loadView()
