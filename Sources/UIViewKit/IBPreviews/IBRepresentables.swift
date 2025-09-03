@@ -2,7 +2,7 @@
 //  IBRepresentableViewController.swift
 //  UIViewKit
 //
-//  Created by blz on 02/09/2025.
+//  Created by Blazej SLEBODA on 02/09/2025.
 //
 
 import UIKit
