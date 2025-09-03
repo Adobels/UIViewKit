@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 
+@available(iOS, introduced: 13, obsoleted: 17)
 public struct IBRepresentableViewController: UIViewControllerRepresentable {
 
     public typealias UIViewControllerType = UIViewController
@@ -29,6 +30,7 @@ public struct IBRepresentableViewController: UIViewControllerRepresentable {
     public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
 }
 
+@available(iOS, introduced: 13, obsoleted: 17)
 public struct IBRepresentableView: UIViewRepresentable {
     
     public typealias UIViewType = UIView

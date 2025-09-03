@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 @available(iOS 13.0, *)
 public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
@@ -35,6 +36,11 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
     public init(_ viewControllerMaker: @escaping () -> UIViewController) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = viewControllerMaker
+    }
+    
+    public init(view: some View) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewControllerMaker = { UIHostingController(rootView: view) }
     }
 
     public override func loadView() {
