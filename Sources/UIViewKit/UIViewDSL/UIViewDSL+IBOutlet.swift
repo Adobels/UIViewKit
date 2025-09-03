@@ -34,13 +34,13 @@ extension UIViewDSL {
     }
     
     @discardableResult
-    public func ibOutlet<Owner: Any>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self>) -> Self {
+    public func ibOutlet<Owner: AnyObject>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self>) -> Self {
         owner?[keyPath: property] = self
         return self
     }
     
     @discardableResult
-    public func ibOutlet<Owner: Any>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self?>) -> Self {
+    public func ibOutlet<Owner: AnyObject>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self?>) -> Self {
         owner?[keyPath: property] = self
         return self
     }
