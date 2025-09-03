@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewDSL where Self: UIView {
+extension UIViewDSL {
 
     @discardableResult
     public func ibOutlet(_ outlet: inout Self?) -> Self {

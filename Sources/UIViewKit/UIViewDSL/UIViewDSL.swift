@@ -7,6 +7,6 @@
 
 import UIKit
 
-public protocol UIViewDSL { }
+public protocol UIViewDSL where Self: UIView { }
 
 extension UIView: UIViewDSL { }

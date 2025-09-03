@@ -8,7 +8,7 @@
 import UIKit
 
 @MainActor
-extension UIViewDSL where Self: UIView {
+extension UIViewDSL {
 
     @discardableResult
     public func ibSubviews(@IBSubviewsBuilder _ content: () -> [UIView]) -> Self {
