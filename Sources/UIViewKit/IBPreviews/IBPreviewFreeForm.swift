@@ -18,9 +18,19 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         fatalError()
     }
     
+    public init(snapFrames: SnapFrame..., view: UIView) {
+        super.init(snapFrames: snapFrames)
+        self.viewMaker = { view }
+    }
+    
     public init(view: UIView) {
         super.init(nibName: nil, bundle: nil)
         self.viewMaker = { view }
+    }
+    
+    public init(snapFrames: SnapFrame..., viewMaker: @escaping () -> UIView) {
+        super.init(snapFrames: snapFrames)
+        self.viewMaker = viewMaker
     }
     
     public init(_ viewMaker: @escaping () -> UIView) {
@@ -28,19 +38,39 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         self.viewMaker = viewMaker
     }
     
+    public init(snapFrames: SnapFrame..., viewController: UIViewController) {
+        super.init(snapFrames: snapFrames)
+        self.viewControllerMaker = { viewController }
+    }
+    
     public init(viewController: UIViewController) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = { viewController }
     }
 
+    public init(snapFrames: SnapFrame..., viewControllerMaker: @escaping () -> UIViewController) {
+        super.init(snapFrames: snapFrames)
+        self.viewControllerMaker = viewControllerMaker
+    }
+    
     public init(_ viewControllerMaker: @escaping () -> UIViewController) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = viewControllerMaker
     }
     
+    public init(snapFrames: SnapFrame..., view: some View) {
+        super.init(snapFrames: snapFrames)
+        self.viewControllerMaker = { UIHostingController(rootView: view) }
+    }
+    
     public init(view: some View) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = { UIHostingController(rootView: view) }
+    }
+    
+    public init(snapFrames: SnapFrame..., viewMaker: @escaping () -> some View) {
+        super.init(snapFrames: snapFrames )
+        self.viewControllerMaker = { UIHostingController(rootView: viewMaker()) }
     }
     
     public init(_ viewMaker: @escaping () -> some View) {
@@ -75,52 +105,60 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
 
 }
 
+extension IBPreviewFreeForm {
+
+    public protocol SnapFrame {
+        var size:  CGSize { get }
+        var name: String { get }
+        var color: UIColor { get }
+        var borderWidth: CGFloat { get }
+    }
+
+}
+
 public class ViewControllerFreeFormContainer: UIViewController {
 
+    var snapFrames: [IBPreviewFreeForm.SnapFrame] = []
+    var deviceWiteframesViews: [UIView] = []
     var containerView: UIView!
     var heightConstraint: NSLayoutConstraint!
     var widthConstraint: NSLayoutConstraint!
-    private var iPhoneSE2FrameView: UIView!
-    private var iPhoneSE2WithKeyboardFrameView: UIView!
     private var snapToViewFeature: SnapToViewFeature!
-    private let iPhoneSE2Frame = CGRect(origin: .zero, size: .init(width: 375, height: 667))
-    private let iPhoneSE2WithKeyboardFrame = CGRect(origin: .zero, size: .init(width: 375, height: 451))
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    init(snapFrames: [IBPreviewFreeForm.SnapFrame]) {
+        self.snapFrames = snapFrames
+        super.init(nibName: nil, bundle: nil)
+    }
     
     public override func loadView() {
         super.loadView()
         view.backgroundColor = .lightGray
-        view.ibSubviews { superview in
-            UIView().ibOutlet(&iPhoneSE2FrameView).ibSubviews { superview in
-                UILabel().ibAttributes {
-                    $0.ibConstraints(to: superview, guide: .view, anchors: .left, .bottom, .right)
-                    $0.text = "iPhone SE2"
-                    $0.textAlignment = .center
-                    $0.textColor = .cyan
+        snapFrames.forEach { deviceWireframe in
+            view.ibSubviews {
+                UIView().ibSubviews { labelSuperview in
+                    UILabel().ibAttributes {
+                        $0.ibConstraints(to: labelSuperview, guide: .view, anchors: .left, .bottom, .right)
+                        $0.text = deviceWireframe.name
+                        $0.textAlignment = .center
+                        $0.textColor = deviceWireframe.color
+                    }
+                }.ibAttributes {
+                    $0.topAnchor.constraint(equalTo: view.topAnchor)
+                    $0.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+                    $0.widthAnchor.constraint(equalToConstant: deviceWireframe.size.width)
+                    $0.heightAnchor.constraint(equalToConstant: deviceWireframe.size.height)
+                    $0.layer.borderColor = deviceWireframe.color.cgColor
+                    $0.layer.borderWidth = 2
+                    deviceWiteframesViews.append($0)
                 }
-            }.ibAttributes {
-                $0.topAnchor.constraint(equalTo: superview.topAnchor)
-                $0.leadingAnchor.constraint(equalTo: superview.leadingAnchor)
-                $0.widthAnchor.constraint(equalToConstant: iPhoneSE2Frame.width)
-                $0.heightAnchor.constraint(equalToConstant: iPhoneSE2Frame.height)
-                $0.layer.borderColor = UIColor.cyan.cgColor
-                $0.layer.borderWidth = 2
-            }
-        }
-        view.ibSubviews { superview in
-            UIView().ibOutlet(&iPhoneSE2WithKeyboardFrameView).ibSubviews { superview in
-                UILabel().ibAttributes {
-                    $0.ibConstraints(to: superview, guide: .view, anchors: .left, .bottom, .right)
-                    $0.text = "iPhone SE2 With Keyboard"
-                    $0.textAlignment = .center
-                    $0.textColor = UIColor.yellow
-                }
-            }.ibAttributes {
-                $0.topAnchor.constraint(equalTo: superview.topAnchor)
-                $0.leadingAnchor.constraint(equalTo: superview.leadingAnchor)
-                $0.widthAnchor.constraint(equalToConstant: iPhoneSE2WithKeyboardFrame.width)
-                $0.heightAnchor.constraint(equalToConstant: iPhoneSE2WithKeyboardFrame.height)
-                $0.layer.borderColor = UIColor.yellow.cgColor
-                $0.layer.borderWidth = 2
             }
         }
         view.ibSubviews { superview in
@@ -132,11 +170,7 @@ public class ViewControllerFreeFormContainer: UIViewController {
             }
         }
         snapToViewFeature = .init(
-            viewToSnap: [
-                iPhoneSE2WithKeyboardFrameView,
-                iPhoneSE2FrameView,
-                view,
-            ],
+            viewToSnap: deviceWiteframesViews + [view],
             containerView: containerView,
             controller: self
         )
