@@ -8,8 +8,22 @@
 import UIKit
 import SwiftUI
 
-@available(iOS, introduced: 13, obsoleted: 17)
-public struct IBRepresentableViewController: UIViewControllerRepresentable {
+public func IBPreviewRepresentable(view: UIView) -> some UIViewRepresentable {
+    IBRepresentableView(view)
+}
+
+public func IBPreviewRepresentable(_ viewMaker: @escaping () -> UIView) -> some UIViewRepresentable {
+    IBRepresentableView(viewMaker)
+}
+public func IBPreviewRepresentable(viewController: UIViewController) -> some UIViewControllerRepresentable {
+    IBRepresentableViewController(viewController)
+}
+
+public func IBPreviewRepresentable(_ viewControllerMaker: @escaping () -> UIViewController) -> some UIViewControllerRepresentable {
+    IBRepresentableViewController(viewControllerMaker)
+}
+
+private struct IBRepresentableViewController: UIViewControllerRepresentable {
 
     public typealias UIViewControllerType = UIViewController
 
@@ -30,8 +44,7 @@ public struct IBRepresentableViewController: UIViewControllerRepresentable {
     public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
 }
 
-@available(iOS, introduced: 13, obsoleted: 17)
-public struct IBRepresentableView: UIViewRepresentable {
+private struct IBRepresentableView: UIViewRepresentable {
     
     public typealias UIViewType = UIView
     
