@@ -18,7 +18,7 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         fatalError()
     }
     
-    public init(snapFrames: SnapFrame..., view: UIView) {
+    public init(snapFrames: (any SnapFrame)..., view: UIView) {
         super.init(snapFrames: snapFrames)
         self.viewMaker = { view }
     }
@@ -28,7 +28,7 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         self.viewMaker = { view }
     }
     
-    public init(snapFrames: SnapFrame..., viewMaker: @escaping () -> UIView) {
+    public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping () -> UIView) {
         super.init(snapFrames: snapFrames)
         self.viewMaker = viewMaker
     }
@@ -38,7 +38,7 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         self.viewMaker = viewMaker
     }
     
-    public init(snapFrames: SnapFrame..., viewController: UIViewController) {
+    public init(snapFrames: (any SnapFrame)..., viewController: UIViewController) {
         super.init(snapFrames: snapFrames)
         self.viewControllerMaker = { viewController }
     }
@@ -48,7 +48,7 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         self.viewControllerMaker = { viewController }
     }
 
-    public init(snapFrames: SnapFrame..., viewControllerMaker: @escaping () -> UIViewController) {
+    public init(snapFrames: (any SnapFrame)..., viewControllerMaker: @escaping () -> UIViewController) {
         super.init(snapFrames: snapFrames)
         self.viewControllerMaker = viewControllerMaker
     }
@@ -58,7 +58,7 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         self.viewControllerMaker = viewControllerMaker
     }
     
-    public init(snapFrames: SnapFrame..., view: some View) {
+    public init(snapFrames: (any SnapFrame)..., view: some View) {
         super.init(snapFrames: snapFrames)
         self.viewControllerMaker = { UIHostingController(rootView: view) }
     }
@@ -68,7 +68,7 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         self.viewControllerMaker = { UIHostingController(rootView: view) }
     }
     
-    public init(snapFrames: SnapFrame..., viewMaker: @escaping () -> some View) {
+    public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping () -> some View) {
         super.init(snapFrames: snapFrames )
         self.viewControllerMaker = { UIHostingController(rootView: viewMaker()) }
     }
@@ -107,10 +107,10 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
 
 extension IBPreviewFreeForm {
 
-    public protocol SnapFrame {
+    public protocol SnapFrame where Self: SnapFrame {
         var size:  CGSize { get }
-        var name: String { get }
-        var color: UIColor { get }
+        var title: String { get }
+        var tintColor: UIColor { get }
         var borderWidth: CGFloat { get }
     }
 
@@ -119,7 +119,7 @@ extension IBPreviewFreeForm {
 public class ViewControllerFreeFormContainer: UIViewController {
 
     var snapFrames: [IBPreviewFreeForm.SnapFrame] = []
-    var deviceWiteframesViews: [UIView] = []
+    var snapFrameViews: [UIView] = []
     var containerView: UIView!
     var heightConstraint: NSLayoutConstraint!
     var widthConstraint: NSLayoutConstraint!
@@ -141,23 +141,23 @@ public class ViewControllerFreeFormContainer: UIViewController {
     public override func loadView() {
         super.loadView()
         view.backgroundColor = .lightGray
-        snapFrames.forEach { deviceWireframe in
+        snapFrames.forEach { snapFrame in
             view.ibSubviews {
                 UIView().ibSubviews { labelSuperview in
                     UILabel().ibAttributes {
                         $0.ibConstraints(to: labelSuperview, guide: .view, anchors: .left, .bottom, .right)
-                        $0.text = deviceWireframe.name
+                        $0.text = snapFrame.title
                         $0.textAlignment = .center
-                        $0.textColor = deviceWireframe.color
+                        $0.textColor = snapFrame.tintColor
                     }
                 }.ibAttributes {
                     $0.topAnchor.constraint(equalTo: view.topAnchor)
                     $0.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-                    $0.widthAnchor.constraint(equalToConstant: deviceWireframe.size.width)
-                    $0.heightAnchor.constraint(equalToConstant: deviceWireframe.size.height)
-                    $0.layer.borderColor = deviceWireframe.color.cgColor
-                    $0.layer.borderWidth = 2
-                    deviceWiteframesViews.append($0)
+                    $0.widthAnchor.constraint(equalToConstant: snapFrame.size.width)
+                    $0.heightAnchor.constraint(equalToConstant: snapFrame.size.height)
+                    $0.layer.borderColor = snapFrame.tintColor.cgColor
+                    $0.layer.borderWidth = snapFrame.borderWidth
+                    snapFrameViews.append($0)
                 }
             }
         }
@@ -170,7 +170,7 @@ public class ViewControllerFreeFormContainer: UIViewController {
             }
         }
         snapToViewFeature = .init(
-            viewToSnap: deviceWiteframesViews + [view],
+            viewToSnap: snapFrameViews + [view],
             containerView: containerView,
             controller: self
         )
