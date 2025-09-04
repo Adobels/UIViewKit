@@ -11,14 +11,11 @@ let package = Package(
     products: [
         .library(name: "UIViewKit", targets: ["UIViewKit"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/Adobels/CodeCallTracker.git", revision: "1d27da6706466a5b83bdb0f4097fc86f678b146f")
+    ],
     targets: [
-        .target(
-            name: "UIViewKit"
-        ),
-        .testTarget(
-            name: "UIViewKitTests",
-            dependencies: [
-                "UIViewKit"
-            ])
+        .target(name: "UIViewKit", dependencies: ["CodeCallTracker"]),
+        .testTarget(name: "UIViewKitTests", dependencies: ["UIViewKit"])
     ]
 )
