@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Adobels/CodeCallTracker.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "1d27da6706466a5b83bdb0f4097fc86f678b146f"
+        "revision" : "1d27da6706466a5b83bdb0f4097fc86f678b146f",
+        "version" : "1.0.0"
       }
     }
   ],
