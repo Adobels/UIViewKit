@@ -14,29 +14,29 @@ public class IBContainerView: UIView {
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     public init(controller: UIViewController? = nil) {
         super.init(frame: .zero)
         if let controller = controller {
             self.controllerCreator = { controller }
         }
     }
-    
+
     public override func didMoveToWindow() {
         super.didMoveToWindow()
         guard let controllerCreator else { return }
         self.controllerCreator = nil
         embed(controllerCreator())
     }
-    
+
     public func ibEmbed(_ viewControllerToEmbed: UIViewController) {
         self.controllerCreator = { viewControllerToEmbed }
     }
-    
+
     public func ibEmbed(maker viewControllerToEmbed: @escaping () -> UIViewController) {
         self.controllerCreator = viewControllerToEmbed
     }
-    
+
     private func embed(_ viewControllerToEmbed: UIViewController) {
         guard let parent = nearestViewController() else { return }
         parent.ibEmbed(viewControllerToEmbed, self)

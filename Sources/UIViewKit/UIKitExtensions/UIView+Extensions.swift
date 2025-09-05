@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    
+
     public final func ibConstraints(to: UIView, guide: IBConstraints.LayoutGuide, anchors: IBConstraints.ViewAnchor...) -> [NSLayoutConstraint] {
         IBConstraints.createConstraints(from: self, to: to, guide: guide, anchors: anchors)
     }

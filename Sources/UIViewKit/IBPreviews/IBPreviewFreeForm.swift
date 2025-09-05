@@ -8,41 +8,40 @@
 import UIKit
 import SwiftUI
 
-@available(iOS 13.0, *)
 public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
-    
+
     private var viewControllerMaker: (() -> UIViewController)?
     private var viewMaker: (() -> UIView)?
-    
+
     public required init?(coder: NSCoder) {
         fatalError()
     }
-    
+
     public init(snapFrames: (any SnapFrame)..., view: UIView) {
         super.init(snapFrames: snapFrames)
         self.viewMaker = { view }
     }
-    
+
     public init(view: UIView) {
         super.init(nibName: nil, bundle: nil)
         self.viewMaker = { view }
     }
-    
+
     public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping () -> UIView) {
         super.init(snapFrames: snapFrames)
         self.viewMaker = viewMaker
     }
-    
+
     public init(_ viewMaker: @escaping () -> UIView) {
         super.init(nibName: nil, bundle: nil)
         self.viewMaker = viewMaker
     }
-    
+
     public init(snapFrames: (any SnapFrame)..., viewController: UIViewController) {
         super.init(snapFrames: snapFrames)
         self.viewControllerMaker = { viewController }
     }
-    
+
     public init(viewController: UIViewController) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = { viewController }
@@ -52,27 +51,27 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
         super.init(snapFrames: snapFrames)
         self.viewControllerMaker = viewControllerMaker
     }
-    
+
     public init(_ viewControllerMaker: @escaping () -> UIViewController) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = viewControllerMaker
     }
-    
+
     public init(snapFrames: (any SnapFrame)..., view: some View) {
         super.init(snapFrames: snapFrames)
         self.viewControllerMaker = { UIHostingController(rootView: view) }
     }
-    
+
     public init(view: some View) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = { UIHostingController(rootView: view) }
     }
-    
+
     public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping () -> some View) {
         super.init(snapFrames: snapFrames )
         self.viewControllerMaker = { UIHostingController(rootView: viewMaker()) }
     }
-    
+
     public init(_ viewMaker: @escaping () -> some View) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = { UIHostingController(rootView: viewMaker()) }
@@ -118,17 +117,17 @@ extension IBPreviewFreeForm {
 
 public class ViewControllerFreeFormContainer: UIViewController {
 
-    var snapFrames: [IBPreviewFreeForm.SnapFrame] = []
-    var snapFrameViews: [UIView] = []
     var containerView: UIView!
     var heightConstraint: NSLayoutConstraint!
     var widthConstraint: NSLayoutConstraint!
+    private var snapFrames: [IBPreviewFreeForm.SnapFrame] = []
+    private var snapFrameViews: [UIView] = []
     private var snapToViewFeature: SnapToViewFeature!
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -137,7 +136,7 @@ public class ViewControllerFreeFormContainer: UIViewController {
         self.snapFrames = snapFrames
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     public override func loadView() {
         super.loadView()
         view.backgroundColor = .lightGray
@@ -176,12 +175,12 @@ public class ViewControllerFreeFormContainer: UIViewController {
         )
         view.addGestureRecognizer(snapToViewFeature.tapGesture())
     }
-    
+
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         workaroundHideKeyboardAndSizeContainerView()
     }
-    
+
     private func workaroundHideKeyboardAndSizeContainerView() {
         DispatchQueue.main.async {
             UIView.performWithoutAnimation {
@@ -189,7 +188,7 @@ public class ViewControllerFreeFormContainer: UIViewController {
             }
         }
     }
-    
+
     public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         guard let touch = touches.first else { return }
@@ -199,24 +198,24 @@ public class ViewControllerFreeFormContainer: UIViewController {
     }
 }
 
-final class SnapToViewFeature {
-    
+final private class SnapToViewFeature {
+
     private let viewToSnap: [UIView]
     private let containerView: UIView
     private let controller: ViewControllerFreeFormContainer
-    
+
     init(viewToSnap: [UIView], containerView: UIView, controller: ViewControllerFreeFormContainer) {
         self.viewToSnap = viewToSnap
         self.containerView = containerView
         self.controller = controller
     }
-    
+
     func tapGesture() -> UIGestureRecognizer {
         UITapGestureRecognizer(target: self, action: #selector(didTap(gesture:)))
     }
-    
+
     @objc
-    func didTap(gesture: UIGestureRecognizer) {
+    private func didTap(gesture: UIGestureRecognizer) {
         guard let tapGesture = gesture as? UITapGestureRecognizer else { return }
         for viewToSnap in self.viewToSnap {
             let loc = tapGesture.location(in: viewToSnap)
@@ -227,5 +226,5 @@ final class SnapToViewFeature {
             }
         }
     }
-    
+
 }

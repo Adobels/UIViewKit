@@ -9,24 +9,24 @@ import UIKit
 
 @available(iOS 13.0, *)
 public class IBPreviewSizeThatFits: UIViewController {
-    
+
     private var viewControllerMaker: (() -> UIViewController)?
     private var viewMaker: (() -> UIView)?
-    
+
     public required init?(coder: NSCoder) {
         fatalError()
     }
-    
+
     public init(view: UIView) {
         super.init(nibName: nil, bundle: nil)
         self.viewMaker = { view }
     }
-    
+
     public init(_ viewMaker: @escaping () -> UIView) {
         super.init(nibName: nil, bundle: nil)
         self.viewMaker = viewMaker
     }
-    
+
     public init(viewController: UIViewController) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = { viewController }
