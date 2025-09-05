@@ -1,5 +1,5 @@
 //
-//  IBPreviewRepresentable.swift
+//  IBRepresentable.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 02/09/2025.
@@ -8,18 +8,18 @@
 import UIKit
 import SwiftUI
 
-public func IBPreviewRepresentable(view: UIView) -> some UIViewRepresentable {
+public func IBRepresentable(view: UIView) -> some UIViewRepresentable {
     IBRepresentableView(view)
 }
 
-public func IBPreviewRepresentable(_ viewMaker: @escaping () -> UIView) -> some UIViewRepresentable {
+public func IBRepresentable(_ viewMaker: @escaping () -> UIView) -> some UIViewRepresentable {
     IBRepresentableView(viewMaker)
 }
-public func IBPreviewRepresentable(viewController: UIViewController) -> some UIViewControllerRepresentable {
+public func IBRepresentable(viewController: UIViewController) -> some UIViewControllerRepresentable {
     IBRepresentableViewController(viewController)
 }
 
-public func IBPreviewRepresentable(_ viewControllerMaker: @escaping () -> UIViewController) -> some UIViewControllerRepresentable {
+public func IBRepresentable(_ viewControllerMaker: @escaping () -> UIViewController) -> some UIViewControllerRepresentable {
     IBRepresentableViewController(viewControllerMaker)
 }
 

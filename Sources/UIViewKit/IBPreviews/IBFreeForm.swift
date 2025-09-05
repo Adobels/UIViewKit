@@ -1,5 +1,5 @@
 //
-//  IBPreviewFreeForm.swift
+//  IBFreeForm.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 13/11/2023.
@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
+public class IBFreeForm: ViewControllerFreeFormContainer {
 
     private var viewControllerMaker: (() -> UIViewController)?
     private var viewMaker: (() -> UIView)?
@@ -104,7 +104,7 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
 
 }
 
-extension IBPreviewFreeForm {
+extension IBFreeForm {
 
     public protocol SnapFrame where Self: SnapFrame {
         var size: CGSize { get }
@@ -120,7 +120,7 @@ public class ViewControllerFreeFormContainer: UIViewController {
     var containerView: UIView!
     var heightConstraint: NSLayoutConstraint!
     var widthConstraint: NSLayoutConstraint!
-    private var snapFrames: [IBPreviewFreeForm.SnapFrame] = []
+    private var snapFrames: [IBFreeForm.SnapFrame] = []
     private var snapFrameViews: [UIView] = []
     private var snapToViewFeature: SnapToViewFeature!
 
@@ -132,7 +132,7 @@ public class ViewControllerFreeFormContainer: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    init(snapFrames: [IBPreviewFreeForm.SnapFrame]) {
+    init(snapFrames: [IBFreeForm.SnapFrame]) {
         self.snapFrames = snapFrames
         super.init(nibName: nil, bundle: nil)
     }
