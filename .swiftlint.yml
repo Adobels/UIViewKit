@@ -4,3 +4,6 @@ disabled_rules:
   - identifier_name
   - trailing_comma
 opt_in_rules:
+included:
+  - Sources
+  - Tests
