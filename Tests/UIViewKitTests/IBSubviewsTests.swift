@@ -73,7 +73,7 @@ class IBSubviewsTests: XCTestCase {
             subviews.filter { _ =  $0; return true }
         }
     }
-    
+
     func testForLoop() throws {
         let rootView = UIView().ibSubviews {
             for _ in (0...2) {

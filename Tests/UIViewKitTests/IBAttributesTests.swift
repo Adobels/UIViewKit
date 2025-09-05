@@ -25,11 +25,11 @@ class IBAttributesTests: XCTestCase {
 private class ViewWithLabel: UIView {
 
     var font: UIFont!
-    
+
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self {

@@ -47,7 +47,7 @@ private struct IBRepresentableViewController: UIViewControllerRepresentable {
 private struct IBRepresentableView: UIViewRepresentable {
 
     public typealias UIViewType = UIView
-    
+
     private let viewMaker: () -> UIView
 
     public init(_ view: UIView) {

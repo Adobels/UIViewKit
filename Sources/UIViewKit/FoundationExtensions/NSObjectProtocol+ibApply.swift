@@ -8,10 +8,10 @@
 import Foundation
 
 extension NSObjectProtocol {
-    
+
     public func ibApply(_ block: (Self) -> Void) -> Self {
-        block(self);
+        block(self)
         return self
     }
-    
+
 }

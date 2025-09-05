@@ -17,4 +17,3 @@ import Foundation
     }
     #expect(obj.accessibilityLabel == newValue)
 }
-

@@ -107,7 +107,7 @@ public class IBPreviewFreeForm: ViewControllerFreeFormContainer {
 extension IBPreviewFreeForm {
 
     public protocol SnapFrame where Self: SnapFrame {
-        var size:  CGSize { get }
+        var size: CGSize { get }
         var title: String { get }
         var tintColor: UIColor { get }
         var borderWidth: CGFloat { get }

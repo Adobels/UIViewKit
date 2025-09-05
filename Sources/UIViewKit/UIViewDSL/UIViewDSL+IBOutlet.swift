@@ -33,7 +33,7 @@ extension UIViewDSL {
         block(self)
         return self
     }
-    
+
     @discardableResult
     public func ibOutlet<Owner: AnyObject>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self>) -> Self {
         owner?[keyPath: property] = self
