@@ -10,8 +10,8 @@ import UIKit
 @available(iOS 13.0, *)
 public class IBSizeThatFits: UIViewController {
 
-    private var viewControllerMaker: (() -> UIViewController)?
-    private var viewMaker: (() -> UIView)?
+     private var viewControllerMaker: (() -> UIViewController)?
+     private var viewMaker: (() -> UIView)?
 
     public required init?(coder: NSCoder) {
         fatalError()
@@ -22,7 +22,7 @@ public class IBSizeThatFits: UIViewController {
         self.viewMaker = { view }
     }
 
-    public init(_ viewMaker: @escaping () -> UIView) {
+    public init(_ viewMaker: @escaping  () -> UIView) {
         super.init(nibName: nil, bundle: nil)
         self.viewMaker = viewMaker
     }
@@ -32,7 +32,7 @@ public class IBSizeThatFits: UIViewController {
         self.viewControllerMaker = { viewController }
     }
 
-    public init(_ viewControllerMaker: @escaping () -> UIViewController) {
+    public init(_ viewControllerMaker: @escaping  () -> UIViewController) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = viewControllerMaker
     }

@@ -9,7 +9,7 @@ import UIKit
 
 public class IBContainerView: UIView {
 
-    private var controllerCreator: (() -> UIViewController)?
+     private var controllerCreator: (() -> UIViewController)?
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -33,7 +33,7 @@ public class IBContainerView: UIView {
         self.controllerCreator = { viewControllerToEmbed }
     }
 
-    public func ibEmbed(maker viewControllerToEmbed: @escaping () -> UIViewController) {
+    public func ibEmbed(maker viewControllerToEmbed: @escaping  () -> UIViewController) {
         self.controllerCreator = viewControllerToEmbed
     }
 

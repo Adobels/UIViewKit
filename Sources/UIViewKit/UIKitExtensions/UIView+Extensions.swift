@@ -12,4 +12,10 @@ extension UIView {
     public final func ibConstraints(to: UIView, guide: IBConstraints.LayoutGuide, anchors: IBConstraints.ViewAnchor...) -> [NSLayoutConstraint] {
         IBConstraints.createConstraints(from: self, to: to, guide: guide, anchors: anchors)
     }
+
+    public func ibApply(_ block: (Self) -> Void) -> Self {
+        block(self)
+        return self
+    }
+
 }

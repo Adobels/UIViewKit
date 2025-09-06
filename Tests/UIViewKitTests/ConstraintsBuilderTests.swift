@@ -10,6 +10,7 @@ import XCTest
 
 @MainActor
 class ConstraintsBuilderTests: XCTestCase {
+
     func test() throws {
         let alwaysTrue = true
         let alwaysFalse = false

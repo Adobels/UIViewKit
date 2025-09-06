@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 public func IBHorizontalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) -> UIStackView {
     let stackView = UIStackView()
     stackView.axis = .horizontal

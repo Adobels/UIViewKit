@@ -8,18 +8,23 @@
 import UIKit
 import SwiftUI
 
+@MainActor
 public func IBRepresentable(view: UIView) -> some UIViewRepresentable {
     IBRepresentableView(view)
 }
 
-public func IBRepresentable(_ viewMaker: @escaping () -> UIView) -> some UIViewRepresentable {
+@MainActor
+public func IBRepresentable(_ viewMaker: @escaping  () -> UIView) -> some UIViewRepresentable {
     IBRepresentableView(viewMaker)
 }
+
+@MainActor
 public func IBRepresentable(viewController: UIViewController) -> some UIViewControllerRepresentable {
     IBRepresentableViewController(viewController)
 }
 
-public func IBRepresentable(_ viewControllerMaker: @escaping () -> UIViewController) -> some UIViewControllerRepresentable {
+@MainActor
+public func IBRepresentable(_ viewControllerMaker: @escaping  () -> UIViewController) -> some UIViewControllerRepresentable {
     IBRepresentableViewController(viewControllerMaker)
 }
 
@@ -27,13 +32,13 @@ private struct IBRepresentableViewController: UIViewControllerRepresentable {
 
     public typealias UIViewControllerType = UIViewController
 
-    private let viewControllerMaker: () -> UIViewController
+     private let viewControllerMaker: () -> UIViewController
 
     public init(_ viewController: UIViewController) {
         viewControllerMaker = { viewController }
     }
 
-    public init(_ viewControllerMaker: @escaping () -> UIViewController) {
+    public init(_ viewControllerMaker: @escaping  () -> UIViewController) {
         self.viewControllerMaker = viewControllerMaker
     }
 
@@ -48,13 +53,13 @@ private struct IBRepresentableView: UIViewRepresentable {
 
     public typealias UIViewType = UIView
 
-    private let viewMaker: () -> UIView
+      private let viewMaker: () -> UIView
 
     public init(_ view: UIView) {
         viewMaker = { view }
     }
 
-    public init (_ viewMaker: @escaping () -> UIView) {
+    public init (_ viewMaker: @escaping  () -> UIView) {
         self.viewMaker = viewMaker
     }
 

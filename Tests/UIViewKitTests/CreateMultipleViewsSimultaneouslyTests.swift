@@ -8,6 +8,7 @@
 import XCTest
 @testable import UIViewKit
 
+@MainActor
 class CreateMultipleViewsSimultaneouslyTests: XCTestCase {
 
     // swiftlint:disable:next function_body_length

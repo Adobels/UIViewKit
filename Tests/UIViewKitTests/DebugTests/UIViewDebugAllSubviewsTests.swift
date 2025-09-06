@@ -8,6 +8,7 @@
 import XCTest
 @testable import UIViewKit
 
+@MainActor
 class UIViewDebugTests: XCTestCase {
 
     typealias SUT = IBDebug

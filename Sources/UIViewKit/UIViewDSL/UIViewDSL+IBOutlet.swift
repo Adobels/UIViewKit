@@ -7,7 +7,7 @@
 
 import UIKit
 
-@MainActor
+
 extension UIViewDSL {
 
     @discardableResult
@@ -29,7 +29,7 @@ extension UIViewDSL {
     }
 
     @discardableResult
-    public func ibOutlets(_ block: (Self) -> Void) -> Self {
+    public func ibOutlets(_ block:  (Self) -> Void) -> Self {
         block(self)
         return self
     }

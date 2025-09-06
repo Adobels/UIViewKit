@@ -9,7 +9,7 @@ import UIKit
 
 extension NSLayoutConstraint {
 
-    static public func ibActivate(@IBLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
+    static public func ibActivate(@IBLayoutConstraintBuilder _ block:  () -> [NSLayoutConstraint]) {
         let constraints = block()
         activate(constraints)
     }
@@ -51,7 +51,7 @@ extension NSLayoutConstraint {
     }
 
     @discardableResult
-    public func ibOutlets(_ block: (Self) -> Void) -> Self {
+    public func ibOutlets(_ block:  (Self) -> Void) -> Self {
         block(self)
         return self
     }

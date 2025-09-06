@@ -10,8 +10,8 @@ import SwiftUI
 
 public class IBFreeForm: ViewControllerFreeFormContainer {
 
-    private var viewControllerMaker: (() -> UIViewController)?
-    private var viewMaker: (() -> UIView)?
+     private var viewControllerMaker: (() -> UIViewController)?
+     private var viewMaker: (() -> UIView)?
 
     public required init?(coder: NSCoder) {
         fatalError()
@@ -27,12 +27,12 @@ public class IBFreeForm: ViewControllerFreeFormContainer {
         self.viewMaker = { view }
     }
 
-    public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping () -> UIView) {
+    public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping  () -> UIView) {
         super.init(snapFrames: snapFrames)
         self.viewMaker = viewMaker
     }
 
-    public init(_ viewMaker: @escaping () -> UIView) {
+    public init(_ viewMaker: @escaping  () -> UIView) {
         super.init(nibName: nil, bundle: nil)
         self.viewMaker = viewMaker
     }
@@ -47,12 +47,12 @@ public class IBFreeForm: ViewControllerFreeFormContainer {
         self.viewControllerMaker = { viewController }
     }
 
-    public init(snapFrames: (any SnapFrame)..., viewControllerMaker: @escaping () -> UIViewController) {
+    public init(snapFrames: (any SnapFrame)..., viewControllerMaker: @escaping  () -> UIViewController) {
         super.init(snapFrames: snapFrames)
         self.viewControllerMaker = viewControllerMaker
     }
 
-    public init(_ viewControllerMaker: @escaping () -> UIViewController) {
+    public init(_ viewControllerMaker: @escaping  () -> UIViewController) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = viewControllerMaker
     }
@@ -67,12 +67,12 @@ public class IBFreeForm: ViewControllerFreeFormContainer {
         self.viewControllerMaker = { UIHostingController(rootView: view) }
     }
 
-    public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping () -> some View) {
+    public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping  () -> some View) {
         super.init(snapFrames: snapFrames )
         self.viewControllerMaker = { UIHostingController(rootView: viewMaker()) }
     }
 
-    public init(_ viewMaker: @escaping () -> some View) {
+    public init(_ viewMaker: @escaping  () -> some View) {
         super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = { UIHostingController(rootView: viewMaker()) }
     }
@@ -198,6 +198,7 @@ public class ViewControllerFreeFormContainer: UIViewController {
     }
 }
 
+@MainActor
 final private class SnapToViewFeature {
 
     private let viewToSnap: [UIView]
@@ -213,6 +214,7 @@ final private class SnapToViewFeature {
     func tapGesture() -> UIGestureRecognizer {
         UITapGestureRecognizer(target: self, action: #selector(didTap(gesture:)))
     }
+
 
     @objc
     private func didTap(gesture: UIGestureRecognizer) {

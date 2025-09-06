@@ -39,11 +39,11 @@ public class InferredAttributesOwnerStrategy: UIViewDSLEngineConstraintsProtocol
         activateAutoLayout()
     }
 
-#if DEBUG
+    #if DEBUG
     public var constraintsToApplyForDebug: [(UIView, [NSLayoutConstraint])] {
         constraintsToApply
     }
-#endif
+    #endif
 
     // MARK: - Initializer Methods
 
@@ -61,6 +61,7 @@ public class InferredAttributesOwnerStrategy: UIViewDSLEngineConstraintsProtocol
         constraintsToApply.removeAll()
     }
 
+    @MainActor
     struct Helper {
         static func involvesOwnerView(_ owner: UIView, in constraint: NSLayoutConstraint) -> Bool {
             var ownerView: [UIView] = []
