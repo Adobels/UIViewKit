@@ -5,9 +5,6 @@
 //  Created by Blazej SLEBODA on 13/11/2023.
 //
 
-import UIKit
-import SwiftUI
-
 public class IBFreeForm: ViewControllerFreeFormContainer {
 
      private var viewControllerMaker: (() -> UIViewController)?
@@ -214,7 +211,6 @@ final private class SnapToViewFeature {
     func tapGesture() -> UIGestureRecognizer {
         UITapGestureRecognizer(target: self, action: #selector(didTap(gesture:)))
     }
-
 
     @objc
     private func didTap(gesture: UIGestureRecognizer) {

@@ -5,8 +5,6 @@
 //  Created by Blazej SLEBODA on 02/09/2025.
 //
 
-import UIKit
-
 public class IBContainerView: UIView {
 
      private var controllerCreator: (() -> UIViewController)?

@@ -5,8 +5,6 @@
 //  Created by Blazej SLEBODA on 29/09/2023.
 //
 
-import UIKit
-
 extension UIStackView {
 
     public convenience init(frame: CGRect = .zero, axis: NSLayoutConstraint.Axis, spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) {

@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import UIKit
 @testable import UIViewKit
 
 @MainActor

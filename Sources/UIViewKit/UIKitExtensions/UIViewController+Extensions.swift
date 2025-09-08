@@ -5,8 +5,6 @@
 //  Created by Blazej SLEBODA on 10/02/2024.
 //
 
-import UIKit
-
 extension UIViewController {
 
     @discardableResult

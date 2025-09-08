@@ -5,9 +5,6 @@
 //  Created by Blazej SLEBODA on 29/09/2023.
 //
 
-import UIKit
-
-
 extension UIViewDSL {
 
     @discardableResult
@@ -29,7 +26,7 @@ extension UIViewDSL {
     }
 
     @discardableResult
-    public func ibOutlets(_ block:  (Self) -> Void) -> Self {
+    public func ibOutlets(_ block: (Self) -> Void) -> Self {
         block(self)
         return self
     }

@@ -5,13 +5,10 @@
 //  Created by Blazej SLEBODA on 11/03/2024.
 //
 
-import UIKit
-
 public final class IBMeasure {
 
     private init() {}
 
-    
     @MainActor
     public static func printVerticalDistance(from: NSLayoutAnchor<NSLayoutYAxisAnchor>, to: NSLayoutAnchor<NSLayoutYAxisAnchor>, rootView: UIView) {
         rootView.ibSubviews {

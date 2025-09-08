@@ -5,8 +5,6 @@
 //  Created by Blazej SLEBODA on 30/01/2024.
 //
 
-import UIKit
-
 public final class IBConstraints {
 
     private init() {}
@@ -28,8 +26,8 @@ public final class IBConstraints {
         }
     }
 
-    // swiftlint:disable:next cyclomatic_complexity
     @MainActor
+    // swiftlint:disable:next cyclomatic_complexity
     private static func createConstraints(from view: UIView, to target: Any, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
         var constraints: [NSLayoutConstraint] = []
         // swiftlint:disable force_cast

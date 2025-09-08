@@ -5,8 +5,6 @@
 //  Created by Blazej SLEBODA on 19/09/2023.
 //
 
-import UIKit
-
 public final class IBDebug {
 
     private init() {}
@@ -120,7 +118,7 @@ public final class IBDebug {
 }
 
 final class IBHelper {
-    
+
     @MainActor
     static func allSubviews(of view: UIView) -> [UIView] {
         view.subviews.flatMap {

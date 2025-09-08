@@ -5,8 +5,6 @@
 //  Created by Blazej SLEBODA on 29/09/2023.
 //
 
-import UIKit
-
 @resultBuilder
 public enum IBSubviewsBuilder {
 

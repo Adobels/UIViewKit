@@ -5,8 +5,6 @@
 //  Created by Blazej SLEBODA on 10/02/2024.
 //
 
-import UIKit
-
 extension UIView {
 
     public final func ibConstraints(to: UIView, guide: IBConstraints.LayoutGuide, anchors: IBConstraints.ViewAnchor...) -> [NSLayoutConstraint] {

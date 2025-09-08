@@ -5,8 +5,6 @@
 //  Created by Blazej SLEBODA on 12/11/2023.
 //
 
-import UIKit
-
 @MainActor
 public func IBScrollView(horizontalPadding: CGFloat = 0, backgroundColor: UIColor? = nil, with contentBuilder: () -> UIView) -> UIScrollView {
     UIScrollView().ibSubviews { scrollView in

@@ -5,7 +5,6 @@
 //  Created by Blazej SLEBODA on 18/09/2023.
 //
 
-import UIKit
 import UIViewKit
 
 public class UserTitleTimeDescriptionViewWithIBSubviewsWithSuperviewView: UIView {

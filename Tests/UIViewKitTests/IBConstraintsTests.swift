@@ -8,7 +8,6 @@
 import XCTest
 @testable import UIViewKit
 
-
 @MainActor
 class ibConstraintsTests: XCTestCase {
 
