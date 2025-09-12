@@ -1,12 +1,12 @@
 //
-//  UIViewDSL+ResultBuilders.swift
+//  UIViewDSL+IBArrayOfUIViewBuilder.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 29/09/2023.
 //
 
 @resultBuilder
-public enum IBSubviewsBuilder {
+public enum IBArrayOfUIViewBuilder {
 
     public static func buildBlock(_ components: [UIView]...) -> [UIView] {
         components.flatMap { $0 }

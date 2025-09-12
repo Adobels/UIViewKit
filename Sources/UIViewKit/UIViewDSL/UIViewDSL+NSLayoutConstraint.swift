@@ -7,7 +7,7 @@
 
 extension NSLayoutConstraint {
 
-    static public func ibActivate(@IBLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
+    static public func ibActivate(@IBArrayOfNSLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
         let constraints = block()
         activate(constraints)
     }

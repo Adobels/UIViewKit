@@ -1,5 +1,5 @@
 //
-//  UIViewDSL+NSLayoutContraintBuilder.swift
+//  UIViewDSL+IBArrayOfNSLayoutConstraintBuilder.swift
 //  UIViewKit
 //
 //  Created by blz on 12/09/2025.
@@ -8,7 +8,7 @@
 import Foundation
 
 @resultBuilder
-public enum IBLayoutConstraintBuilder {
+public enum IBArrayOfNSLayoutConstraintBuilder {
 
     public static func buildBlock(_ components: [NSLayoutConstraint]...) -> [NSLayoutConstraint] {
         components.flatMap { $0 }

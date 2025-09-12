@@ -8,7 +8,7 @@
 extension UIViewDSL {
 
     @discardableResult
-    public func ibAttributes(@IBLayoutConstraintBuilder _ block: (Self) -> [NSLayoutConstraint]) -> Self {
+    public func ibAttributes(@IBArrayOfNSLayoutConstraintBuilder _ block: (Self) -> [NSLayoutConstraint]) -> Self {
         let constraintsGenerated = block(self)
         UIViewDSLEngine.shared.addConstraints(for: self, constraints: constraintsGenerated)
         return self
