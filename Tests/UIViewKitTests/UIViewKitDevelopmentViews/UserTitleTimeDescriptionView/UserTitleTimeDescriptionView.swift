@@ -19,19 +19,19 @@ public class UserTitleTimeDescriptionView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self {
-            UIStackView(axis: .horizontal, spacing: 12, alignment: .top) {
+        self.ibSubviews {
+            UIStackView(axis: .horizontal, spacing: 12, alignment: .top).ibSubviews {
                 UIImageView().ibOutlet(&imageViewUser).ibAttributes {
                     $0.widthAnchor.constraint(equalToConstant: 60)
                     $0.heightAnchor.constraint(equalToConstant: 60)
                     $0.setContentHuggingPriority(.defaultHigh + 1, for: .horizontal)
                 }
-                UIStackView(axis: .vertical) {
-                    UIStackView(axis: .horizontal, spacing: 8, alignment: .center) {
+                UIStackView(axis: .vertical).ibSubviews {
+                    UIStackView(axis: .horizontal, spacing: 8, alignment: .center).ibSubviews {
                         UILabel().ibOutlet(&labelTitle).ibAttributes {
                             $0.font = .systemFont(ofSize: 20, weight: .semibold)
                         }
-                        UIStackView(axis: .horizontal, spacing: 8) {
+                        UIStackView(axis: .horizontal, spacing: 8).ibSubviews {
                             UILabel().ibOutlet(&labelTime).ibAttributes {
                                 $0.textColor = .systemGray
                                 $0.font = .systemFont(ofSize: 15, weight: .semibold)

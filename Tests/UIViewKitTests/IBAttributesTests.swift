@@ -12,7 +12,7 @@ import XCTest
 class IBAttributesTests: XCTestCase {
 
     func testLabelText() throws {
-        _ = UIView {
+        _ = UIView().ibSubviews {
             ViewWithLabel().ibAttributes {
                 print($0)
                 $0.font = .italicSystemFont(ofSize: 20)
@@ -32,7 +32,7 @@ private class ViewWithLabel: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self {
+        self.ibSubviews {
             UILabel().ibAttributes {
                 $0.font = font
             }

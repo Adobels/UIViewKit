@@ -16,7 +16,7 @@ class ibConstraintsTests: XCTestCase {
         let view = UIView()
         let subview = UIView()
 
-        view {
+        view.ibSubviews {
             subview.ibAttributes {
                 IBConstraints.create(from: $0, to: view, guide: .view, anchors: .all)
             }
@@ -107,7 +107,7 @@ class ibConstraintsTests: XCTestCase {
         let view = UIView()
         let subview = UIView()
 
-        view {
+        view.ibSubviews {
             subview.ibAttributes {
                 IBConstraints.create(from: $0, to: view, guide: .view, anchors: .all)
                 IBConstraints.create(from: $0, to: view, guide: .view, anchors: .top, .left, .right, .bottom)
