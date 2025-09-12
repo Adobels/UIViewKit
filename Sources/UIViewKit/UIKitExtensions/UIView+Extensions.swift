@@ -11,9 +11,4 @@ extension UIView {
         IBConstraints.createConstraints(from: self, to: to, guide: guide, anchors: anchors)
     }
 
-    public func ibApply(_ block: (Self) -> Void) -> Self {
-        block(self)
-        return self
-    }
-
 }
