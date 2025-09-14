@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view {
+        view.ibSubviews {
             UILabel().ibOutlet(&label).ibAttributes {
                 $0.centerXAnchor.constraint(equalTo: view.centerXAnchor)
                 $0.centerYAnchor.constraint(equalTo: view.centerYAnchor)
