@@ -49,13 +49,13 @@ class ViewControllerComplex: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view {
+        view.ibSubviews {
             UIStackView(axis: .vertical, spacing: 10, alignment: .center) { stackView in
                 UILabel().ibOutlet(&labelTitle).ibAttributes {
                     $0.text = "Title"
                     $0.font = .init(name: "Arial", size: 30)
                 }
-                UIView() { superview in
+                UIView().ibSubviews { superview in
                     UILabel().ibOutlet(in: &labelsText).ibAttributes {
                         $0.topAnchor.constraint(equalTo: superview.topAnchor)
                         $0.leftAnchor.constraint(equalTo: superview.leftAnchor)
@@ -104,11 +104,11 @@ class ViewControllerComplex: UIViewController {
 
 import SwiftUI
 
-struct ViewControllerPreviews: PreviewProvider {
-    static var previews: some View {
-        IBRepresentableFreeFormViewController(ViewControllerComplex())
+#Preview {
+    FreeForm {
+        ViewControllerComplex()
     }
-}
+ }
 
 #endif
 ```
