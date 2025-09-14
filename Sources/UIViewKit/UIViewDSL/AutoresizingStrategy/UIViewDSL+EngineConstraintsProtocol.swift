@@ -5,6 +5,8 @@
 //  Created by Blazej SLEBODA on 29/09/2023.
 //
 
+import UIKit
+
 @MainActor
 public protocol UIViewDSLEngineConstraintsProtocol: AnyObject {
     @MainActor func addConstraints(for owner: UIView, constraints: [NSLayoutConstraint])

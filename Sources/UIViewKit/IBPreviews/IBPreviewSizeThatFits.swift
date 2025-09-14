@@ -5,6 +5,8 @@
 //  Created by Blazej SLEBODA on 02/09/2025.
 //
 
+import UIKit
+
 @available(iOS 13.0, *)
 public class IBSizeThatFits: UIViewController {
 

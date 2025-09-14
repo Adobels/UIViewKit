@@ -5,6 +5,8 @@
 //  Created by Blazej SLEBODA on 11/02/2024.
 //
 
+import UIKit
+
 @MainActor
 public func IBVerticalStack(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) -> UIStackView {
     let stackView = UIStackView()

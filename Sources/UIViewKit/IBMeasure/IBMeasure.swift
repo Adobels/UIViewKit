@@ -5,6 +5,8 @@
 //  Created by Blazej SLEBODA on 11/03/2024.
 //
 
+import UIKit
+
 public final class IBMeasure {
 
     private init() {}

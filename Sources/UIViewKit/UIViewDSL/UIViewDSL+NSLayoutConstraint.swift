@@ -5,6 +5,8 @@
 //  Created by Blazej SLEBODA on 06/12/2023.
 //
 
+import UIKit
+
 extension NSLayoutConstraint {
 
     static public func ibActivate(@IBArrayOfNSLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {

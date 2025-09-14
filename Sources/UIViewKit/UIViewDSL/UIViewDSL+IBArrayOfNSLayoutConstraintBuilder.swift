@@ -5,7 +5,7 @@
 //  Created by blz on 12/09/2025.
 //
 
-import Foundation
+import UIKit
 
 @resultBuilder
 public enum IBArrayOfNSLayoutConstraintBuilder {

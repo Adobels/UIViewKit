@@ -5,6 +5,7 @@
 //  Created by Blazej SLEBODA on 23/09/2023.
 //
 
+import UIKit
 import UIViewKit
 
 class TestView: UIView {

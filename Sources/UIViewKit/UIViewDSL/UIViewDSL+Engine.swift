@@ -5,6 +5,8 @@
 //  Created by Blazej SLEBODA on 21/11/2023.
 //
 
+import UIKit
+
 @MainActor
 public class UIViewDSLEngine {
 

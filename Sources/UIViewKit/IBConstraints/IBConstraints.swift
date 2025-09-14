@@ -5,6 +5,8 @@
 //  Created by Blazej SLEBODA on 30/01/2024.
 //
 
+import UIKit
+
 public final class IBConstraints {
 
     private init() {}

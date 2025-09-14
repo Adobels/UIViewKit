@@ -5,6 +5,9 @@
 //  Created by Blazej SLEBODA on 02/09/2025.
 //
 
+import UIKit
+import SwiftUI
+
 @MainActor
 public func IBRepresentable(view: UIView) -> some UIViewRepresentable {
     IBRepresentableView(view)
