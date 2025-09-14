@@ -14,3 +14,13 @@ extension UIView {
     }
 
 }
+
+extension UIViewDSL {
+
+    @discardableResult
+    public func ibApply(_ block: (Self) -> Void) -> Self {
+        block(self)
+        return self
+    }
+
+}
