@@ -105,7 +105,7 @@ class ViewControllerComplex: UIViewController {
 import SwiftUI
 
 #Preview {
-    FreeForm {
+    IBFreeForm {
         ViewControllerComplex()
     }
  }
