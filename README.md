@@ -112,3 +112,7 @@ import SwiftUI
 
 #endif
 ```
+
+## Demo of FreeForm Preview included in the framwork
+
+![](IBFreeFormPreview.gif)
