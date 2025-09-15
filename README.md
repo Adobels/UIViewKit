@@ -76,7 +76,7 @@ final class ViewController: UIViewController {
                 $0.isLayoutMarginsRelativeArrangement = true
                 $0.clipsToBounds = true
             }
-            UIStackView(axis: .vertical).ibSubviews { superview in
+            UIStackView(axis: .vertical).ibSubviews {
                 for item in profileItems {
                     RowView().ibAttributes {
                         $0.titleLabel.text = item.title
@@ -145,3 +145,13 @@ import SwiftUI
 ```
 
 ![](IBFreeFormPreview.gif)
+
+## 📖  Documentation
+- ibSubviews - Define the hierarchy of views, similar to Interface Builder's Document Outline. When applied to a UIStackView, the DSL uses the `addArrangedSubview` method
+- ibAttributes - Configure attributes and constraints of a view. This corresponds to Interface Builder’s Identity, Attributes, Size, and Connections Inspectors.
+
+⚠️ When defining a constraint, either the first or second item must be the same view to which you are applying ibAttributes.
+
+- ibApply - Similar to ibAttributes, but without a @resultBuilder for constraints — useful for custom configurations, it works with NSObject and UIView
+- IBFreeForm - Wraps a UIView, UIViewController, or even a SwiftUI.View, allowing resizing in the simulator. You can also define a snapFrame to display frames of specific devices (e.g., iPhone SE).
+- IBDebug - Provides showColors, showFrames to help visualize layout frames during debugging. Works only with UIKit.
