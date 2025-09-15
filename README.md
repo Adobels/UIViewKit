@@ -3,32 +3,33 @@
 
 # UIViewKit
 
-UIViewKit is a Swift tool that makes designing and setting up UIKit views as simple as using InterfaceBuilder, but with Swift's strong type checks. It offers a look similar to SwiftUI and has lots of easy methods for attributes, outlets, and constraints. Thanks to the @resultBuilder attribute, the code is quick to write, looks cleaner, and is more pleasing to the eye.
+UIViewKit lets you build UIKit views directly in code with a syntax that feels like SwiftUI.
+It provides a DSL powered by @resultBuilder for both UIView hierarchies and NSLayoutConstraints, so you can create entire UIViewController scenes in strongly typed Swift - without relying on storyboards or XIBs.
 
 ## Key Features
 
-- SwiftUI-Style Syntax for UIKit: Embrace SwiftUI's declarative approach, but tailored for UIKit.
-- No More Storyboards/Xibs: Design UI directly in code, bypassing storyboards and xib files.
-- Constraint Configuration Generator: Produce complex AutoLayout setups with a single method.
-- Previews for Views & Controllers: Preview your UIKit views and controllers in code, just like SwiftUI views.
+- **DSL with @resultBuilder for UIKit** - Build UIView hierarchies in Swift using a declarative, SwiftUI-like syntax. With builders like ibSubviews, ibAttributes, and ibApply, your code becomes compact, expressive, and easy to read.
+
+- **Constraint Generator** - Define AutoLayout with ibConstraints for fast, expressive, and compact constraint definitions.
+
+- **FreeForm Preview** - Instantly preview UIKit views and controllers with live constraint evaluation. Test layouts across multiple device sizes without leaving Xcode.
+
 
 ## How to Use
 
-### Defining ViewController's View, with "Hello, world!" label
+### "Hello, World!"
 
 ```swift
-class ViewController: UIViewController {
+import UIViewKit
 
-    var label: UILabel!
+class ViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.ibSubviews {
-            UILabel().ibOutlet(&label).ibAttributes {
+            UILabel().ibAttributes {
                 $0.centerXAnchor.constraint(equalTo: view.centerXAnchor)
                 $0.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-                
                 $0.text = "Hello, world!"
             }
         }
@@ -39,80 +40,108 @@ class ViewController: UIViewController {
 ### Defining ViewController's View, Complex
 
 ```swift
-class ViewControllerComplex: UIViewController {
-    
-    var labelTitle: UILabel!
-    var labelsText: [UILabel] = []
-    var button: UIButton = .init()
-    var heightConstraint: NSLayoutConstraint!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+final class ViewController: UIViewController {
+
+    private var profileItems: [(title: String, value: String)] = [
+        ("Framework: ", "UIViewKit"),
+        ("Platform: ", "iOS"),
+        ("Programming Language: ", "Swift"),
+        ("Device:" , "Simulator"),
+        ("FreeForm Preview:" , "UIKit, SwiftUI"),
+    ]
+
+    private var headerView: UIStackView!
+
+    override func loadView() {
+        super.loadView()
         view.ibSubviews {
-            UIStackView(axis: .vertical, spacing: 10, alignment: .center) { stackView in
-                UILabel().ibOutlet(&labelTitle).ibAttributes {
-                    $0.text = "Title"
-                    $0.font = .init(name: "Arial", size: 30)
-                }
-                UIView().ibSubviews { superview in
-                    UILabel().ibOutlet(in: &labelsText).ibAttributes {
-                        $0.topAnchor.constraint(equalTo: superview.topAnchor)
-                        $0.leftAnchor.constraint(equalTo: superview.leftAnchor)
-                        $0.rightAnchor.constraint(equalTo: superview.rightAnchor)
-                        $0.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
-                        
-                        $0.text = "Label 1"
-                        $0.textColor = .red
-                    }
-                }
-                UILabel().ibOutlet(in: &labelsText).ibAttributes {
-                    $0.text = "Label 2"
-                }
-                UIView().ibAttributes {
-                    $0.leftAnchor.constraint(equalTo: stackView.leftAnchor)
-                    $0.heightAnchor.constraint(equalToConstant: 50).ibPriority(.defaultHigh - 1).ibOutlet(&heightConstraint)
-                    
-                    $0.backgroundColor = .yellow
-                }
-                UILabel().ibAttributes {
-                    $0.text = "Label 3 Without Outlet"
-                }
-                UIButton().ibOutlet(&button).ibAttributes {
-                    $0.widthAnchor.constraint(equalToConstant: 300)
-                    
-                    $0.setTitle("Button", for: .normal)
-                    $0.backgroundColor = .blue
-                    
-                    $0.addTarget(self, action: #selector(didTap), for: .touchUpInside)
+            UIStackView(axis: .vertical, alignment: .fill).ibOutlet(&headerView).ibSubviews {
+                UIImageView().ibAttributes {
+                    $0.widthAnchor.constraint(equalTo: $0.heightAnchor).ibPriority(.required)
+                    $0.image = .init(systemName: "person.circle")
+                    $0.contentMode  = .scaleAspectFit
+                    $0.setContentHuggingPriority(.required, for: .vertical)
+                    $0.setContentHuggingPriority(.required, for: .horizontal)
+                    $0.tintColor = .white
+                    $0.layer.cornerRadius = 20
+                    $0.backgroundColor = .systemBlue
+                    $0.clipsToBounds = true
                 }
             }.ibAttributes {
-                $0.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-                $0.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+                $0.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+                $0.topAnchor.constraint(equalTo: view.topAnchor)
+                $0.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+                $0.backgroundColor = .systemGreen
+                $0.layoutMargins = .init(top: 20, left: 20, bottom: 20, right: 20)
+                $0.isLayoutMarginsRelativeArrangement = true
+                $0.clipsToBounds = true
             }
+            UIStackView(axis: .vertical).ibSubviews { superview in
+                for item in profileItems {
+                    RowView().ibAttributes {
+                        $0.titleLabel.text = item.title
+                        $0.valueLabel.text = item.value
+                    }
+                }
+                UIView()
+            }.ibAttributes {
+                $0.topAnchor.constraint(equalTo: headerView.bottomAnchor)
+                $0.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+                $0.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+                $0.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            }
+        }.ibAttributes {
+            $0.backgroundColor = .systemBackground
         }
-        
-        labelsText.forEach { $0.text = "toto" }
-    }
-    
-    @objc func didTap() {
-        print(#function)
     }
 }
 
-#if DEBUG
+final class RowView: UIView {
 
+    var titleLabel: UILabel!
+    var valueLabel: UILabel!
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.ibSubviews {
+            UIStackView(axis: .vertical).ibSubviews {
+                UIStackView(axis: .horizontal, spacing: 10).ibSubviews {
+                    UILabel().ibOutlet(&titleLabel)
+                    UILabel().ibOutlet(&valueLabel).ibAttributes {
+                        $0.textColor = .systemGray
+                        $0.textAlignment = .right
+                    }
+                }
+                UIView().ibAttributes {
+                    $0.heightAnchor.constraint(equalToConstant: 1)
+                    $0.backgroundColor = .separator
+                }
+            }.ibAttributes {
+                $0.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor)
+                $0.topAnchor.constraint(equalTo: topAnchor)
+                $0.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+                $0.bottomAnchor.constraint(equalTo: bottomAnchor)
+                $0.heightAnchor.constraint(equalToConstant: 66)
+            }
+        }
+    }
+}
+```
+
+## IBFreeForm Preview Demo
+
+```swift
 import SwiftUI
 
 #Preview {
     IBFreeForm {
-        ViewControllerComplex()
+        ViewController()
     }
  }
-
-#endif
 ```
-
-## Demo of FreeForm Preview included in the framwork
 
 ![](IBFreeFormPreview.gif)
