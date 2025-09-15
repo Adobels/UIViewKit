@@ -99,7 +99,7 @@ class IBOutletTests: XCTestCase {
 
         XCTAssertEqual(view, newView)
     }
-    
+
     class MyView {
         var label: UILabel!
     }
@@ -112,13 +112,13 @@ class IBOutletTests: XCTestCase {
         UILabel().ibOutlet(myView, \.label).ibAttributes { $0.tag = 1 }
         XCTAssertEqual(myView?.label.tag, 1)
     }
-    
+
     func testIBOutletKeyPathWithOwnerOptionalAndLabelOptional() throws {
         let myView: MyViewWithOptionalLabel? = .init()
         UILabel().ibOutlet(myView, \.label).ibAttributes { $0.tag = 1 }
         XCTAssertEqual(myView?.label?.tag, 1)
     }
-    
+
     func testIBOutlets() throws {
         let myView: MyViewWithOptionalLabel? = .init()
         UILabel().ibOutlets { myView?.label = $0 }.ibAttributes { $0.tag = 1 }

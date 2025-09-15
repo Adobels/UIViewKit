@@ -10,10 +10,11 @@ import XCTest
 
 @MainActor
 class ConstraintsBuilderTests: XCTestCase {
+
     func test() throws {
         let alwaysTrue = true
         let alwaysFalse = false
-        let view = UIView { sv in
+        let view = UIView().ibSubviews { sv in
             UIView().ibAttributes {
                 $0.ibConstraints(to: sv, guide: .view, anchors: .top)
                 if alwaysTrue {

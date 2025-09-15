@@ -10,11 +10,13 @@ import UIKit
 public final class IBConstraints {
 
     private init() {}
-    
+
+    @MainActor
     public static func create(from: UIView, to: UIView, guide: LayoutGuide, anchors: ViewAnchor...) -> [NSLayoutConstraint] {
         createConstraints(from: from, to: to, guide: guide, anchors: anchors)
     }
-    
+
+    @MainActor
     static func createConstraints(from: UIView, to: UIView, guide: LayoutGuide, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
         switch guide {
         case .view:
@@ -26,6 +28,8 @@ public final class IBConstraints {
         }
     }
 
+    @MainActor
+    // swiftlint:disable:next cyclomatic_complexity
     private static func createConstraints(from view: UIView, to target: Any, anchors: [ViewAnchor]) -> [NSLayoutConstraint] {
         var constraints: [NSLayoutConstraint] = []
         // swiftlint:disable force_cast

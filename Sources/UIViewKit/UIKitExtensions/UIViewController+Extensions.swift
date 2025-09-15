@@ -25,7 +25,7 @@ extension UIViewController {
         containerView.addSubview(viewController.view)
         viewController.didMove(toParent: self)
     }
-    
+
     /**
      Remove a specified view controller from its parent view controller and container view
 

@@ -61,6 +61,7 @@ public class InferredAttributesOwnerStrategy: UIViewDSLEngineConstraintsProtocol
         constraintsToApply.removeAll()
     }
 
+    @MainActor
     struct Helper {
         static func involvesOwnerView(_ owner: UIView, in constraint: NSLayoutConstraint) -> Bool {
             var ownerView: [UIView] = []

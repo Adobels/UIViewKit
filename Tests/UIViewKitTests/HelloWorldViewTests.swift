@@ -6,9 +6,9 @@
 //
 
 import XCTest
-import UIKit
 @testable import UIViewKit
 
+@MainActor
 class HelloWorldViewTests: XCTestCase {
     typealias SUT = HelloWordView
 

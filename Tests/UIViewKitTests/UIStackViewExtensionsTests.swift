@@ -8,6 +8,7 @@
 import XCTest
 @testable import UIViewKit
 
+@MainActor
 class UIStackViewExtensions: XCTestCase {
 
     typealias SUT = UIStackView

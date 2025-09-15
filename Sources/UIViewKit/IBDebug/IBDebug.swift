@@ -8,9 +8,10 @@
 import UIKit
 
 public final class IBDebug {
-    
+
     private init() {}
 
+    @MainActor
     public static func showColors(of view: UIView, includeGivenView: Bool = true, includeUIKitPrivateViews: Bool = false) {
         let colors = [UIColor.red, .blue, .brown, .cyan, .darkGray, .magenta, .green, .lightGray, .orange, .purple, .yellow]
         if includeGivenView {
@@ -21,6 +22,7 @@ public final class IBDebug {
         }
     }
 
+    @MainActor
     public static func showFrames(of view: UIView, borderColor: UIColor? = nil, includeGivenView: Bool = true, includeUIKitPrivateViews: Bool = false) {
         if includeGivenView {
             view.layer.borderWidth = 1
@@ -36,6 +38,7 @@ public final class IBDebug {
         }
     }
 
+    @MainActor
     public static func allSubviews(of view: UIView, includeUIKitPrivateViews: Bool = false) -> [UIView] {
         var all = [UIView]()
 
@@ -52,6 +55,7 @@ public final class IBDebug {
         return all
     }
 
+    @MainActor
     public static func allSubviewsPrettyString(of view: UIView, includeGivenView: Bool, includeUIKitPrivateViews: Bool = false) -> String {
         let allSubviews: [UIView]
         if includeGivenView {
@@ -79,10 +83,12 @@ public final class IBDebug {
         return output
     }
 
+    @MainActor
     public static func allSubviewsPrettyPrint(of view: UIView, includeGivenView: Bool, includeUIKitPrivateViews: Bool = false) {
         print(allSubviewsPrettyString(of: view, includeGivenView: includeGivenView, includeUIKitPrivateViews: includeUIKitPrivateViews), separator: "\n")
     }
 
+    @MainActor
     public static func showViewsWhichHasAmbiguousLayout(for view: UIView) {
 
         IBHelper.allSubviews(of: view).forEach { subview in
@@ -114,6 +120,8 @@ public final class IBDebug {
 }
 
 final class IBHelper {
+
+    @MainActor
     static func allSubviews(of view: UIView) -> [UIView] {
         view.subviews.flatMap {
             [$0] + IBHelper.allSubviews(of: $0)

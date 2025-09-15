@@ -9,7 +9,7 @@ import UIKit
 
 extension NSLayoutConstraint {
 
-    static public func ibActivate(@IBLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
+    static public func ibActivate(@IBArrayOfNSLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
         let constraints = block()
         activate(constraints)
     }
@@ -37,19 +37,19 @@ extension NSLayoutConstraint {
         outlet = self
         return self
     }
-    
+
     @discardableResult
     public func ibOutlet<Owner: Any>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, NSLayoutConstraint>) -> Self {
         owner?[keyPath: property] = self
         return self
     }
-    
+
     @discardableResult
     public func ibOutlet<Owner: Any>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, NSLayoutConstraint?>) -> Self {
         owner?[keyPath: property] = self
         return self
     }
-    
+
     @discardableResult
     public func ibOutlets(_ block: (Self) -> Void) -> Self {
         block(self)

@@ -16,7 +16,7 @@ class ibConstraintsTests: XCTestCase {
         let view = UIView()
         let subview = UIView()
 
-        view {
+        view.ibSubviews {
             subview.ibAttributes {
                 IBConstraints.create(from: $0, to: view, guide: .view, anchors: .all)
             }
@@ -107,7 +107,7 @@ class ibConstraintsTests: XCTestCase {
         let view = UIView()
         let subview = UIView()
 
-        view {
+        view.ibSubviews {
             subview.ibAttributes {
                 IBConstraints.create(from: $0, to: view, guide: .view, anchors: .all)
                 IBConstraints.create(from: $0, to: view, guide: .view, anchors: .top, .left, .right, .bottom)
@@ -123,11 +123,11 @@ class ibConstraintsTests: XCTestCase {
 
         XCTAssertEqual(view.constraints.count, 40)
     }
-    
+
     class MyView: UIView {
         var heightConstraint: NSLayoutConstraint!
     }
-    
+
     class MyViewWithHeightConstraintOptional: UIView {
         var heightConstraint: NSLayoutConstraint!
     }
@@ -137,13 +137,13 @@ class ibConstraintsTests: XCTestCase {
         UIView().heightAnchor.constraint(equalToConstant: 1).ibOutlet(myView, \.heightConstraint)
         XCTAssertEqual(myView?.heightConstraint.constant, 1)
     }
-    
+
     func testConstraintIBOutletKeyPathOptionalOwnerAndDestinationOptional() throws {
         let myView: MyViewWithHeightConstraintOptional? = .init()
         UIView().heightAnchor.constraint(equalToConstant: 1).ibOutlet(myView, \.heightConstraint)
         XCTAssertEqual(myView?.heightConstraint.constant, 1)
     }
-    
+
     func testConstraintIBOutlets() throws {
         let myView: MyView? = .init()
         UIView().heightAnchor.constraint(equalToConstant: 1).ibOutlets { myView?.heightConstraint = $0 }

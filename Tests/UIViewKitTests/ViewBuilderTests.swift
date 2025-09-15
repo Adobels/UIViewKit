@@ -12,7 +12,7 @@ import XCTest
 class ViewBuilderTests: XCTestCase {
 
     func testSingleSubview() throws {
-        _ = UIView {
+        _ = UIView().ibSubviews {
             UIView()
         }
     }
@@ -20,7 +20,7 @@ class ViewBuilderTests: XCTestCase {
     func testComplexSubview() throws {
         let alwaysTrue = true
         let alwaysFalse = false
-        let view = UIView {
+        let view = UIView().ibSubviews {
             UIView()
             print()
             if alwaysTrue {
@@ -40,7 +40,7 @@ class ViewBuilderTests: XCTestCase {
             if Optional.some(true) != nil {
                 UIView()
             }
-            UIView {
+            UIView().ibSubviews {
                 UIView()
             }
             [UIView(), UIView()]

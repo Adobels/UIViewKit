@@ -8,6 +8,7 @@
 import Testing
 import Foundation
 
+@MainActor
 @Test func ibApply() throws {
     let newValue = "test"
     let obj = NSObject()
@@ -17,4 +18,3 @@ import Foundation
     }
     #expect(obj.accessibilityLabel == newValue)
 }
-

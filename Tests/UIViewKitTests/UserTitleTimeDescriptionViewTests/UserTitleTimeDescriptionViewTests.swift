@@ -8,6 +8,7 @@
 import XCTest
 @testable import UIViewKit
 
+@MainActor
 class UserTitleTimeDescriptionViewTests: XCTestCase {
 
     func testUserTitleTimeDescriptionView() throws {

@@ -5,9 +5,6 @@
 //  Created by Blazej SLEBODA on 29/09/2023.
 //
 
-import UIKit
-
-@MainActor
 extension UIViewDSL {
 
     @discardableResult
@@ -33,17 +30,17 @@ extension UIViewDSL {
         block(self)
         return self
     }
-    
+
     @discardableResult
     public func ibOutlet<Owner: AnyObject>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self>) -> Self {
         owner?[keyPath: property] = self
         return self
     }
-    
+
     @discardableResult
     public func ibOutlet<Owner: AnyObject>(_ owner: Owner?, _ property: ReferenceWritableKeyPath<Owner, Self?>) -> Self {
         owner?[keyPath: property] = self
         return self
     }
-    
+
 }

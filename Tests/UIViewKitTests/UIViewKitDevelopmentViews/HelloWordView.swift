@@ -14,7 +14,7 @@ public class HelloWordView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self {
+        self.ibSubviews {
             UILabel().ibOutlet(&label).ibAttributes {
                 IBConstraints.create(from: $0, to: self, guide: .view, anchors: .centerX, .centerY)
                 $0.text = "Hello, world!"

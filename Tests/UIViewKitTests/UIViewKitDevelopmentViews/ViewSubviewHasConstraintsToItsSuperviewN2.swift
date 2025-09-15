@@ -15,8 +15,8 @@ class TestView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self {
-            view2 {
+        self.ibSubviews {
+            view2.ibSubviews {
                 view3.ibAttributes {
                     $0.tag = 3
                     IBConstraints.create(from: $0, to: self, guide: .view, anchors: .all)

@@ -8,18 +8,15 @@
 import XCTest
 @testable import UIViewKit
 
+@MainActor
 class UIViewDebugShowFramesTests: XCTestCase {
 
     typealias SUT = IBDebug
 
     private var view: HelloWordView!
 
-    override func setUp() {
-        super.setUp()
-        view = .init()
-    }
-
     func testHelloWordViewIncludeGivenViewTrue() throws {
+        view = .init()
         SUT.showFrames(of: view, includeGivenView: true, includeUIKitPrivateViews: false)
 
         XCTAssertEqual(view.layer.borderWidth, 1)
@@ -27,6 +24,7 @@ class UIViewDebugShowFramesTests: XCTestCase {
     }
 
     func testHelloWordViewIncludeGivenViewFalse() throws {
+        view = .init()
         SUT.showFrames(of: view, includeGivenView: false, includeUIKitPrivateViews: false)
 
         XCTAssertEqual(view.layer.borderWidth, 0)
