@@ -60,12 +60,9 @@ final class ViewController: UIViewController {
                     $0.widthAnchor.constraint(equalTo: $0.heightAnchor).ibPriority(.required)
                     $0.image = .init(systemName: "person.circle")
                     $0.contentMode  = .scaleAspectFit
-                    $0.setContentHuggingPriority(.required, for: .vertical)
-                    $0.setContentHuggingPriority(.required, for: .horizontal)
                     $0.tintColor = .white
                     $0.layer.cornerRadius = 20
                     $0.backgroundColor = .systemBlue
-                    $0.clipsToBounds = true
                 }
             }.ibAttributes {
                 $0.leadingAnchor.constraint(equalTo: view.leadingAnchor)
@@ -74,7 +71,6 @@ final class ViewController: UIViewController {
                 $0.backgroundColor = .systemGreen
                 $0.layoutMargins = .init(top: 20, left: 20, bottom: 20, right: 20)
                 $0.isLayoutMarginsRelativeArrangement = true
-                $0.clipsToBounds = true
             }
             UIStackView(axis: .vertical).ibSubviews {
                 for item in profileItems {
