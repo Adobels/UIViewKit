@@ -22,18 +22,8 @@ public class IBFreeForm: ViewControllerFreeFormContainer {
         self.viewMaker = { view }
     }
 
-    public init(view: UIView) {
-        super.init(nibName: nil, bundle: nil)
-        self.viewMaker = { view }
-    }
-
     public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping  () -> UIView) {
         super.init(snapFrames: snapFrames)
-        self.viewMaker = viewMaker
-    }
-
-    public init(_ viewMaker: @escaping  () -> UIView) {
-        super.init(nibName: nil, bundle: nil)
         self.viewMaker = viewMaker
     }
 
@@ -42,18 +32,8 @@ public class IBFreeForm: ViewControllerFreeFormContainer {
         self.viewControllerMaker = { viewController }
     }
 
-    public init(viewController: UIViewController) {
-        super.init(nibName: nil, bundle: nil)
-        self.viewControllerMaker = { viewController }
-    }
-
     public init(snapFrames: (any SnapFrame)..., viewControllerMaker: @escaping  () -> UIViewController) {
         super.init(snapFrames: snapFrames)
-        self.viewControllerMaker = viewControllerMaker
-    }
-
-    public init(_ viewControllerMaker: @escaping  () -> UIViewController) {
-        super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = viewControllerMaker
     }
 
@@ -62,18 +42,8 @@ public class IBFreeForm: ViewControllerFreeFormContainer {
         self.viewControllerMaker = { UIHostingController(rootView: view) }
     }
 
-    public init(view: some View) {
-        super.init(nibName: nil, bundle: nil)
-        self.viewControllerMaker = { UIHostingController(rootView: view) }
-    }
-
     public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping  () -> some View) {
         super.init(snapFrames: snapFrames )
-        self.viewControllerMaker = { UIHostingController(rootView: viewMaker()) }
-    }
-
-    public init(_ viewMaker: @escaping  () -> some View) {
-        super.init(nibName: nil, bundle: nil)
         self.viewControllerMaker = { UIHostingController(rootView: viewMaker()) }
     }
 
