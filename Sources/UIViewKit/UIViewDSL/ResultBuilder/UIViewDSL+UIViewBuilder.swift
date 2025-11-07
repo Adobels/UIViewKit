@@ -1,5 +1,5 @@
 //
-//  UIViewDSL+IBArrayOfUIViewBuilder.swift
+//  UIViewDSL+UIViewBuilder.swift
 //  UIViewKit
 //
 //  Created by Blazej SLEBODA on 29/09/2023.
@@ -8,7 +8,7 @@
 import UIKit
 
 @resultBuilder
-public enum IBArrayOfUIViewBuilder {
+public enum UIViewBuilder {
 
     public static func buildBlock(_ components: [UIView]...) -> [UIView] {
         components.flatMap { $0 }

@@ -1,5 +1,5 @@
 //
-//  UIViewDSL+IBArrayOfNSLayoutConstraintBuilder.swift
+//  UIViewDSL+AutoLayoutBuilder.swift
 //  UIViewKit
 //
 //  Created by blz on 12/09/2025.
@@ -8,7 +8,7 @@
 import UIKit
 
 @resultBuilder
-public enum IBArrayOfNSLayoutConstraintBuilder {
+public enum AutoLayoutBuilder {
 
     public static func buildBlock(_ components: [NSLayoutConstraint]...) -> [NSLayoutConstraint] {
         components.flatMap { $0 }
