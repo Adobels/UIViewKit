@@ -17,32 +17,32 @@ public class IBFreeForm: ViewControllerFreeFormContainer {
         fatalError()
     }
 
-    public init(snapFrames: (any SnapFrame)..., view: UIView) {
+    public init(snapFrames: (SnapFrame)..., view: UIView) {
         super.init(snapFrames: snapFrames)
         self.viewMaker = { view }
     }
 
-    public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping  () -> UIView) {
+    public init(snapFrames: (SnapFrame)..., viewMaker: @escaping  () -> UIView) {
         super.init(snapFrames: snapFrames)
         self.viewMaker = viewMaker
     }
 
-    public init(snapFrames: (any SnapFrame)..., viewController: UIViewController) {
+    public init(snapFrames: (SnapFrame)..., viewController: UIViewController) {
         super.init(snapFrames: snapFrames)
         self.viewControllerMaker = { viewController }
     }
 
-    public init(snapFrames: (any SnapFrame)..., viewControllerMaker: @escaping  () -> UIViewController) {
+    public init(snapFrames: (SnapFrame)..., viewControllerMaker: @escaping  () -> UIViewController) {
         super.init(snapFrames: snapFrames)
         self.viewControllerMaker = viewControllerMaker
     }
 
-    public init(snapFrames: (any SnapFrame)..., view: some View) {
+    public init(snapFrames: (SnapFrame)..., view: some View) {
         super.init(snapFrames: snapFrames)
         self.viewControllerMaker = { UIHostingController(rootView: view) }
     }
 
-    public init(snapFrames: (any SnapFrame)..., viewMaker: @escaping  () -> some View) {
+    public init(snapFrames: (SnapFrame)..., viewMaker: @escaping  () -> some View) {
         super.init(snapFrames: snapFrames )
         self.viewControllerMaker = { UIHostingController(rootView: viewMaker()) }
     }
@@ -76,11 +76,24 @@ public class IBFreeForm: ViewControllerFreeFormContainer {
 
 extension IBFreeForm {
 
-    public protocol SnapFrame where Self: SnapFrame {
-        var size: CGSize { get }
-        var title: String { get }
-        var tintColor: UIColor { get }
-        var borderWidth: CGFloat { get }
+    public struct SnapFrame {
+        let title: String
+        let size: CGSize
+        let tintColor: UIColor
+        let borderWidth: CGFloat
+
+        public init(title: String = "\(Self.self)", size: CGSize, tintColor: UIColor? = nil, borderWidth: CGFloat = 1) {
+            self.title = title
+            self.size = size
+            if let tintColor { self.tintColor = tintColor } else {
+                self.tintColor = [
+                    .systemRed, .systemBlue, .systemGreen, .systemOrange,
+                    .systemPurple, .systemPink, .systemTeal, .systemIndigo,
+                    .systemYellow, .brown, .cyan, .magenta, .darkGray
+                ].randomElement()!
+            }
+            self.borderWidth = borderWidth
+        }
     }
 
 }
