@@ -9,7 +9,7 @@ import UIKit
 
 extension NSLayoutConstraint {
 
-    static public func ibActivate(@IBArrayOfNSLayoutConstraintBuilder _ block: () -> [NSLayoutConstraint]) {
+    static public func ibActivate(@AutoLayoutBuilder _ block: () -> [NSLayoutConstraint]) {
         let constraints = block()
         activate(constraints)
     }

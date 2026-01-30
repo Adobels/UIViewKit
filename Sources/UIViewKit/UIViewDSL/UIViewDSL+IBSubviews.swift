@@ -10,13 +10,13 @@ import UIKit
 extension UIViewDSL {
 
     @discardableResult
-    public func ibSubviews(@IBArrayOfUIViewBuilder _ content: () -> [UIView]) -> Self {
+    public func ibSubviews(@UIViewBuilder _ content: () -> [UIView]) -> Self {
         UIViewDSLEngine.shared.addSubviews(content, to: self)
         return self
     }
 
     @discardableResult
-    public func ibSubviews(@IBArrayOfUIViewBuilder _ content: (Self) -> [UIView]) -> Self {
+    public func ibSubviews(@UIViewBuilder _ content: (Self) -> [UIView]) -> Self {
         let contentWrapper: (UIView) -> [UIView] = { arg1 in
             content(arg1 as! Self) // swiftlint:disable:this force_cast
         }
