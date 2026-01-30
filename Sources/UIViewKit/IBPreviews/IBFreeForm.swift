@@ -74,30 +74,6 @@ public class IBFreeForm: ViewControllerFreeFormContainer {
 
 }
 
-extension IBFreeForm {
-
-    public struct SnapFrame {
-        let title: String
-        let size: CGSize
-        let tintColor: UIColor
-        let borderWidth: CGFloat
-
-        public init(title: String = "\(Self.self)", size: CGSize, tintColor: UIColor? = nil, borderWidth: CGFloat = 1) {
-            self.title = title
-            self.size = size
-            if let tintColor { self.tintColor = tintColor } else {
-                self.tintColor = [
-                    .systemRed, .systemBlue, .systemGreen, .systemOrange,
-                    .systemPurple, .systemPink, .systemTeal, .systemIndigo,
-                    .systemYellow, .brown, .cyan, .magenta, .darkGray
-                ].randomElement()!
-            }
-            self.borderWidth = borderWidth
-        }
-    }
-
-}
-
 public class ViewControllerFreeFormContainer: UIViewController {
 
     var containerView: UIView!
